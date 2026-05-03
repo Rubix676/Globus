@@ -19,14 +19,14 @@
 .hero__container {
   position: relative;
   z-index: 1;
-  max-width: 1240px;
+  max-width: 1160px;
   min-height: 700px;
   margin: 0 auto;
   padding: 60px 24px;
   display: grid;
-  grid-template-columns: minmax(0, 0.92fr) minmax(420px, 1.08fr);
+  grid-template-columns: minmax(0, 0.98fr) minmax(440px, 0.92fr);
   align-items: center;
-  gap: 42px;
+  gap: 34px;
 }
 
 .hero__content {
@@ -51,7 +51,7 @@
 .hero__title {
   margin: 0 0 24px;
   font-family: Inter, "Segoe UI", Arial, sans-serif;
-  font-size: clamp(44px, 5vw, 72px);
+  font-size: clamp(44px, 5vw, 70px);
   line-height: 0.98;
   font-weight: 900;
   letter-spacing: -1.4px;
@@ -133,7 +133,9 @@
 
 .hero__visual {
   position: relative;
-  min-height: 580px;
+  width: min(100%, 520px);
+  min-height: 560px;
+  justify-self: end;
   border-radius: 34px;
   overflow: hidden;
   z-index: 1;
@@ -149,7 +151,7 @@
   object-fit: cover;
   object-position: center right;
   display: block;
-  opacity: 0.44;
+  opacity: 0.46;
   filter: blur(1px) saturate(1.08);
   z-index: 1;
 }
@@ -171,10 +173,10 @@
 .hero__visual::after {
   content: "";
   position: absolute;
-  right: 64px;
-  bottom: 42px;
-  width: 360px;
-  height: 360px;
+  right: 42px;
+  bottom: 34px;
+  width: 330px;
+  height: 330px;
   border-radius: 50%;
   z-index: 2;
   background: radial-gradient(circle, rgba(143, 99, 255, 0.38), rgba(143, 99, 255, 0.08) 62%, transparent 72%);
@@ -182,10 +184,10 @@
 
 .hero__student-card {
   position: absolute;
-  right: 24px;
+  right: -8px;
   bottom: 0;
-  width: 450px;
-  height: 570px;
+  width: 430px;
+  height: 590px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -200,7 +202,7 @@
 .hero__student {
   width: 100%;
   height: auto;
-  max-height: 560px;
+  max-height: 580px;
   object-fit: contain;
   object-position: center bottom;
   display: block;
@@ -217,6 +219,7 @@
     min-height: auto;
     gap: 36px;
     padding: 56px 24px;
+    max-width: 900px;
   }
 
   .hero__content {
@@ -225,17 +228,19 @@
 
   .hero__visual {
     min-height: 520px;
+    width: min(100%, 600px);
+    justify-self: center;
   }
 
   .hero__student-card {
     right: 50%;
     transform: translateX(50%);
     width: 390px;
-    height: 510px;
+    height: 520px;
   }
 
   .hero__student {
-    max-height: 500px;
+    max-height: 510px;
   }
 }
 
@@ -269,15 +274,16 @@
   .hero__visual {
     min-height: 430px;
     border-radius: 24px;
+    width: 100%;
   }
 
   .hero__student-card {
     width: 300px;
-    height: 400px;
+    height: 410px;
     bottom: 0;
   }
 
   .hero__student {
-    max-height: 390px;
+    max-height: 400px;
   }
 }
