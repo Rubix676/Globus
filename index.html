@@ -3,119 +3,46 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>GLOBUS Language Learning Centre</title>
-
   <link rel="stylesheet" href="css/header.css" />
   <link rel="stylesheet" href="css/hero.css" />
+  <link rel="stylesheet" href="css/main.css" />
 </head>
-
 <body>
   <header class="header">
     <div class="header__container">
-      <a href="#" class="logo" aria-label="GLOBUS Language Learning Centre">
-        <img src="assets/Globus-logo.png" alt="GLOBUS Logo" class="logo__img" />
-      </a>
-
-      <nav class="nav" id="nav" aria-label="Main navigation">
-        <a href="#" class="nav__link nav__link--active" data-i18n="nav.home">Bosh sahifa</a>
-        <a href="#" class="nav__link" data-i18n="nav.about">Biz haqimizda</a>
-
-        <div class="nav__dropdown">
-          <button class="nav__link nav__dropdown-btn" type="button">
-            <span data-i18n="nav.courses">Kurslar</span>
-            <span aria-hidden="true">▾</span>
-          </button>
-
-          <div class="nav__dropdown-menu">
-            <a href="#" data-i18n="courses.english">Ingliz tili IELTS/CEFR</a>
-            <a href="#" data-i18n="courses.matematika">Matematika</a>
-            <a href="#" data-i18n="courses.german">Nemis tili</a>
-            <a href="#" data-i18n="courses.korean">Koreys tili</a>
-            <a href="#" data-i18n="courses.ielts">SAT</a>
-          </div>
-        </div>
-
-        <a href="#" class="nav__link" data-i18n="nav.reviews">Fikrlar</a>
-        <a href="#" class="nav__link" data-i18n="nav.schedule">Jadval</a>
-        <a href="#" class="nav__link" data-i18n="nav.contacts">Kontaktlar</a>
+      <a href="#home" class="logo"><img src="assets/Globus-logo.png" alt="GLOBUS" class="logo__img" /></a>
+      <nav class="nav" id="nav">
+        <a href="#home" class="nav__link nav__link--active">Bosh sahifa</a>
+        <a href="#about" class="nav__link">Biz haqimizda</a>
+        <a href="#courses" class="nav__link">Kurslar</a>
+        <a href="#reviews" class="nav__link">Fikrlar</a>
+        <a href="#contacts" class="nav__link">Kontaktlar</a>
       </nav>
-
-      <div class="header__actions">
-        <a href="tel:+998500075885" class="phone-btn" aria-label="Call GLOBUS"></a>
-
-        <select class="language-switcher" id="languageSwitcher" aria-label="Choose language">
-          <option value="uz">UZ</option>
-          <option value="ru">RU</option>
-          <option value="en">EN</option>
-        </select>
-
-        <a href="#" class="cta-btn" data-i18n="nav.cta">Записаться</a>
-      </div>
-
-      <button class="burger" id="burger" type="button" aria-label="Открыть меню">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <div class="header__actions"><select class="language-switcher" id="languageSwitcher"><option value="uz">UZ</option><option value="en">EN</option></select><a href="#contacts" class="cta-btn">Royxatdan otish</a></div>
+      <button class="burger" id="burger" type="button"><span></span><span></span><span></span></button>
     </div>
   </header>
-
   <main>
-    <section class="hero">
+    <section class="hero" id="home">
       <div class="hero__container">
         <div class="hero__content">
-          <div class="hero__badge" data-i18n="hero.badge">
-            Tillar dunyoni ochadi
-          </div>
-
-          <h1 class="hero__title" data-i18n="hero.title">
-            Chet tillarini GLOBUS bilan ishonchli o‘rganing
-          </h1>
-
-          <p class="hero__text" data-i18n="hero.text">
-            Ingliz, nemis, koreys tillari va IELTS/CEFR tayyorgarligi.
-            Sizga qulay formatda online va offline ta’lim.
-          </p>
-
-          <div class="hero__buttons">
-            <a href="#" class="hero__btn hero__btn--primary" data-i18n="hero.primaryBtn">
-              Kursga yozilish
-            </a>
-
-            <a href="#" class="hero__btn hero__btn--secondary" data-i18n="hero.secondaryBtn">
-              Kurslarni ko‘rish
-            </a>
-          </div>
-
-          <div class="hero__stats">
-            <div class="hero__stat">
-              <strong>6+</strong>
-              <span data-i18n="hero.statExperience">Yillik tajriba</span>
-            </div>
-
-            <div class="hero__stat">
-              <strong>500+</strong>
-              <span data-i18n="hero.statStudents">Talaba</span>
-            </div>
-
-            <div class="hero__stat">
-              <strong>3+</strong>
-              <span data-i18n="hero.statLanguages">Til</span>
-            </div>
-          </div>
+          <div class="hero__badge">Tillar dunyoni ochadi</div>
+          <h1 class="hero__title">Chet tillarini GLOBUS bilan ishonchli organing</h1>
+          <p class="hero__text">Ingliz, nemis, koreys tillari va IELTS tayyorgarligi. Online va offline formatda zamonaviy talim.</p>
+          <div class="hero__buttons"><a href="#contacts" class="hero__btn hero__btn--primary">Kursga yozilish</a><a href="#courses" class="hero__btn hero__btn--secondary">Kurslarni korish</a></div>
+          <div class="hero__stats"><div class="hero__stat"><strong>6+</strong><span>yillik tajriba</span></div><div class="hero__stat"><strong>500+</strong><span>talaba</span></div><div class="hero__stat"><strong>3+</strong><span>til</span></div></div>
         </div>
-
-        <div class="hero__visual">
-          <img src="assets/hero-bg.png" alt="" class="hero__visual-bg" />
-
-          <!-- Позже сюда вставим парня -->
-          <!-- <img src="assets/student.png" alt="Student" class="hero__student" /> -->
-        </div>
+        <div class="hero__visual"><img src="assets/hero-bg.png" alt="" class="hero__visual-bg" /><div class="hero__student-card"><img src="assets/ChatGPT Image 3 мая 2026 г., 15_20_27.png" alt="GLOBUS student" class="hero__student" /></div></div>
       </div>
     </section>
+    <section class="section section--light" id="courses"><div class="container"><div class="section__head"><span>Mashhur kurslar</span><h2>Kursni tanlang</h2><p>Ingliz tili, IELTS, nemis va koreys tili.</p></div><div class="cards cards--four"><article class="card"><b>EN</b><h3>Ingliz tili</h3><p>General English va speaking.</p></article><article class="card"><b>IELTS</b><h3>IELTS</h3><p>Mock test va feedback.</p></article><article class="card"><b>DE</b><h3>Nemis tili</h3><p>A1-C1 darslari.</p></article><article class="card"><b>KR</b><h3>Koreys tili</h3><p>TOPIK tayyorgarligi.</p></article></div></div></section>
+    <section class="section" id="about"><div class="container split"><div class="section__head section__head--left"><span>Nima uchun GLOBUS?</span><h2>Qulay va natijaga yonaltirilgan talim</h2><p>Zamonaviy metodika va aniq progress.</p></div><div class="cards cards--two"><article class="card"><h3>Tajribali oqituvchilar</h3><p>Darslar sodda va amaliy.</p></article><article class="card"><h3>Qulay jadval</h3><p>Online yoki offline.</p></article><article class="card"><h3>Zamonaviy metodika</h3><p>Real-life practice.</p></article><article class="card"><h3>Aniq natija</h3><p>Feedback va progress.</p></article></div></div></section>
+    <section class="section section--light" id="reviews"><div class="container split"><div class="section__head section__head--left"><span>Fikrlar</span><h2>Oquvchilar fikri</h2></div><article class="review-card"><p>IELTS boyicha aniq reja menga juda yordam berdi.</p><strong>Sevinch Hayitova</strong><span>IELTS 7.5</span></article></div></section>
+    <section class="stats-section"><div class="container stats-grid"><div><strong>6+</strong><span>yillik tajriba</span></div><div><strong>500+</strong><span>oquvchilar</span></div><div><strong>1000+</strong><span>darslar</span></div><div><strong>3+</strong><span>yonalishlar</span></div></div></section>
+    <section class="section" id="contacts"><div class="container contact-card"><div><span>Aloqa</span><h2>Bepul maslahatga yoziling</h2><p>Mos kursni tanlashga yordam beramiz.</p></div><a href="#home" class="hero__btn hero__btn--primary">Boglanish</a></div></section>
   </main>
-
+  <footer class="footer"><div class="container footer__grid"><div><img src="assets/Globus-logo.png" alt="GLOBUS" class="footer__logo"><p>GLOBUS - zamonaviy tillar markazi.</p></div><div><h3>Havolalar</h3><a href="#home">Bosh sahifa</a><a href="#courses">Kurslar</a><a href="#contacts">Kontaktlar</a></div></div><div class="footer__bottom">2026 GLOBUS Language Center</div></footer>
   <script src="js/main.js"></script>
 </body>
 </html>
