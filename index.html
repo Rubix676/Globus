@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>GLOBUS Language Learning Centre</title>
+
+  <link rel="stylesheet" href="css/header.css" />
+  <link rel="stylesheet" href="css/hero.css" />
+</head>
+
+<body>
+
+  <header class="header">
+    
+    <div class="header__container">
+
+      <a href="#" class="logo">
+        <img src="assets/globus-logo.png" alt="GLOBUS Logo" class="logo__img">
+      </a>
+
+      <nav class="nav" id="nav">
+  <a href="#" class="nav__link nav__link--active" data-i18n="nav.home">Bosh sahifa</a>
+  <a href="#" class="nav__link" data-i18n="nav.about">Biz haqimizda</a>
+
+  <div class="nav__dropdown">
+    <button class="nav__link nav__dropdown-btn">
+      <span data-i18n="nav.courses">Kurslar</span>
+      <span>▾</span>
+    </button>
+
+    <div class="nav__dropdown-menu">
+      <a href="#" data-i18n="courses.english">Ingliz tili IELTS/CEFR</a>
+      <a href="#" data-i18n="courses.matematika">Matematika</a>
+      <a href="#" data-i18n="courses.german">Nemis tili</a>
+      <a href="#" data-i18n="courses.korean">Koreys tili</a>
+      <a href="#" data-i18n="courses.ielts">SAT</a>
+    </div>
+  </div>
+
+  <a href="#" class="nav__link" data-i18n="nav.reviews">Fikrlar</a>
+  <a href="#" class="nav__link" data-i18n="nav.schedule">Jadval</a>
+  <a href="#" class="nav__link" data-i18n="nav.contacts">Kontaktlar</a>
+</nav>
+
+      <div class="header__actions">
+        
+        <a href="tel:+998 50 007 5885" class="phone-btn"></a>
+        
+        <select class="language-switcher" id="languageSwitcher">
+  <option value="uz">UZ</option>
+  <option value="ru">RU</option>
+  <option value="en">EN</option>
+</select>
+        <a href="#" class="cta-btn">Записаться</a>
+      </div>
+
+      <button class="burger" id="burger" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
+  </header>
+
+   <main>
+  <section class="hero">
+  <div class="hero__container">
+
+    <div class="hero__content">
+      <div class="hero__badge" data-i18n="hero.badge">
+        Tillar dunyoni ochadi
+      </div>
+
+      <h1 class="hero__title" data-i18n="hero.title">
+        Chet tillarini GLOBUS bilan ishonchli o‘rganing
+      </h1>
+
+      <p class="hero__text" data-i18n="hero.text">
+        Ingliz, nemis, koreys tillari va IELTS/CEFR tayyorgarligi.
+        Sizga qulay formatda online va offline ta’lim.
+      </p>
+
+      <div class="hero__buttons">
+        <a href="#" class="hero__btn hero__btn--primary" data-i18n="hero.primaryBtn">
+          Kursga yozilish
+        </a>
+
+        <a href="#" class="hero__btn hero__btn--secondary" data-i18n="hero.secondaryBtn">
+          Kurslarni ko‘rish
+        </a>
+      </div>
+
+      <div class="hero__stats">
+        <div class="hero__stat">
+          <strong>6+</strong>
+          <span data-i18n="hero.statExperience">Yillik tajriba</span>
+        </div>
+
+        <div class="hero__stat">
+          <strong>500+</strong>
+          <span data-i18n="hero.statStudents">Talaba</span>
+        </div>
+
+        <div class="hero__stat">
+          <strong>3+</strong>
+          <span data-i18n="hero.statLanguages">Til</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero__visual">
+      <img src="assets/hero-bg.png" alt="" class="hero__visual-bg">
+    </div>
+      <!-- Позже сюда вставим парня -->
+      <!-- <img src="assets/student.png" alt="Student" class="hero__student"> -->
+    </div>
+
+  </div>
+</section>
+</main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
