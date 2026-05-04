@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="css/header.css" />
   <link rel="stylesheet" href="css/hero.css" />
   <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/teachers.css" />
 </head>
 <body>
   <!-- Header -->
@@ -168,34 +169,89 @@
     </section>
 
     <!-- Teachers -->
-    <section class="section section--light" id="teachers">
+    <section class="section section--light teachers-section" id="teachers">
       <div class="container">
-        <div class="section__head">
+        <div class="section__head teachers-section__head">
           <span data-i18n="teachers.eyebrow">O‘qituvchilar</span>
-          <h2 data-i18n="teachers.title">Tez orada o‘qituvchilar haqida ma’lumot</h2>
+          <h2 data-i18n="teachers.title">Bizning o‘qituvchilar</h2>
           <p data-i18n="teachers.subtitle">
-            Bu yerda o‘qituvchilar fotosurati, yo‘nalishi, tajribasi va qisqa tanishuvi joylanadi.
+            Har bir o‘qituvchi haqida qisqa ma’lumot va o‘quvchilarga naputstven so‘zlar.
           </p>
         </div>
 
-        <div class="placeholder-grid">
-          <article class="placeholder-card">
-            <div class="placeholder-avatar">+</div>
-            <h3 data-i18n="teachers.card1Title">O‘qituvchi profili</h3>
-            <p data-i18n="teachers.card1Text">Keyin bu yerga o‘qituvchi rasmi va qisqa bio qo‘shiladi.</p>
-          </article>
+        <div class="teachers-slider" aria-label="Teachers slider">
+          <button class="teachers-slider__btn teachers-slider__btn--prev" type="button" aria-label="Previous teacher" data-teacher-prev>
+            ‹
+          </button>
 
-          <article class="placeholder-card">
-            <div class="placeholder-avatar">+</div>
-            <h3 data-i18n="teachers.card2Title">Yo‘nalish va tajriba</h3>
-            <p data-i18n="teachers.card2Text">IELTS, General English, nemis yoki koreys yo‘nalishi ko‘rsatiladi.</p>
-          </article>
+          <div class="teachers-slider__track" id="teachersTrack">
+            <article class="teacher-card">
+              <div class="teacher-card__photo">
+                <img src="assets/teacher1.png" alt="Avazbekova Sarvinoz" class="teacher-card__image" />
+                <span class="teacher-card__fallback">1</span>
+              </div>
+              <h3>Avazbekova Sarvinoz</h3>
+              <p data-i18n="teachers.teacher1Text">Til o‘rganishda eng muhimi — doimiylik va ishonch.</p>
+            </article>
 
-          <article class="placeholder-card">
-            <div class="placeholder-avatar">+</div>
-            <h3 data-i18n="teachers.card3Title">O‘qituvchidan qisqa so‘z</h3>
-            <p data-i18n="teachers.card3Text">Har bir o‘qituvchi haqida bir necha jumla yoziladi.</p>
-          </article>
+            <article class="teacher-card">
+              <div class="teacher-card__photo">
+                <img src="assets/teacher2.png" alt="Yusupov Nomudjon" class="teacher-card__image" />
+                <span class="teacher-card__fallback">2</span>
+              </div>
+              <h3>Yusupov Nomudjon</h3>
+              <p data-i18n="teachers.teacher2Text">Har bir dars sizni natijaga bir qadam yaqinlashtiradi.</p>
+            </article>
+
+            <article class="teacher-card">
+              <div class="teacher-card__photo">
+                <img src="assets/teacher3.png" alt="Yakubov Azizillo" class="teacher-card__image" />
+                <span class="teacher-card__fallback">3</span>
+              </div>
+              <h3>Yakubov Azizillo</h3>
+              <p data-i18n="teachers.teacher3Text">Xatolardan qo‘rqmang — ular o‘sishning bir qismi.</p>
+            </article>
+
+            <article class="teacher-card">
+              <div class="teacher-card__photo">
+                <img src="assets/teacher4.png" alt="Teacher 4" class="teacher-card__image" />
+                <span class="teacher-card__fallback">4</span>
+              </div>
+              <h3 data-i18n="teachers.teacher4Name">O‘qituvchi 4</h3>
+              <p data-i18n="teachers.teacher4Text">Bu yerga o‘qituvchining qisqa so‘zi yoziladi.</p>
+            </article>
+
+            <article class="teacher-card">
+              <div class="teacher-card__photo">
+                <img src="assets/teacher5.png" alt="Teacher 5" class="teacher-card__image" />
+                <span class="teacher-card__fallback">5</span>
+              </div>
+              <h3 data-i18n="teachers.teacher5Name">O‘qituvchi 5</h3>
+              <p data-i18n="teachers.teacher5Text">Bu yerga o‘qituvchining qisqa so‘zi yoziladi.</p>
+            </article>
+
+            <article class="teacher-card">
+              <div class="teacher-card__photo">
+                <img src="assets/teacher6.png" alt="Teacher 6" class="teacher-card__image" />
+                <span class="teacher-card__fallback">6</span>
+              </div>
+              <h3 data-i18n="teachers.teacher6Name">O‘qituvchi 6</h3>
+              <p data-i18n="teachers.teacher6Text">Bu yerga o‘qituvchining qisqa so‘zi yoziladi.</p>
+            </article>
+
+            <article class="teacher-card">
+              <div class="teacher-card__photo">
+                <img src="assets/teacher7.png" alt="Teacher 7" class="teacher-card__image" />
+                <span class="teacher-card__fallback">7</span>
+              </div>
+              <h3 data-i18n="teachers.teacher7Name">O‘qituvchi 7</h3>
+              <p data-i18n="teachers.teacher7Text">Bu yerga o‘qituvchining qisqa so‘zi yoziladi.</p>
+            </article>
+          </div>
+
+          <button class="teachers-slider__btn teachers-slider__btn--next" type="button" aria-label="Next teacher" data-teacher-next>
+            ›
+          </button>
         </div>
       </div>
     </section>
