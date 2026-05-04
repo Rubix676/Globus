@@ -1,6 +1,9 @@
 const burger = document.getElementById("burger");
 const nav = document.getElementById("nav");
 const languageSwitcher = document.getElementById("languageSwitcher");
+const teachersTrack = document.getElementById("teachersTrack");
+const teacherPrevButton = document.querySelector("[data-teacher-prev]");
+const teacherNextButton = document.querySelector("[data-teacher-next]");
 
 if (burger && nav) {
   burger.addEventListener("click", () => {
@@ -15,6 +18,22 @@ if (burger && nav) {
       burger.setAttribute("aria-expanded", "false");
     });
   });
+}
+
+if (teachersTrack && teacherPrevButton && teacherNextButton) {
+  const scrollTeachers = (direction) => {
+    const firstCard = teachersTrack.querySelector(".teacher-card");
+    const cardWidth = firstCard ? firstCard.offsetWidth : 320;
+    const gap = 24;
+
+    teachersTrack.scrollBy({
+      left: direction * (cardWidth + gap),
+      behavior: "smooth"
+    });
+  };
+
+  teacherPrevButton.addEventListener("click", () => scrollTeachers(-1));
+  teacherNextButton.addEventListener("click", () => scrollTeachers(1));
 }
 
 const translations = {
@@ -65,14 +84,19 @@ const translations = {
     "about.resultText": "Feedback va progress.",
 
     "teachers.eyebrow": "O‘qituvchilar",
-    "teachers.title": "Tez orada o‘qituvchilar haqida ma’lumot",
-    "teachers.subtitle": "Bu yerda o‘qituvchilar fotosurati, yo‘nalishi, tajribasi va qisqa tanishuvi joylanadi.",
-    "teachers.card1Title": "O‘qituvchi profili",
-    "teachers.card1Text": "Keyin bu yerga o‘qituvchi rasmi va qisqa bio qo‘shiladi.",
-    "teachers.card2Title": "Yo‘nalish va tajriba",
-    "teachers.card2Text": "IELTS, General English, nemis yoki koreys yo‘nalishi ko‘rsatiladi.",
-    "teachers.card3Title": "O‘qituvchidan qisqa so‘z",
-    "teachers.card3Text": "Har bir o‘qituvchi haqida bir necha jumla yoziladi.",
+    "teachers.title": "Bizning o‘qituvchilar",
+    "teachers.subtitle": "Har bir o‘qituvchi haqida qisqa ma’lumot va o‘quvchilarga naputstven so‘zlar.",
+    "teachers.teacher1Text": "Til o‘rganishda eng muhimi — doimiylik va ishonch.",
+    "teachers.teacher2Text": "Har bir dars sizni natijaga bir qadam yaqinlashtiradi.",
+    "teachers.teacher3Text": "Xatolardan qo‘rqmang — ular o‘sishning bir qismi.",
+    "teachers.teacher4Name": "O‘qituvchi 4",
+    "teachers.teacher4Text": "Bu yerga o‘qituvchining qisqa so‘zi yoziladi.",
+    "teachers.teacher5Name": "O‘qituvchi 5",
+    "teachers.teacher5Text": "Bu yerga o‘qituvchining qisqa so‘zi yoziladi.",
+    "teachers.teacher6Name": "O‘qituvchi 6",
+    "teachers.teacher6Text": "Bu yerga o‘qituvchining qisqa so‘zi yoziladi.",
+    "teachers.teacher7Name": "O‘qituvchi 7",
+    "teachers.teacher7Text": "Bu yerga o‘qituvchining qisqa so‘zi yoziladi.",
 
     "schedule.eyebrow": "Dars jadvali",
     "schedule.title": "Asosiy jadval va LC-UP Student",
@@ -163,14 +187,19 @@ const translations = {
     "about.resultText": "Обратная связь и прогресс.",
 
     "teachers.eyebrow": "Преподаватели",
-    "teachers.title": "Скоро здесь появится информация о преподавателях",
-    "teachers.subtitle": "Здесь будут фотографии преподавателей, направления, опыт и короткое знакомство.",
-    "teachers.card1Title": "Профиль преподавателя",
-    "teachers.card1Text": "Позже здесь будет фото преподавателя и короткая биография.",
-    "teachers.card2Title": "Направление и опыт",
-    "teachers.card2Text": "Будет указано направление: IELTS, General English, немецкий или корейский.",
-    "teachers.card3Title": "Короткое слово от преподавателя",
-    "teachers.card3Text": "Для каждого преподавателя можно будет добавить несколько предложений.",
+    "teachers.title": "Наши преподаватели",
+    "teachers.subtitle": "Короткая информация о каждом преподавателе и напутственные слова для учеников.",
+    "teachers.teacher1Text": "Самое важное в изучении языка — регулярность и уверенность.",
+    "teachers.teacher2Text": "Каждый урок приближает вас к результату на один шаг.",
+    "teachers.teacher3Text": "Не бойтесь ошибок — они часть роста.",
+    "teachers.teacher4Name": "Преподаватель 4",
+    "teachers.teacher4Text": "Здесь будут короткие слова преподавателя.",
+    "teachers.teacher5Name": "Преподаватель 5",
+    "teachers.teacher5Text": "Здесь будут короткие слова преподавателя.",
+    "teachers.teacher6Name": "Преподаватель 6",
+    "teachers.teacher6Text": "Здесь будут короткие слова преподавателя.",
+    "teachers.teacher7Name": "Преподаватель 7",
+    "teachers.teacher7Text": "Здесь будут короткие слова преподавателя.",
 
     "schedule.eyebrow": "Расписание",
     "schedule.title": "Основное расписание и LC-UP Student",
@@ -261,14 +290,19 @@ const translations = {
     "about.resultText": "Feedback and progress tracking.",
 
     "teachers.eyebrow": "Teachers",
-    "teachers.title": "Teacher information coming soon",
-    "teachers.subtitle": "This section will include teacher photos, subjects, experience and short introductions.",
-    "teachers.card1Title": "Teacher profile",
-    "teachers.card1Text": "A teacher photo and short bio will be added here later.",
-    "teachers.card2Title": "Subject and experience",
-    "teachers.card2Text": "IELTS, General English, German or Korean teaching direction will be shown here.",
-    "teachers.card3Title": "A few words from the teacher",
-    "teachers.card3Text": "A short introduction can be added for every teacher.",
+    "teachers.title": "Our teachers",
+    "teachers.subtitle": "Short information about every teacher and encouraging words for students.",
+    "teachers.teacher1Text": "The most important things in language learning are consistency and confidence.",
+    "teachers.teacher2Text": "Every lesson brings you one step closer to your result.",
+    "teachers.teacher3Text": "Do not be afraid of mistakes — they are part of growth.",
+    "teachers.teacher4Name": "Teacher 4",
+    "teachers.teacher4Text": "A short message from the teacher will be written here.",
+    "teachers.teacher5Name": "Teacher 5",
+    "teachers.teacher5Text": "A short message from the teacher will be written here.",
+    "teachers.teacher6Name": "Teacher 6",
+    "teachers.teacher6Text": "A short message from the teacher will be written here.",
+    "teachers.teacher7Name": "Teacher 7",
+    "teachers.teacher7Text": "A short message from the teacher will be written here.",
 
     "schedule.eyebrow": "Schedule",
     "schedule.title": "Main schedule and LC-UP Student",
