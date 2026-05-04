@@ -30,6 +30,7 @@
       <button class="burger" id="burger" type="button" aria-label="Open menu"><span></span><span></span><span></span></button>
     </div>
   </header>
+
   <main>
     <section class="hero" id="home">
       <div class="hero__container">
@@ -42,19 +43,55 @@
         </div>
         <div class="hero__visual">
           <img src="assets/hero-bg.png" alt="" class="hero__visual-bg" />
-          <div class="hero__student-card">
-            <img src="assets/Student.png" alt="GLOBUS student" class="hero__student" />
-          </div>
+          <div class="hero__student-card"><img src="assets/Student.png" alt="GLOBUS student" class="hero__student" /></div>
         </div>
       </div>
     </section>
+
     <section class="section section--light" id="courses"><div class="container"><div class="section__head"><span data-i18n="courses.eyebrow">Mashhur kurslar</span><h2 data-i18n="courses.title">Kursni tanlang</h2><p data-i18n="courses.subtitle">Ingliz tili, IELTS, nemis va koreys tili.</p></div><div class="cards cards--four"><article class="card"><b>EN</b><h3 data-i18n="courses.english">Ingliz tili</h3><p data-i18n="courses.englishText">General English va speaking.</p></article><article class="card"><b>IELTS</b><h3 data-i18n="courses.ielts">IELTS</h3><p data-i18n="courses.ieltsText">Mock test va feedback.</p></article><article class="card"><b>DE</b><h3 data-i18n="courses.german">Nemis tili</h3><p data-i18n="courses.germanText">A1-C1 darslari.</p></article><article class="card"><b>KR</b><h3 data-i18n="courses.korean">Koreys tili</h3><p data-i18n="courses.koreanText">TOPIK tayyorgarligi.</p></article></div></div></section>
     <section class="section" id="about"><div class="container split"><div class="section__head section__head--left"><span data-i18n="about.eyebrow">Nima uchun GLOBUS?</span><h2 data-i18n="about.title">Qulay va natijaga yo‘naltirilgan ta’lim</h2><p data-i18n="about.subtitle">Zamonaviy metodika va aniq progress.</p></div><div class="cards cards--two"><article class="card"><h3 data-i18n="about.teachersTitle">Tajribali o‘qituvchilar</h3><p data-i18n="about.teachersText">Darslar sodda va amaliy.</p></article><article class="card"><h3 data-i18n="about.scheduleTitle">Qulay jadval</h3><p data-i18n="about.scheduleText">Online yoki offline.</p></article><article class="card"><h3 data-i18n="about.methodTitle">Zamonaviy metodika</h3><p data-i18n="about.methodText">Real-life practice.</p></article><article class="card"><h3 data-i18n="about.resultTitle">Aniq natija</h3><p data-i18n="about.resultText">Feedback va progress.</p></article></div></div></section>
     <section class="section section--light" id="reviews"><div class="container split"><div class="section__head section__head--left"><span data-i18n="reviews.eyebrow">Fikrlar</span><h2 data-i18n="reviews.title">O‘quvchilar fikri</h2></div><article class="review-card"><p data-i18n="reviews.text">IELTS bo‘yicha aniq reja menga juda yordam berdi.</p><strong>Sevinch Hayitova</strong><span>IELTS 7.5</span></article></div></section>
     <section class="stats-section"><div class="container stats-grid"><div><strong>6+</strong><span data-i18n="stats.experience">yillik tajriba</span></div><div><strong>500+</strong><span data-i18n="stats.students">o‘quvchilar</span></div><div><strong>1000+</strong><span data-i18n="stats.lessons">darslar</span></div><div><strong>3+</strong><span data-i18n="stats.directions">yo‘nalishlar</span></div></div></section>
-    <section class="section" id="contacts"><div class="container contact-card"><div><span data-i18n="contacts.eyebrow">Aloqa</span><h2 data-i18n="contacts.title">Bepul maslahatga yoziling</h2><p data-i18n="contacts.text">Mos kursni tanlashga yordam beramiz.</p></div><a href="#home" class="hero__btn hero__btn--primary" data-i18n="contacts.button">Bog‘lanish</a></div></section>
+
+    <section class="contact-section" id="contacts">
+      <div class="container contact-section__grid">
+        <div class="contact-section__info">
+          <span class="section__eyebrow" data-i18n="contacts.eyebrow">Aloqa</span>
+          <h2 data-i18n="contacts.title">Biz bilan bog‘laning</h2>
+          <p data-i18n="contacts.text">Ariza qoldiring, biz sizga mos kursni tanlashga yordam beramiz.</p>
+
+          <div class="contact-list">
+            <a href="tel:+998500075885" class="contact-list__item"><span>☎</span><strong>+998 50 007 58 85</strong></a>
+            <a href="mailto:info@globus.uz" class="contact-list__item"><span>✉</span><strong>info@globus.uz</strong></a>
+            <div class="contact-list__item"><span>📍</span><strong data-i18n="contacts.address">Toshkent, O‘zbekiston</strong></div>
+            <div class="contact-list__item"><span>🕒</span><strong data-i18n="contacts.hours">Dushanba - Shanba: 09:00 - 20:00</strong></div>
+          </div>
+        </div>
+
+        <form class="contact-form">
+          <label><span data-i18n="form.name">Ismingiz</span><input type="text" name="name" placeholder="Ismingiz" data-i18n-placeholder="form.namePlaceholder" /></label>
+          <label><span data-i18n="form.phone">Telefon</span><input type="tel" name="phone" placeholder="+998" data-i18n-placeholder="form.phonePlaceholder" /></label>
+          <label><span data-i18n="form.message">Xabar</span><textarea name="message" rows="5" placeholder="Xabaringiz" data-i18n-placeholder="form.messagePlaceholder"></textarea></label>
+          <button type="submit" data-i18n="form.button">Yuborish</button>
+        </form>
+      </div>
+    </section>
   </main>
-  <footer class="footer"><div class="container footer__grid"><div><img src="assets/Globus-logo.png" alt="GLOBUS" class="footer__logo"><p data-i18n="footer.text">GLOBUS - zamonaviy tillar markazi.</p></div><div><h3 data-i18n="footer.linksTitle">Havolalar</h3><a href="#home" data-i18n="nav.home">Bosh sahifa</a><a href="#courses" data-i18n="nav.courses">Kurslar</a><a href="#contacts" data-i18n="nav.contacts">Kontaktlar</a></div></div><div class="footer__bottom">2026 GLOBUS Language Center</div></footer>
+
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <img src="assets/Globus-logo.png" alt="GLOBUS" class="footer__logo" />
+        <p data-i18n="footer.text">GLOBUS — zamonaviy tillar markazi. Ingliz, IELTS, nemis va koreys tillarini ishonchli o‘rganing.</p>
+        <div class="footer__socials"><a href="#" aria-label="Instagram">IG</a><a href="#" aria-label="Telegram">TG</a><a href="#" aria-label="Facebook">FB</a></div>
+      </div>
+      <div class="footer__col"><h3 data-i18n="footer.navTitle">Navigatsiya</h3><a href="#home" data-i18n="nav.home">Bosh sahifa</a><a href="#about" data-i18n="nav.about">Biz haqimizda</a><a href="#courses" data-i18n="nav.courses">Kurslar</a><a href="#reviews" data-i18n="nav.reviews">Fikrlar</a><a href="#contacts" data-i18n="nav.contacts">Kontaktlar</a></div>
+      <div class="footer__col"><h3 data-i18n="footer.coursesTitle">Kurslar</h3><a href="#courses" data-i18n="courses.english">Ingliz tili</a><a href="#courses" data-i18n="courses.ielts">IELTS</a><a href="#courses" data-i18n="courses.german">Nemis tili</a><a href="#courses" data-i18n="courses.korean">Koreys tili</a></div>
+      <div class="footer__col"><h3 data-i18n="footer.contactsTitle">Kontaktlar</h3><p>+998 50 007 58 85</p><p>info@globus.uz</p><p data-i18n="contacts.address">Toshkent, O‘zbekiston</p><p data-i18n="contacts.hours">Dushanba - Shanba: 09:00 - 20:00</p></div>
+    </div>
+    <div class="footer__bottom"><span>© 2026 GLOBUS Language Center</span><span data-i18n="footer.rights">Barcha huquqlar himoyalangan.</span></div>
+  </footer>
+
   <script src="js/main.js"></script>
 </body>
 </html>
