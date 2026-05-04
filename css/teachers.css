@@ -1,0 +1,147 @@
+.teachers-section {
+  overflow: hidden;
+}
+
+.teachers-section__head {
+  margin-bottom: 38px;
+}
+
+.teachers-slider {
+  position: relative;
+}
+
+.teachers-slider__track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% - 48px) / 3);
+  gap: 24px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  padding: 8px 4px 24px;
+  scrollbar-width: none;
+}
+
+.teachers-slider__track::-webkit-scrollbar {
+  display: none;
+}
+
+.teacher-card {
+  scroll-snap-align: start;
+  min-height: 440px;
+  padding: 22px;
+  border: 1px solid #e5ddff;
+  border-radius: 28px;
+  background: #fff;
+  box-shadow: 0 18px 45px rgba(34, 18, 91, 0.12);
+}
+
+.teacher-card__photo {
+  position: relative;
+  height: 260px;
+  margin-bottom: 22px;
+  overflow: hidden;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #efe8ff, #f8f5ff);
+}
+
+.teacher-card__image {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.teacher-card__image[src=""] {
+  display: none;
+}
+
+.teacher-card__image:not([src]),
+.teacher-card__image[src="assets/teacher1.png"],
+.teacher-card__image[src="assets/teacher2.png"],
+.teacher-card__image[src="assets/teacher3.png"],
+.teacher-card__image[src="assets/teacher4.png"],
+.teacher-card__image[src="assets/teacher5.png"],
+.teacher-card__image[src="assets/teacher6.png"],
+.teacher-card__image[src="assets/teacher7.png"] {
+  background: transparent;
+}
+
+.teacher-card__fallback {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  color: #6b3df4;
+  font-size: 64px;
+  font-weight: 900;
+  opacity: 0.3;
+}
+
+.teacher-card h3 {
+  margin: 0 0 12px;
+  color: #1e1747;
+  font-size: 24px;
+  line-height: 1.18;
+}
+
+.teacher-card p {
+  margin: 0;
+  color: #6f6791;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.teachers-slider__btn {
+  position: absolute;
+  top: 45%;
+  z-index: 5;
+  width: 48px;
+  height: 48px;
+  border: 0;
+  border-radius: 50%;
+  background: #6b3df4;
+  color: #fff;
+  font-size: 34px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 14px 30px rgba(34, 18, 91, 0.18);
+}
+
+.teachers-slider__btn--prev {
+  left: -20px;
+}
+
+.teachers-slider__btn--next {
+  right: -20px;
+}
+
+@media (max-width: 1024px) {
+  .teachers-slider__track {
+    grid-auto-columns: calc((100% - 24px) / 2);
+  }
+}
+
+@media (max-width: 640px) {
+  .teachers-slider__track {
+    grid-auto-columns: 86%;
+    gap: 16px;
+    padding-bottom: 18px;
+  }
+
+  .teacher-card {
+    min-height: 390px;
+    padding: 18px;
+  }
+
+  .teacher-card__photo {
+    height: 220px;
+  }
+
+  .teachers-slider__btn {
+    display: none;
+  }
+}
