@@ -19,11 +19,16 @@ if (burger && nav) {
 
 const translations = {
   uz: {
+    "common.more": "Batafsil",
+
     "nav.home": "Bosh sahifa",
     "nav.about": "Biz haqimizda",
     "nav.courses": "Kurslar",
+    "nav.teachers": "O‘qituvchilar",
+    "nav.schedule": "Dars jadvali",
     "nav.reviews": "Fikrlar",
     "nav.contacts": "Kontaktlar",
+
     "header.cta": "Ro‘yxatdan o‘tish",
 
     "hero.badge": "Tillar dunyoni ochadi",
@@ -59,9 +64,29 @@ const translations = {
     "about.resultTitle": "Aniq natija",
     "about.resultText": "Feedback va progress.",
 
+    "teachers.eyebrow": "O‘qituvchilar",
+    "teachers.title": "Tez orada o‘qituvchilar haqida ma’lumot",
+    "teachers.subtitle": "Bu yerda o‘qituvchilar fotosurati, yo‘nalishi, tajribasi va qisqa tanishuvi joylanadi.",
+    "teachers.card1Title": "O‘qituvchi profili",
+    "teachers.card1Text": "Keyin bu yerga o‘qituvchi rasmi va qisqa bio qo‘shiladi.",
+    "teachers.card2Title": "Yo‘nalish va tajriba",
+    "teachers.card2Text": "IELTS, General English, nemis yoki koreys yo‘nalishi ko‘rsatiladi.",
+    "teachers.card3Title": "O‘qituvchidan qisqa so‘z",
+    "teachers.card3Text": "Har bir o‘qituvchi haqida bir necha jumla yoziladi.",
+
+    "schedule.eyebrow": "Dars jadvali",
+    "schedule.title": "Asosiy jadval va LC-UP Student",
+    "schedule.text": "Bu yerda asosiy dars jadvali bo‘ladi. O‘quvchilar esa LC-UP Student ilovasida aktual jadval, guruh va boshqa ma’lumotlarni ko‘rishadi.",
+    "schedule.appText": "O‘quvchi uchun shaxsiy jadval, dars ma’lumotlari va markaz yangiliklari.",
+    "schedule.appButton": "Maslahat olish",
+
     "reviews.eyebrow": "Fikrlar",
     "reviews.title": "O‘quvchilar fikri",
+    "reviews.subtitle": "Keyinchalik bu yerga o‘quvchilar fotosurati va real fikrlari qo‘shiladi.",
     "reviews.text": "IELTS bo‘yicha aniq reja menga juda yordam berdi.",
+    "reviews.emptyText": "Yangi o‘quvchi fikri uchun joy.",
+    "reviews.emptyName": "O‘quvchi ismi",
+    "reviews.emptyResult": "Natija / kurs",
 
     "stats.experience": "yillik tajriba",
     "stats.students": "o‘quvchilar",
@@ -69,20 +94,39 @@ const translations = {
     "stats.directions": "yo‘nalishlar",
 
     "contacts.eyebrow": "Aloqa",
-    "contacts.title": "Bepul maslahatga yoziling",
-    "contacts.text": "Mos kursni tanlashga yordam beramiz.",
+    "contacts.title": "Biz bilan bog‘laning",
+    "contacts.text": "Ariza qoldiring, biz sizga mos kursni tanlashga yordam beramiz.",
+    "contacts.address": "Pakhtaabad, O‘zbekiston",
+    "contacts.hours": "Dushanba - Shanba: 08:30 - 18:30",
     "contacts.button": "Bog‘lanish",
 
-    "footer.text": "GLOBUS - zamonaviy tillar markazi.",
-    "footer.linksTitle": "Havolalar"
+    "form.name": "Ismingiz",
+    "form.namePlaceholder": "Ismingiz",
+    "form.phone": "Telefon",
+    "form.phonePlaceholder": "+998",
+    "form.message": "Xabar",
+    "form.messagePlaceholder": "Xabaringiz",
+    "form.button": "Yuborish",
+
+    "footer.text": "GLOBUS — zamonaviy tillar markazi. Ingliz, IELTS, nemis va koreys tillarini ishonchli o‘rganing.",
+    "footer.linksTitle": "Havolalar",
+    "footer.navTitle": "Navigatsiya",
+    "footer.coursesTitle": "Kurslar",
+    "footer.contactsTitle": "Kontaktlar",
+    "footer.rights": "Barcha huquqlar himoyalangan."
   },
 
   ru: {
+    "common.more": "Подробнее",
+
     "nav.home": "Главная",
     "nav.about": "О нас",
     "nav.courses": "Курсы",
+    "nav.teachers": "Преподаватели",
+    "nav.schedule": "Расписание",
     "nav.reviews": "Отзывы",
     "nav.contacts": "Контакты",
+
     "header.cta": "Записаться",
 
     "hero.badge": "Языки открывают мир",
@@ -118,9 +162,29 @@ const translations = {
     "about.resultTitle": "Понятный результат",
     "about.resultText": "Обратная связь и прогресс.",
 
+    "teachers.eyebrow": "Преподаватели",
+    "teachers.title": "Скоро здесь появится информация о преподавателях",
+    "teachers.subtitle": "Здесь будут фотографии преподавателей, направления, опыт и короткое знакомство.",
+    "teachers.card1Title": "Профиль преподавателя",
+    "teachers.card1Text": "Позже здесь будет фото преподавателя и короткая биография.",
+    "teachers.card2Title": "Направление и опыт",
+    "teachers.card2Text": "Будет указано направление: IELTS, General English, немецкий или корейский.",
+    "teachers.card3Title": "Короткое слово от преподавателя",
+    "teachers.card3Text": "Для каждого преподавателя можно будет добавить несколько предложений.",
+
+    "schedule.eyebrow": "Расписание",
+    "schedule.title": "Основное расписание и LC-UP Student",
+    "schedule.text": "Здесь будет основное расписание занятий. Ученики смогут видеть актуальное расписание, группу и другую информацию в приложении LC-UP Student.",
+    "schedule.appText": "Личное расписание ученика, информация об уроках и новости центра.",
+    "schedule.appButton": "Получить консультацию",
+
     "reviews.eyebrow": "Отзывы",
     "reviews.title": "Отзывы учеников",
+    "reviews.subtitle": "Позже здесь появятся фотографии учеников и реальные отзывы.",
     "reviews.text": "Чёткий план подготовки к IELTS очень помог мне.",
+    "reviews.emptyText": "Место для нового отзыва ученика.",
+    "reviews.emptyName": "Имя ученика",
+    "reviews.emptyResult": "Результат / курс",
 
     "stats.experience": "лет опыта",
     "stats.students": "учеников",
@@ -128,20 +192,39 @@ const translations = {
     "stats.directions": "направления",
 
     "contacts.eyebrow": "Контакты",
-    "contacts.title": "Запишитесь на бесплатную консультацию",
-    "contacts.text": "Мы поможем подобрать подходящий курс.",
+    "contacts.title": "Свяжитесь с нами",
+    "contacts.text": "Оставьте заявку, и мы поможем подобрать подходящий курс.",
+    "contacts.address": "Пахтаабад, Узбекистан",
+    "contacts.hours": "Понедельник - Суббота: 08:30 - 18:30",
     "contacts.button": "Связаться",
 
-    "footer.text": "GLOBUS — современный языковой центр.",
-    "footer.linksTitle": "Ссылки"
+    "form.name": "Ваше имя",
+    "form.namePlaceholder": "Ваше имя",
+    "form.phone": "Телефон",
+    "form.phonePlaceholder": "+998",
+    "form.message": "Сообщение",
+    "form.messagePlaceholder": "Сообщение",
+    "form.button": "Отправить",
+
+    "footer.text": "GLOBUS — современный языковой центр. Изучайте английский, IELTS, немецкий и корейский уверенно.",
+    "footer.linksTitle": "Ссылки",
+    "footer.navTitle": "Навигация",
+    "footer.coursesTitle": "Курсы",
+    "footer.contactsTitle": "Контакты",
+    "footer.rights": "Все права защищены."
   },
 
   en: {
+    "common.more": "Learn more",
+
     "nav.home": "Home",
     "nav.about": "About us",
     "nav.courses": "Courses",
+    "nav.teachers": "Teachers",
+    "nav.schedule": "Schedule",
     "nav.reviews": "Reviews",
     "nav.contacts": "Contacts",
+
     "header.cta": "Sign up",
 
     "hero.badge": "Languages open the world",
@@ -177,9 +260,29 @@ const translations = {
     "about.resultTitle": "Clear result",
     "about.resultText": "Feedback and progress tracking.",
 
+    "teachers.eyebrow": "Teachers",
+    "teachers.title": "Teacher information coming soon",
+    "teachers.subtitle": "This section will include teacher photos, subjects, experience and short introductions.",
+    "teachers.card1Title": "Teacher profile",
+    "teachers.card1Text": "A teacher photo and short bio will be added here later.",
+    "teachers.card2Title": "Subject and experience",
+    "teachers.card2Text": "IELTS, General English, German or Korean teaching direction will be shown here.",
+    "teachers.card3Title": "A few words from the teacher",
+    "teachers.card3Text": "A short introduction can be added for every teacher.",
+
+    "schedule.eyebrow": "Schedule",
+    "schedule.title": "Main schedule and LC-UP Student",
+    "schedule.text": "The main lesson schedule will be shown here. Students will see the current schedule, group and other information in the LC-UP Student app.",
+    "schedule.appText": "A personal student schedule, lesson information and centre updates.",
+    "schedule.appButton": "Get consultation",
+
     "reviews.eyebrow": "Reviews",
     "reviews.title": "Student feedback",
+    "reviews.subtitle": "Student photos and real reviews will be added here later.",
     "reviews.text": "A clear IELTS preparation plan helped me a lot.",
+    "reviews.emptyText": "Space for a new student review.",
+    "reviews.emptyName": "Student name",
+    "reviews.emptyResult": "Result / course",
 
     "stats.experience": "years of experience",
     "stats.students": "students",
@@ -187,12 +290,26 @@ const translations = {
     "stats.directions": "directions",
 
     "contacts.eyebrow": "Contacts",
-    "contacts.title": "Book a free consultation",
-    "contacts.text": "We will help you choose the right course.",
+    "contacts.title": "Contact us",
+    "contacts.text": "Leave a request and we will help you choose the right course.",
+    "contacts.address": "Pakhtaabad, Uzbekistan",
+    "contacts.hours": "Monday - Saturday: 08:30 - 18:30",
     "contacts.button": "Contact us",
 
-    "footer.text": "GLOBUS is a modern language centre.",
-    "footer.linksTitle": "Links"
+    "form.name": "Your name",
+    "form.namePlaceholder": "Your name",
+    "form.phone": "Phone",
+    "form.phonePlaceholder": "+998",
+    "form.message": "Message",
+    "form.messagePlaceholder": "Message",
+    "form.button": "Send",
+
+    "footer.text": "GLOBUS is a modern language centre. Learn English, IELTS, German and Korean with confidence.",
+    "footer.linksTitle": "Links",
+    "footer.navTitle": "Navigation",
+    "footer.coursesTitle": "Courses",
+    "footer.contactsTitle": "Contacts",
+    "footer.rights": "All rights reserved."
   }
 };
 
@@ -201,8 +318,17 @@ function setLanguage(language) {
 
   document.querySelectorAll("[data-i18n]").forEach((element) => {
     const key = element.getAttribute("data-i18n");
+
     if (selectedTranslations[key]) {
       element.textContent = selectedTranslations[key];
+    }
+  });
+
+  document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
+    const key = element.getAttribute("data-i18n-placeholder");
+
+    if (selectedTranslations[key]) {
+      element.setAttribute("placeholder", selectedTranslations[key]);
     }
   });
 
