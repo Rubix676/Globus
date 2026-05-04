@@ -107,7 +107,7 @@ const translations = {
     "reviews.eyebrow": "Fikrlar",
     "reviews.title": "O‘quvchilar fikri",
     "reviews.subtitle": "Keyinchalik bu yerga o‘quvchilar fotosurati va real fikrlari qo‘shiladi.",
-    "reviews.text": "IELTS bo‘yicha aniq reja menga juda yordam berdi.",
+    "reviews.text": "Nasha bolsa, zor bolsin.",
     "reviews.emptyText": "Yangi o‘quvchi fikri uchun joy.",
     "reviews.emptyName": "O‘quvchi ismi",
     "reviews.emptyResult": "Natija / kurs",
