@@ -10,7 +10,7 @@ const courseTranslations = {
   uz: {
     "courses.eyebrow": "Mashhur kurslar",
     "courses.title": "Kursni tanlang",
-    "courses.subtitle": "Asosiy yo‘nalishlar: ingliz tili, IELTS/CEFR, matematika, nemis, koreys va ona tili.",
+    "courses.subtitle": "Asosiy yo‘nalishlar: ingliz tili, IELTS/CEFR, rus tili, matematika, nemis, koreys va ona tili.",
     "course.more": "Batafsil",
 
     "course.english.title": "Ingliz tili IELTS/CEFR",
@@ -19,6 +19,13 @@ const courseTranslations = {
     "course.english.feature1": "IELTS va CEFR imtihonlariga tayyorgarlik",
     "course.english.feature2": "Speaking, grammar, listening, reading va writing bo‘yicha mashg‘ulotlar",
     "course.english.feature3": "Darajaga qarab guruh yoki individual yondashuv",
+
+    "course.russian.title": "Rus tili",
+    "course.russian.short": "Rus tili grammatikasi, so‘zlashuv va imtihon tayyorgarligi.",
+    "course.russian.description": "Rus tili kursida o‘quvchilar grammatikani mustahkamlaydi, nutq ko‘nikmalarini rivojlantiradi va kerakli imtihon yoki sertifikatga tayyorlanadi.",
+    "course.russian.feature1": "Grammatika va savodxonlik bo‘yicha tizimli darslar",
+    "course.russian.feature2": "So‘zlashuv, o‘qish va yozish ko‘nikmalarini rivojlantirish",
+    "course.russian.feature3": "Sinov darsi orqali darajani aniqlash",
 
     "course.math.title": "Matematika SAT",
     "course.math.short": "SAT va mental arifmetika.",
@@ -50,6 +57,7 @@ const courseTranslations = {
 
     "modal.chooseTeacher": "O‘qituvchini tanlang",
     "modal.teacherLabel": "O‘qituvchi",
+    "modal.teacher1": "O‘qituvchi 1",
     "modal.teacher4": "O‘qituvchi 4",
     "modal.teacher5": "O‘qituvchi 5",
     "modal.teacher6": "O‘qituvchi 6",
@@ -62,7 +70,7 @@ const courseTranslations = {
   ru: {
     "courses.eyebrow": "Популярные курсы",
     "courses.title": "Выберите курс",
-    "courses.subtitle": "Основные направления: английский, IELTS/CEFR, математика, немецкий, корейский и родной язык.",
+    "courses.subtitle": "Основные направления: английский, IELTS/CEFR, русский, математика, немецкий, корейский и родной язык.",
     "course.more": "Подробнее",
 
     "course.english.title": "Английский IELTS/CEFR",
@@ -71,6 +79,13 @@ const courseTranslations = {
     "course.english.feature1": "Подготовка к IELTS и CEFR",
     "course.english.feature2": "Speaking, grammar, listening, reading и writing",
     "course.english.feature3": "Групповой или индивидуальный подход по уровню",
+
+    "course.russian.title": "Русский язык",
+    "course.russian.short": "Грамматика, разговорная практика и подготовка к экзаменам.",
+    "course.russian.description": "Курс русского языка помогает укрепить грамматику, развить разговорную речь и подготовиться к нужному экзамену или сертификату.",
+    "course.russian.feature1": "Системные уроки по грамматике и грамотности",
+    "course.russian.feature2": "Развитие разговорной речи, чтения и письма",
+    "course.russian.feature3": "Пробный урок для определения уровня",
 
     "course.math.title": "Математика SAT",
     "course.math.short": "SAT и ментальная арифметика.",
@@ -102,6 +117,7 @@ const courseTranslations = {
 
     "modal.chooseTeacher": "Выберите преподавателя",
     "modal.teacherLabel": "Преподаватель",
+    "modal.teacher1": "Преподаватель 1",
     "modal.teacher4": "Преподаватель 4",
     "modal.teacher5": "Преподаватель 5",
     "modal.teacher6": "Преподаватель 6",
@@ -114,7 +130,7 @@ const courseTranslations = {
   en: {
     "courses.eyebrow": "Popular courses",
     "courses.title": "Choose a course",
-    "courses.subtitle": "Main directions: English, IELTS/CEFR, mathematics, German, Korean and native language.",
+    "courses.subtitle": "Main directions: English, IELTS/CEFR, Russian, mathematics, German, Korean and native language.",
     "course.more": "Learn more",
 
     "course.english.title": "English IELTS/CEFR",
@@ -123,6 +139,13 @@ const courseTranslations = {
     "course.english.feature1": "IELTS and CEFR exam preparation",
     "course.english.feature2": "Speaking, grammar, listening, reading and writing practice",
     "course.english.feature3": "Group or individual approach based on your level",
+
+    "course.russian.title": "Russian language",
+    "course.russian.short": "Grammar, speaking practice and exam preparation.",
+    "course.russian.description": "The Russian course helps students strengthen grammar, improve speaking skills and prepare for the required exam or certificate.",
+    "course.russian.feature1": "Structured grammar and literacy lessons",
+    "course.russian.feature2": "Speaking, reading and writing skills development",
+    "course.russian.feature3": "Trial lesson to determine your level",
 
     "course.math.title": "Mathematics SAT",
     "course.math.short": "SAT and mental arithmetic.",
@@ -154,6 +177,7 @@ const courseTranslations = {
 
     "modal.chooseTeacher": "Choose a teacher",
     "modal.teacherLabel": "Teacher",
+    "modal.teacher1": "Teacher 1",
     "modal.teacher4": "Teacher 4",
     "modal.teacher5": "Teacher 5",
     "modal.teacher6": "Teacher 6",
@@ -166,6 +190,7 @@ const courseTranslations = {
 
 const courseKeys = {
   english: "course.english",
+  russian: "course.russian",
   math: "course.math",
   german: "course.german",
   korean: "course.korean",
@@ -174,10 +199,11 @@ const courseKeys = {
 
 const courseTeachers = {
   english: [
-    { value: "teacher1", label: "Avazbekova Sarvinoz" },
+    { value: "teacher1", translationKey: "modal.teacher1" },
     { value: "teacher2", label: "Yusupov Nomudjon" },
     { value: "teacher3", label: "Yakubov Azizillo" }
   ],
+  russian: [{ value: "teacher8", label: "Avazbekova Sarvinoz" }],
   math: [{ value: "teacher4", translationKey: "modal.teacher4" }],
   german: [{ value: "teacher5", translationKey: "modal.teacher5" }],
   korean: [{ value: "teacher6", translationKey: "modal.teacher6" }],
