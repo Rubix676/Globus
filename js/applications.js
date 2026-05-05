@@ -1,7 +1,7 @@
 (() => {
   const SUPABASE_PROJECT_ID = "fznuetpfezgpfxrmzlus";
   const SUPABASE_URL = `https://${SUPABASE_PROJECT_ID}.supabase.co`;
-  const SUPABASE_KEY = "PASTE_SUPABASE_PUBLISHABLE_KEY_HERE";
+  const SUPABASE_KEY = "sb_publishable_PBZiBQdtedUooWwjUtrUfg_6MkXJgH8";
   const APPLICATIONS_ENDPOINT = `${SUPABASE_URL}/rest/v1/applications`;
 
   const messages = {
