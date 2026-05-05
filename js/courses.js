@@ -3,6 +3,7 @@ const courseModalTitle = document.getElementById("courseModalTitle");
 const courseModalDescription = document.getElementById("courseModalDescription");
 const courseModalFeatures = document.getElementById("courseModalFeatures");
 const courseTeacherSelect = document.getElementById("courseTeacherSelect");
+const courseCardsTrack = document.querySelector(".course-cards");
 const courseCards = document.querySelectorAll("[data-course]");
 const courseCloseButtons = document.querySelectorAll("[data-course-close]");
 
@@ -307,6 +308,58 @@ function renderFooterSocialIcons() {
   `;
 }
 
+function setupCourseSliderControls() {
+  if (!courseCardsTrack) {
+    return;
+  }
+
+  const existingWrapper = courseCardsTrack.closest(".course-slider");
+
+  if (!existingWrapper) {
+    const wrapper = document.createElement("div");
+    wrapper.className = "course-slider";
+    courseCardsTrack.parentNode.insertBefore(wrapper, courseCardsTrack);
+    wrapper.appendChild(courseCardsTrack);
+  }
+
+  const slider = courseCardsTrack.closest(".course-slider");
+
+  if (!slider || slider.querySelector("[data-course-prev]") || slider.querySelector("[data-course-next]")) {
+    return;
+  }
+
+  const prevButton = document.createElement("button");
+  prevButton.type = "button";
+  prevButton.className = "course-slider__btn course-slider__btn--prev";
+  prevButton.setAttribute("aria-label", "Previous course");
+  prevButton.setAttribute("data-course-prev", "");
+  prevButton.textContent = "‹";
+
+  const nextButton = document.createElement("button");
+  nextButton.type = "button";
+  nextButton.className = "course-slider__btn course-slider__btn--next";
+  nextButton.setAttribute("aria-label", "Next course");
+  nextButton.setAttribute("data-course-next", "");
+  nextButton.textContent = "›";
+
+  slider.insertBefore(prevButton, courseCardsTrack);
+  slider.appendChild(nextButton);
+
+  const scrollCourses = (direction) => {
+    const firstCard = courseCardsTrack.querySelector(".course-card");
+    const cardWidth = firstCard ? firstCard.offsetWidth : 280;
+    const gap = 26;
+
+    courseCardsTrack.scrollBy({
+      left: direction * (cardWidth + gap),
+      behavior: "smooth"
+    });
+  };
+
+  prevButton.addEventListener("click", () => scrollCourses(-1));
+  nextButton.addEventListener("click", () => scrollCourses(1));
+}
+
 courseCards.forEach((card) => {
   card.addEventListener("click", () => {
     openCourseModal(card.dataset.course);
@@ -325,6 +378,7 @@ document.addEventListener("keydown", (event) => {
 
 translateCourseElements();
 renderFooterSocialIcons();
+setupCourseSliderControls();
 
 if (languageSwitcher) {
   languageSwitcher.addEventListener("change", (event) => {
