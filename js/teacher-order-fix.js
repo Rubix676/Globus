@@ -1,4 +1,65 @@
 (() => {
+  const TEACHER_ASSET_PATH = "assets/teachers";
+
+  const teacherCards = [
+    {
+      img: `${TEACHER_ASSET_PATH}/teacher2.png`,
+      alt: "Yusupov Nomudjon",
+      title: "Yusupov Nomudjon",
+      fallback: "1",
+      textKey: "teachers.teacher1Text"
+    },
+    {
+      img: `${TEACHER_ASSET_PATH}/teacher1.png`,
+      alt: "Teacher 2",
+      title: "O‘qituvchi 2",
+      fallback: "2",
+      textKey: "teachers.teacher2Text"
+    },
+    {
+      img: `${TEACHER_ASSET_PATH}/teacher3.png`,
+      alt: "Teacher 3",
+      title: "O‘qituvchi 3",
+      fallback: "3",
+      textKey: "teachers.teacher3Text"
+    },
+    {
+      img: `${TEACHER_ASSET_PATH}/teacher8.png`,
+      alt: "Avazbekova Sarvinoz",
+      title: "Avazbekova Sarvinoz",
+      fallback: "4",
+      textKey: "teachers.teacher4Text"
+    },
+    {
+      img: `${TEACHER_ASSET_PATH}/teacher4.png`,
+      alt: "Teacher 5",
+      title: "O‘qituvchi 5",
+      fallback: "5",
+      textKey: "teachers.teacher5Text"
+    },
+    {
+      img: `${TEACHER_ASSET_PATH}/teacher5.png`,
+      alt: "Teacher 6",
+      title: "O‘qituvchi 6",
+      fallback: "6",
+      textKey: "teachers.teacher6Text"
+    },
+    {
+      img: `${TEACHER_ASSET_PATH}/teacher6.png`,
+      alt: "Teacher 7",
+      title: "O‘qituvchi 7",
+      fallback: "7",
+      textKey: "teachers.teacher7Text"
+    },
+    {
+      img: `${TEACHER_ASSET_PATH}/teacher7.png`,
+      alt: "Teacher 8",
+      title: "O‘qituvchi 8",
+      fallback: "8",
+      textKey: "teachers.teacher8Text"
+    }
+  ];
+
   const courseTeacherMap = {
     english: [
       { value: "teacher1", label: "Yusupov Nomudjon" },
@@ -27,17 +88,6 @@
     teacher7: ["14:00 - 15:30"],
     teacher8: ["14:00 - 15:30"]
   };
-
-  const teacherCards = [
-    { img: "assets/teacher2.png", alt: "Yusupov Nomudjon", title: "Yusupov Nomudjon", fallback: "1", textKey: "teachers.teacher1Text" },
-    { img: "assets/teacher1.png", alt: "Teacher 2", title: "O‘qituvchi 2", fallback: "2", textKey: "teachers.teacher2Text" },
-    { img: "assets/teacher3.png", alt: "Teacher 3", title: "O‘qituvchi 3", fallback: "3", textKey: "teachers.teacher3Text" },
-    { img: "assets/teacher8.png", alt: "Avazbekova Sarvinoz", title: "Avazbekova Sarvinoz", fallback: "4", textKey: "teachers.teacher4Text" },
-    { img: "assets/teacher4.png", alt: "Teacher 5", title: "O‘qituvchi 5", fallback: "5", textKey: "teachers.teacher5Text" },
-    { img: "assets/teacher5.png", alt: "Teacher 6", title: "O‘qituvchi 6", fallback: "6", textKey: "teachers.teacher6Text" },
-    { img: "assets/teacher6.png", alt: "Teacher 7", title: "O‘qituvchi 7", fallback: "7", textKey: "teachers.teacher7Text" },
-    { img: "assets/teacher7.png", alt: "Teacher 8", title: "O‘qituvchi 8", fallback: "8", textKey: "teachers.teacher8Text" }
-  ];
 
   const translationPatch = {
     uz: {
@@ -97,19 +147,24 @@
 
   function injectUtilityCss() {
     if (document.getElementById("globus-utility-fixes-style")) return;
+
     const style = document.createElement("style");
     style.id = "globus-utility-fixes-style";
     style.textContent = `
       html { scroll-behavior: smooth; }
       [id] { scroll-margin-top: 92px; }
       .course-card h3, .course-card p { pointer-events: none; }
-      @media (max-width: 760px) { [id] { scroll-margin-top: 74px; } .course-slider__viewport { touch-action: pan-x pan-y; } }
+      @media (max-width: 760px) {
+        [id] { scroll-margin-top: 74px; }
+        .course-slider__viewport { touch-action: pan-x pan-y; }
+      }
     `;
     document.head.appendChild(style);
   }
 
   function applyTranslationPatch(language = currentLanguage()) {
     const dictionary = translationPatch[language] || translationPatch.uz;
+
     document.querySelectorAll("[data-i18n], [data-course-i18n]").forEach((element) => {
       const key = element.getAttribute("data-i18n") || element.getAttribute("data-course-i18n");
       if (dictionary[key]) element.textContent = dictionary[key];
@@ -119,8 +174,10 @@
   function renderSchedule(select = document.getElementById("courseTeacherSelect")) {
     const box = document.getElementById("courseScheduleBox");
     if (!box || !select) return;
+
     const schedule = scheduleMap[select.value] || ["14:00 - 15:30"];
     const title = box.querySelector("h4")?.textContent || "Dars vaqtlari";
+
     box.innerHTML = `<h4>${title}</h4><ul>${schedule.map((item) => `<li>${item}</li>`).join("")}</ul>`;
   }
 
@@ -128,6 +185,7 @@
     const select = document.getElementById("courseTeacherSelect");
     const teachers = courseTeacherMap[courseName];
     if (!select || !teachers) return;
+
     select.innerHTML = "";
     teachers.forEach((teacher) => {
       const option = document.createElement("option");
@@ -135,28 +193,35 @@
       option.textContent = teacher.label;
       select.appendChild(option);
     });
+
     renderSchedule(select);
   }
 
   function normalizeTeacherCards() {
     const track = document.getElementById("teachersTrack");
     if (!track) return;
+
     track.querySelectorAll(".teacher-card").forEach((card, index) => {
       const data = teacherCards[index];
       if (!data) return;
+
       const image = card.querySelector(".teacher-card__image");
       const fallback = card.querySelector(".teacher-card__fallback");
       const title = card.querySelector("h3");
       const text = card.querySelector("p");
+
       if (image) {
         image.src = data.img;
         image.alt = data.alt;
       }
+
       if (fallback) fallback.textContent = data.fallback;
+
       if (title) {
         title.removeAttribute("data-i18n");
         title.textContent = data.title;
       }
+
       if (text) text.setAttribute("data-i18n", data.textKey);
     });
   }
@@ -167,7 +232,10 @@
         window.setTimeout(() => updateCourseSelect(card.dataset.course), 0);
       });
     });
-    document.getElementById("courseTeacherSelect")?.addEventListener("change", (event) => renderSchedule(event.target));
+
+    document.getElementById("courseTeacherSelect")?.addEventListener("change", (event) => {
+      renderSchedule(event.target);
+    });
   }
 
   function bindLanguagePatch() {
@@ -184,6 +252,7 @@
       link.addEventListener("click", (event) => {
         const target = document.querySelector(link.getAttribute("href"));
         if (!target) return;
+
         event.preventDefault();
         document.querySelector(".course-modal--open")?.classList.remove("course-modal--open");
         document.body.style.overflow = "";
