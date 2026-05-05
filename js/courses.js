@@ -260,6 +260,27 @@ function closeCourseModal() {
   document.body.style.overflow = "";
 }
 
+function renderFooterSocialIcons() {
+  const footerSocials = document.querySelector(".footer__socials");
+
+  if (!footerSocials) {
+    return;
+  }
+
+  footerSocials.innerHTML = `
+    <a href="https://www.instagram.com/globus_talim/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+        <path fill="currentColor" d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2Zm-.2 2A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6A3.6 3.6 0 0 0 16.4 4H7.6Zm9.65 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z" />
+      </svg>
+    </a>
+    <a href="https://t.me/GlobusEdu" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+        <path fill="currentColor" d="M21.7 4.3 18.4 20c-.25 1.1-.9 1.35-1.8.85l-5-3.7-2.4 2.35c-.27.27-.5.5-1.03.5l.37-5.1 9.28-8.38c.4-.36-.09-.56-.62-.2L5.74 13.55.8 12c-1.07-.34-1.1-1.07.22-1.58L20.3 3c.9-.34 1.68.2 1.4 1.3Z" />
+      </svg>
+    </a>
+  `;
+}
+
 courseCards.forEach((card) => {
   card.addEventListener("click", () => {
     openCourseModal(card.dataset.course);
@@ -277,6 +298,7 @@ document.addEventListener("keydown", (event) => {
 });
 
 translateCourseElements();
+renderFooterSocialIcons();
 
 if (languageSwitcher) {
   languageSwitcher.addEventListener("change", (event) => {
