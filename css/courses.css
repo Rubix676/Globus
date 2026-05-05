@@ -24,13 +24,19 @@
   font-size: 20px;
 }
 
+.course-slider {
+  position: relative;
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
 .course-cards {
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: 280px;
   grid-template-columns: none;
   gap: 26px;
-  width: min(1180px, 100%);
+  width: 100%;
   margin: 0 auto;
   padding: 12px 10px 34px;
   overflow-x: auto;
@@ -42,6 +48,37 @@
 
 .course-cards::-webkit-scrollbar {
   display: none;
+}
+
+.course-slider__btn {
+  position: absolute;
+  top: 42%;
+  z-index: 10;
+  width: 56px;
+  height: 56px;
+  border: 0;
+  border-radius: 50%;
+  background: #111;
+  color: #fff;
+  font-size: 42px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.24);
+  transform: translateY(-50%);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.course-slider__btn:hover {
+  background: var(--primary);
+  transform: translateY(-50%) scale(1.06);
+}
+
+.course-slider__btn--prev {
+  left: -76px;
+}
+
+.course-slider__btn--next {
+  right: -76px;
 }
 
 .course-card {
@@ -71,7 +108,7 @@
 .course-card::before {
   content: "";
   position: absolute;
-  inset: 0 0 86px;
+  inset: 0 0 118px;
   z-index: 0;
   border-radius: 54px 54px 36px 36px;
   background: linear-gradient(135deg, #8f63ff, #4c22c9);
@@ -84,7 +121,7 @@
   right: 0;
   bottom: 0;
   z-index: 0;
-  height: 130px;
+  height: 150px;
   border-radius: 0 0 54px 54px;
   background: #333;
 }
@@ -113,7 +150,7 @@
 .course-card h3 {
   position: relative;
   z-index: 1;
-  margin: 0 22px 10px;
+  margin: 0 22px 12px;
   color: #fff;
   font-size: 27px;
   line-height: 1.12;
@@ -123,7 +160,7 @@
 .course-card p {
   position: relative;
   z-index: 1;
-  min-height: 48px;
+  min-height: 44px;
   margin: 0 24px 24px;
   color: rgba(255, 255, 255, 0.78);
   font-size: 14px;
@@ -136,7 +173,11 @@
 
 .course-card[data-course="english"]::before {
   background:
-    linear-gradient(90deg, #224fbd 0 33%, #fff 33% 66%, #ed334e 66% 100%);
+    linear-gradient(63deg, transparent 0 43%, #fff 43% 47%, #c8102e 47% 53%, #fff 53% 57%, transparent 57% 100%),
+    linear-gradient(117deg, transparent 0 43%, #fff 43% 47%, #c8102e 47% 53%, #fff 53% 57%, transparent 57% 100%),
+    linear-gradient(0deg, transparent 0 41%, #fff 41% 45%, #c8102e 45% 55%, #fff 55% 59%, transparent 59% 100%),
+    linear-gradient(90deg, transparent 0 41%, #fff 41% 45%, #c8102e 45% 55%, #fff 55% 59%, transparent 59% 100%),
+    #012169;
 }
 
 .course-card[data-course="russian"]::before {
@@ -353,6 +394,16 @@
   color: var(--primary-dark);
 }
 
+@media (max-width: 1340px) {
+  .course-slider__btn--prev {
+    left: 6px;
+  }
+
+  .course-slider__btn--next {
+    right: 6px;
+  }
+}
+
 @media (max-width: 760px) {
   #courses .section__head h2 {
     font-size: 38px;
@@ -365,6 +416,11 @@
   .course-cards {
     grid-auto-columns: 78%;
     gap: 18px;
+    padding-inline: 20px;
+  }
+
+  .course-slider__btn {
+    display: none;
   }
 
   .course-card {
