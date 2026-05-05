@@ -101,7 +101,7 @@
         <div class="section__head">
           <span data-course-i18n="courses.eyebrow">Mashhur kurslar</span>
           <h2 data-course-i18n="courses.title">Kursni tanlang</h2>
-          <p data-course-i18n="courses.subtitle">Asosiy yo‘nalishlar: ingliz tili, IELTS/CEFR, matematika, nemis, koreys va ona tili.</p>
+          <p data-course-i18n="courses.subtitle">Asosiy yo‘nalishlar: ingliz tili, IELTS/CEFR, matematika, nemis, koreys, ona tili va rus tili.</p>
         </div>
 
         <div class="course-cards">
@@ -112,13 +112,19 @@
             <span class="course-card__more" data-course-i18n="course.more">Batafsil</span>
           </button>
 
+          <button class="course-card" type="button" data-course="russian">
+            <span class="course-card__tag">RU</span>
+            <h3 data-course-i18n="course.russian.title">Rus tili</h3>
+            <p data-course-i18n="course.russian.short">Rus tili grammatikasi, so‘zlashuv va imtihon tayyorgarligi.</p>
+            <span class="course-card__more" data-course-i18n="course.more">Batafsil</span>
+          </button>
+
           <button class="course-card" type="button" data-course="math">
             <span class="course-card__tag">SAT</span>
             <h3 data-course-i18n="course.math.title">MATEMATIKA</h3>
             <p data-course-i18n="course.math.short">SAT va mental arifmetika.</p>
             <span class="course-card__more" data-course-i18n="course.more">Batafsil</span>
           </button>
-
 
           <button class="course-card" type="button" data-course="german">
             <span class="course-card__tag">DE</span>
@@ -181,7 +187,7 @@
       </div>
     </section>
 
-    <!-- Teachers 1231312 -->
+    <!-- Teachers -->
     <section class="section section--light teachers-section" id="teachers">
       <div class="container">
         <div class="section__head teachers-section__head">
@@ -200,10 +206,10 @@
           <div class="teachers-slider__track" id="teachersTrack">
             <article class="teacher-card">
               <div class="teacher-card__photo">
-                <img src="assets/teacher1.png" alt="Avazbekova Sarvinoz" class="teacher-card__image" />
+                <img src="assets/teacher1.png" alt="Teacher 1" class="teacher-card__image" />
                 <span class="teacher-card__fallback">1</span>
               </div>
-              <h3>Avazbekova Sarvinoz</h3>
+              <h3 data-i18n="teachers.teacher1Name">O‘qituvchi 1</h3>
               <p data-i18n="teachers.teacher1Text">Til o‘rganishda eng muhimi — doimiylik va ishonch.</p>
             </article>
 
@@ -259,6 +265,15 @@
               </div>
               <h3 data-i18n="teachers.teacher7Name">O‘qituvchi 7</h3>
               <p data-i18n="teachers.teacher7Text">Bu yerga o‘qituvchining qisqa so‘zi yoziladi.</p>
+            </article>
+
+            <article class="teacher-card">
+              <div class="teacher-card__photo">
+                <img src="assets/teacher8.png" alt="Avazbekova Sarvinoz" class="teacher-card__image" />
+                <span class="teacher-card__fallback">8</span>
+              </div>
+              <h3>Avazbekova Sarvinoz</h3>
+              <p data-i18n="teachers.teacher8Text">Rus tili bo‘yicha aniq va tushunarli darslar.</p>
             </article>
           </div>
 
@@ -415,15 +430,7 @@
 
           <label class="course-modal__field">
             <span data-course-i18n="modal.teacherLabel">O‘qituvchi</span>
-            <select id="courseTeacherSelect">
-              <option value="Avazbekova Sarvinoz">Avazbekova Sarvinoz</option>
-              <option value="Yusupov Nomudjon">Yusupov Nomudjon</option>
-              <option value="Yakubov Azizillo">Yakubov Azizillo</option>
-              <option value="teacher4" data-course-i18n="modal.teacher4">O‘qituvchi 4</option>
-              <option value="teacher5" data-course-i18n="modal.teacher5">O‘qituvchi 5</option>
-              <option value="teacher6" data-course-i18n="modal.teacher6">O‘qituvchi 6</option>
-              <option value="teacher7" data-course-i18n="modal.teacher7">O‘qituvchi 7</option>
-            </select>
+            <select id="courseTeacherSelect"></select>
           </label>
 
           <p class="course-modal__note" data-course-i18n="modal.trialNote">
@@ -449,9 +456,8 @@
         </p>
 
         <div class="footer__socials">
-          <a href="#" aria-label="Instagram">IG</a>
-          <a href="#" aria-label="Telegram">TG</a>
-          <a href="#" aria-label="Facebook">FB</a>
+          <a href="https://www.instagram.com/globus_talim/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">IG</a>
+          <a href="https://t.me/GlobusEdu" target="_blank" rel="noopener noreferrer" aria-label="Telegram">TG</a>
         </div>
       </div>
 
@@ -492,6 +498,4 @@
   <script src="js/main.js"></script>
   <script src="js/courses.js"></script>
 </body>
-</html>samandar
-samandar
-
+</html>
