@@ -138,29 +138,29 @@
 }
 
 .course-card[data-course="english"]::before {
-  background-image: url("../assets/course-media/english.svg");
+  background-image: url("../assets/course-media/english.png");
 }
 
 .course-card[data-course="russian"]::before {
-  background-image: url("../assets/course-media/russian.svg");
+  background-image: url("../assets/course-media/russian.png");
 }
 
 .course-card[data-course="math"]::before {
-  background-image: url("../assets/course-media/math.svg");
+  background-image: url("../assets/course-media/math.png");
 }
 
 .course-card[data-course="german"]::before {
-  background-image: url("../assets/course-media/de.svg");
+  background-image: url("../assets/course-media/german.png");
 }
 
 .course-card[data-course="korean"]::before {
-  background-color: #fff;
-  background-image: url("../assets/course-media/korean.svg");
+  background-image: url("../assets/course-media/korean.png");
   background-size: contain;
+  background-color: #fff;
 }
 
 .course-card[data-course="native"]::before {
-  background-image: url("../assets/course-media/native.svg");
+  background-image: url("../assets/course-media/native.png");
 }
 
 .course-card__flag,
