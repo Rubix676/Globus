@@ -211,6 +211,59 @@ const courseTeachers = {
   native: [{ value: "teacher7", translationKey: "modal.teacher7" }]
 };
 
+const courseFlagSvg = {
+  english: `
+    <svg viewBox="0 0 60 36" preserveAspectRatio="none" role="img" aria-label="United Kingdom flag">
+      <rect width="60" height="36" fill="#012169" />
+      <path d="M0 0L60 36M60 0L0 36" stroke="#fff" stroke-width="8" />
+      <path d="M0 0L60 36M60 0L0 36" stroke="#C8102E" stroke-width="4.8" />
+      <path d="M30 0v36M0 18h60" stroke="#fff" stroke-width="12" />
+      <path d="M30 0v36M0 18h60" stroke="#C8102E" stroke-width="7.2" />
+    </svg>
+  `,
+  russian: `
+    <svg viewBox="0 0 60 36" preserveAspectRatio="none" role="img" aria-label="Russia flag">
+      <rect width="60" height="12" y="0" fill="#fff" />
+      <rect width="60" height="12" y="12" fill="#0039A6" />
+      <rect width="60" height="12" y="24" fill="#D52B1E" />
+    </svg>
+  `,
+  german: `
+    <svg viewBox="0 0 60 36" preserveAspectRatio="none" role="img" aria-label="Germany flag">
+      <rect width="60" height="12" y="0" fill="#000" />
+      <rect width="60" height="12" y="12" fill="#DD0000" />
+      <rect width="60" height="12" y="24" fill="#FFCE00" />
+    </svg>
+  `,
+  korean: `
+    <svg viewBox="0 0 60 36" preserveAspectRatio="xMidYMid meet" role="img" aria-label="South Korea flag">
+      <rect width="60" height="36" fill="#fff" />
+      <g transform="translate(30 18) rotate(33.7)">
+        <path d="M0 -7a7 7 0 1 1 0 14a3.5 3.5 0 1 0 0 -7a3.5 3.5 0 1 1 0 -7" fill="#CD2E3A" />
+        <path d="M0 7a7 7 0 1 1 0 -14a3.5 3.5 0 1 0 0 7a3.5 3.5 0 1 1 0 7" fill="#0047A0" />
+      </g>
+      <g stroke="#000" stroke-width="1.7">
+        <path d="M13 8l6 4M11 11l6 4M9 14l6 4" />
+        <path d="M45 18l6 4M43 21l6 4M41 24l6 4" />
+        <path d="M45 8l6 -4M43 11l6 -4M41 14l6 -4" />
+        <path d="M13 28l6 -4M11 25l6 -4M9 22l6 -4" />
+      </g>
+    </svg>
+  `,
+  native: `
+    <svg viewBox="0 0 60 36" preserveAspectRatio="none" role="img" aria-label="Uzbekistan flag">
+      <rect width="60" height="12" y="0" fill="#1EB6E7" />
+      <rect width="60" height="2" y="12" fill="#CE1126" />
+      <rect width="60" height="8" y="14" fill="#fff" />
+      <rect width="60" height="2" y="22" fill="#CE1126" />
+      <rect width="60" height="12" y="24" fill="#1EB53A" />
+      <circle cx="10" cy="6" r="3" fill="#fff" />
+    </svg>
+  `
+};
+
+let currentCourseSlide = 0;
+
 function getCurrentCourseLanguage() {
   return localStorage.getItem("siteLanguage") || languageSwitcher?.value || "uz";
 }
@@ -224,6 +277,26 @@ function translateCourseElements(language = getCurrentCourseLanguage()) {
     if (selectedTranslations[key]) {
       element.textContent = selectedTranslations[key];
     }
+  });
+}
+
+function renderCourseFlags() {
+  courseCards.forEach((card) => {
+    const courseName = card.dataset.course;
+    const existingFlag = card.querySelector(".course-card__flag");
+
+    if (existingFlag) {
+      existingFlag.remove();
+    }
+
+    if (!courseFlagSvg[courseName]) {
+      return;
+    }
+
+    const flag = document.createElement("span");
+    flag.className = "course-card__flag";
+    flag.innerHTML = courseFlagSvg[courseName];
+    card.prepend(flag);
   });
 }
 
@@ -316,48 +389,98 @@ function setupCourseSliderControls() {
   const existingWrapper = courseCardsTrack.closest(".course-slider");
 
   if (!existingWrapper) {
-    const wrapper = document.createElement("div");
-    wrapper.className = "course-slider";
-    courseCardsTrack.parentNode.insertBefore(wrapper, courseCardsTrack);
-    wrapper.appendChild(courseCardsTrack);
+    const slider = document.createElement("div");
+    const viewport = document.createElement("div");
+
+    slider.className = "course-slider";
+    viewport.className = "course-slider__viewport";
+
+    courseCardsTrack.parentNode.insertBefore(slider, courseCardsTrack);
+    slider.appendChild(viewport);
+    viewport.appendChild(courseCardsTrack);
   }
 
   const slider = courseCardsTrack.closest(".course-slider");
 
-  if (!slider || slider.querySelector("[data-course-prev]") || slider.querySelector("[data-course-next]")) {
+  if (!slider) {
     return;
   }
 
-  const prevButton = document.createElement("button");
-  prevButton.type = "button";
-  prevButton.className = "course-slider__btn course-slider__btn--prev";
-  prevButton.setAttribute("aria-label", "Previous course");
-  prevButton.setAttribute("data-course-prev", "");
-  prevButton.textContent = "‹";
+  let viewport = slider.querySelector(".course-slider__viewport");
 
-  const nextButton = document.createElement("button");
-  nextButton.type = "button";
-  nextButton.className = "course-slider__btn course-slider__btn--next";
-  nextButton.setAttribute("aria-label", "Next course");
-  nextButton.setAttribute("data-course-next", "");
-  nextButton.textContent = "›";
+  if (!viewport) {
+    viewport = document.createElement("div");
+    viewport.className = "course-slider__viewport";
+    slider.insertBefore(viewport, courseCardsTrack);
+    viewport.appendChild(courseCardsTrack);
+  }
 
-  slider.insertBefore(prevButton, courseCardsTrack);
-  slider.appendChild(nextButton);
+  let prevButton = slider.querySelector("[data-course-prev]");
+  let nextButton = slider.querySelector("[data-course-next]");
 
-  const scrollCourses = (direction) => {
-    const firstCard = courseCardsTrack.querySelector(".course-card");
-    const cardWidth = firstCard ? firstCard.offsetWidth : 280;
-    const gap = 26;
+  if (!prevButton) {
+    prevButton = document.createElement("button");
+    prevButton.type = "button";
+    prevButton.className = "course-slider__btn course-slider__btn--prev";
+    prevButton.setAttribute("aria-label", "Previous course");
+    prevButton.setAttribute("data-course-prev", "");
+    prevButton.textContent = "‹";
+    slider.insertBefore(prevButton, viewport);
+  }
 
-    courseCardsTrack.scrollBy({
-      left: direction * (cardWidth + gap),
-      behavior: "smooth"
-    });
+  if (!nextButton) {
+    nextButton = document.createElement("button");
+    nextButton.type = "button";
+    nextButton.className = "course-slider__btn course-slider__btn--next";
+    nextButton.setAttribute("aria-label", "Next course");
+    nextButton.setAttribute("data-course-next", "");
+    nextButton.textContent = "›";
+    slider.appendChild(nextButton);
+  }
+
+  const cards = Array.from(courseCardsTrack.querySelectorAll(".course-card"));
+
+  const getVisibleCount = () => {
+    if (window.matchMedia("(max-width: 760px)").matches) {
+      return 1;
+    }
+
+    return Math.min(4, cards.length);
   };
 
-  prevButton.addEventListener("click", () => scrollCourses(-1));
-  nextButton.addEventListener("click", () => scrollCourses(1));
+  const getStep = () => {
+    const firstCard = cards[0];
+
+    if (!firstCard) {
+      return 0;
+    }
+
+    const styles = window.getComputedStyle(courseCardsTrack);
+    const gap = Number.parseFloat(styles.columnGap || styles.gap || "0") || 0;
+    return firstCard.getBoundingClientRect().width + gap;
+  };
+
+  const updateSlider = () => {
+    const maxIndex = Math.max(0, cards.length - getVisibleCount());
+    currentCourseSlide = Math.min(Math.max(currentCourseSlide, 0), maxIndex);
+
+    courseCardsTrack.style.transform = `translateX(${-currentCourseSlide * getStep()}px)`;
+    prevButton.disabled = currentCourseSlide === 0;
+    nextButton.disabled = currentCourseSlide === maxIndex;
+  };
+
+  prevButton.addEventListener("click", () => {
+    currentCourseSlide -= 1;
+    updateSlider();
+  });
+
+  nextButton.addEventListener("click", () => {
+    currentCourseSlide += 1;
+    updateSlider();
+  });
+
+  window.addEventListener("resize", updateSlider);
+  updateSlider();
 }
 
 courseCards.forEach((card) => {
@@ -377,6 +500,7 @@ document.addEventListener("keydown", (event) => {
 });
 
 translateCourseElements();
+renderCourseFlags();
 renderFooterSocialIcons();
 setupCourseSliderControls();
 
