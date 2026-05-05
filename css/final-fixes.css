@@ -1,4 +1,4 @@
-/* Final responsive and visual fixes loaded after the main styles */
+/* Final responsive/navigation fixes. Course-card images are controlled only by css/courses.css. */
 
 html {
   scroll-behavior: smooth;
@@ -6,39 +6,6 @@ html {
 
 [id] {
   scroll-margin-top: 92px;
-}
-
-.course-card[data-course="math"]::before {
-  content: none !important;
-  display: none !important;
-}
-
-.course-card[data-course="math"] .course-card__flag,
-.course-card[data-course="korean"] .course-card__flag,
-.course-card[data-course="native"] .course-card__flag {
-  inset: 0 0 150px !important;
-  display: block !important;
-  background: #fff !important;
-  border-radius: 54px 54px 20px 20px !important;
-}
-
-.course-card[data-course="math"] .course-card__flag {
-  background: #0c614d !important;
-}
-
-.course-card[data-course="math"] .course-card__flag svg,
-.course-card[data-course="korean"] .course-card__flag svg,
-.course-card[data-course="native"] .course-card__flag svg {
-  display: block !important;
-  width: 100% !important;
-  height: 100% !important;
-  opacity: 1 !important;
-}
-
-.course-card[data-course="math"] .course-card__tag,
-.course-card[data-course="korean"] .course-card__tag,
-.course-card[data-course="native"] .course-card__tag {
-  display: none !important;
 }
 
 .course-card h3,
@@ -56,25 +23,9 @@ html {
   cursor: pointer;
 }
 
-@media (min-width: 761px) and (max-width: 1180px) {
-  .course-card[data-course="math"] .course-card__flag,
-  .course-card[data-course="korean"] .course-card__flag,
-  .course-card[data-course="native"] .course-card__flag {
-    bottom: 110px !important;
-    border-radius: 34px 34px 18px 18px !important;
-  }
-}
-
 @media (max-width: 760px) {
   [id] {
     scroll-margin-top: 74px;
-  }
-
-  .course-card[data-course="math"] .course-card__flag,
-  .course-card[data-course="korean"] .course-card__flag,
-  .course-card[data-course="native"] .course-card__flag {
-    bottom: 140px !important;
-    border-radius: 42px 42px 22px 22px !important;
   }
 
   .course-slider__viewport {
