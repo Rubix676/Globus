@@ -54,6 +54,8 @@
   position: absolute;
   top: 42%;
   z-index: 10;
+  display: grid;
+  place-items: center;
   width: 56px;
   height: 56px;
   border: 0;
@@ -173,10 +175,10 @@
 
 .course-card[data-course="english"]::before {
   background:
-    linear-gradient(63deg, transparent 0 43%, #fff 43% 47%, #c8102e 47% 53%, #fff 53% 57%, transparent 57% 100%),
-    linear-gradient(117deg, transparent 0 43%, #fff 43% 47%, #c8102e 47% 53%, #fff 53% 57%, transparent 57% 100%),
-    linear-gradient(0deg, transparent 0 41%, #fff 41% 45%, #c8102e 45% 55%, #fff 55% 59%, transparent 59% 100%),
-    linear-gradient(90deg, transparent 0 41%, #fff 41% 45%, #c8102e 45% 55%, #fff 55% 59%, transparent 59% 100%),
+    linear-gradient(90deg, transparent 0 38%, #fff 38% 43%, #cf142b 43% 57%, #fff 57% 62%, transparent 62% 100%),
+    linear-gradient(0deg, transparent 0 38%, #fff 38% 43%, #cf142b 43% 57%, #fff 57% 62%, transparent 62% 100%),
+    linear-gradient(32deg, transparent 0 42%, #fff 42% 47%, #cf142b 47% 53%, #fff 53% 58%, transparent 58% 100%),
+    linear-gradient(148deg, transparent 0 42%, #fff 42% 47%, #cf142b 47% 53%, #fff 53% 58%, transparent 58% 100%),
     #012169;
 }
 
