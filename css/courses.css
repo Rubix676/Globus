@@ -362,6 +362,28 @@
   color: var(--primary-dark);
 }
 
+.course-card[data-course="korean"] .course-card__flag,
+.course-card[data-course="native"] .course-card__flag {
+  background-color: #fff;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.course-card[data-course="korean"] .course-card__flag {
+  background-size: 94% auto;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect width='300' height='200' fill='white'/%3E%3Cg transform='translate(150 100) rotate(33.7)'%3E%3Cpath d='M0-38a38 38 0 0 1 0 76a19 19 0 0 1 0-38a19 19 0 0 0 0-38' fill='%23CD2E3A'/%3E%3Cpath d='M0 38a38 38 0 0 1 0-76a19 19 0 0 1 0 38a19 19 0 0 0 0 38' fill='%230047A0'/%3E%3C/g%3E%3Cg fill='%23000'%3E%3Cg transform='translate(72 56) rotate(-56)'%3E%3Crect x='-26' y='-15' width='52' height='7'/%3E%3Crect x='-26' y='-3.5' width='52' height='7'/%3E%3Crect x='-26' y='8' width='52' height='7'/%3E%3C/g%3E%3Cg transform='translate(228 56) rotate(56)'%3E%3Crect x='-26' y='-15' width='21' height='7'/%3E%3Crect x='5' y='-15' width='21' height='7'/%3E%3Crect x='-26' y='-3.5' width='52' height='7'/%3E%3Crect x='-26' y='8' width='21' height='7'/%3E%3Crect x='5' y='8' width='21' height='7'/%3E%3C/g%3E%3Cg transform='translate(72 144) rotate(56)'%3E%3Crect x='-26' y='-15' width='52' height='7'/%3E%3Crect x='-26' y='-3.5' width='21' height='7'/%3E%3Crect x='5' y='-3.5' width='21' height='7'/%3E%3Crect x='-26' y='8' width='52' height='7'/%3E%3C/g%3E%3Cg transform='translate(228 144) rotate(-56)'%3E%3Crect x='-26' y='-15' width='21' height='7'/%3E%3Crect x='5' y='-15' width='21' height='7'/%3E%3Crect x='-26' y='-3.5' width='21' height='7'/%3E%3Crect x='5' y='-3.5' width='21' height='7'/%3E%3Crect x='-26' y='8' width='21' height='7'/%3E%3Crect x='5' y='8' width='21' height='7'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.course-card[data-course="native"] .course-card__flag {
+  background-size: 100% 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 250'%3E%3Crect width='500' height='80' fill='%231eb6e7'/%3E%3Crect y='80' width='500' height='5' fill='%23ce1126'/%3E%3Crect y='85' width='500' height='80' fill='white'/%3E%3Crect y='165' width='500' height='5' fill='%23ce1126'/%3E%3Crect y='170' width='500' height='80' fill='%231eb53a'/%3E%3Ccircle cx='55' cy='40' r='24' fill='white'/%3E%3Ccircle cx='66' cy='40' r='22' fill='%231eb6e7'/%3E%3Cg fill='white'%3E%3Cpath id='s' d='M0-5 1.47-1.55 5-1.55 2.02.55 3.1 4-0 1.9-3.1 4-2.02.55-5-1.55-1.47-1.55z'/%3E%3Cuse href='%23s' x='115' y='20'/%3E%3Cuse href='%23s' x='142' y='20'/%3E%3Cuse href='%23s' x='169' y='20'/%3E%3Cuse href='%23s' x='196' y='20'/%3E%3Cuse href='%23s' x='115' y='42'/%3E%3Cuse href='%23s' x='142' y='42'/%3E%3Cuse href='%23s' x='169' y='42'/%3E%3Cuse href='%23s' x='196' y='42'/%3E%3Cuse href='%23s' x='115' y='64'/%3E%3Cuse href='%23s' x='142' y='64'/%3E%3Cuse href='%23s' x='169' y='64'/%3E%3Cuse href='%23s' x='196' y='64'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.course-card[data-course="korean"] .course-card__flag svg,
+.course-card[data-course="native"] .course-card__flag svg {
+  opacity: 0;
+}
+
 @media (max-width: 1340px) {
   .course-slider__btn--prev {
     left: 10px;
