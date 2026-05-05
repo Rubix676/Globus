@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="css/header.css" />
   <link rel="stylesheet" href="css/hero.css" />
   <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/courses.css" />
   <link rel="stylesheet" href="css/teachers.css" />
 </head>
 <body>
@@ -98,35 +99,47 @@
     <section class="section section--light" id="courses">
       <div class="container">
         <div class="section__head">
-          <span data-i18n="courses.eyebrow">Mashhur kurslar</span>
-          <h2 data-i18n="courses.title">Kursni tanlang</h2>
-          <p data-i18n="courses.subtitle">Ingliz tili, IELTS, nemis va koreys tili.</p>
+          <span data-course-i18n="courses.eyebrow">Mashhur kurslar</span>
+          <h2 data-course-i18n="courses.title">Kursni tanlang</h2>
+          <p data-course-i18n="courses.subtitle">Asosiy yo‘nalishlar: ingliz tili, IELTS/CEFR, matematika, nemis, koreys va ona tili.</p>
         </div>
 
-        <div class="cards cards--four">
-          <article class="card">
-            <b>EN</b>
-            <h3 data-i18n="courses.english">Ingliz tili IELTS/CEFR</h3>
-            <p data-i18n="courses.englishText">General English va speaking.</p>
-          </article>
+        <div class="course-cards">
+          <button class="course-card" type="button" data-course="english">
+            <span class="course-card__tag">EN</span>
+            <h3 data-course-i18n="course.english.title">Ingliz tili IELTS/CEFR</h3>
+            <p data-course-i18n="course.english.short">General English, IELTS va CEFR tayyorgarligi.</p>
+            <span class="course-card__more" data-course-i18n="course.more">Batafsil</span>
+          </button>
 
-          <article class="card">
-            <b>IELTS</b>
-            <h3 data-i18n="courses.ielts">MATEMATIKA</h3>
-            <p data-i18n="courses.ieltsText">SAT va mental arifmetika</p>
-          </article>
+          <button class="course-card" type="button" data-course="math">
+            <span class="course-card__tag">SAT</span>
+            <h3 data-course-i18n="course.math.title">MATEMATIKA</h3>
+            <p data-course-i18n="course.math.short">SAT va mental arifmetika.</p>
+            <span class="course-card__more" data-course-i18n="course.more">Batafsil</span>
+          </button>
 
-          <article class="card">
-            <b>DE</b>
-            <h3 data-i18n="courses.german">Nemis tili</h3>
-            <p data-i18n="courses.germanText">A1-C1 darslari.</p>
-          </article>
 
-          <article class="card">
-            <b>KR</b>
-            <h3 data-i18n="courses.korean">Koreys tili</h3>
-            <p data-i18n="courses.koreanText">TOPIK tayyorgarligi.</p>
-          </article>
+          <button class="course-card" type="button" data-course="german">
+            <span class="course-card__tag">DE</span>
+            <h3 data-course-i18n="course.german.title">Nemis tili</h3>
+            <p data-course-i18n="course.german.short">Imtihonlarga bosqichma-bosqich tayyorgarlik.</p>
+            <span class="course-card__more" data-course-i18n="course.more">Batafsil</span>
+          </button>
+
+          <button class="course-card" type="button" data-course="korean">
+            <span class="course-card__tag">KR</span>
+            <h3 data-course-i18n="course.korean.title">Koreys tili</h3>
+            <p data-course-i18n="course.korean.short">TOPIK va koreys tili imtihonlariga tayyorgarlik.</p>
+            <span class="course-card__more" data-course-i18n="course.more">Batafsil</span>
+          </button>
+
+          <button class="course-card" type="button" data-course="native">
+            <span class="course-card__tag">UZ</span>
+            <h3 data-course-i18n="course.native.title">Ona tili</h3>
+            <p data-course-i18n="course.native.short">Davlat sertifikati uchun tayyorgarlik.</p>
+            <span class="course-card__more" data-course-i18n="course.more">Batafsil</span>
+          </button>
         </div>
       </div>
     </section>
@@ -382,6 +395,50 @@
     </section>
   </main>
 
+  <!-- Course modal -->
+  <div class="course-modal" id="courseModal" aria-hidden="true">
+    <div class="course-modal__backdrop" data-course-close></div>
+
+    <div class="course-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="courseModalTitle">
+      <button class="course-modal__close" type="button" aria-label="Close course modal" data-course-close>×</button>
+
+      <div class="course-modal__body">
+        <div class="course-modal__info">
+          <h3 id="courseModalTitle"></h3>
+          <p id="courseModalDescription"></p>
+
+          <ul class="course-modal__features" id="courseModalFeatures"></ul>
+        </div>
+
+        <div class="course-modal__panel">
+          <h4 data-course-i18n="modal.chooseTeacher">O‘qituvchini tanlang</h4>
+
+          <label class="course-modal__field">
+            <span data-course-i18n="modal.teacherLabel">O‘qituvchi</span>
+            <select id="courseTeacherSelect">
+              <option value="Avazbekova Sarvinoz">Avazbekova Sarvinoz</option>
+              <option value="Yusupov Nomudjon">Yusupov Nomudjon</option>
+              <option value="Yakubov Azizillo">Yakubov Azizillo</option>
+              <option value="teacher4" data-course-i18n="modal.teacher4">O‘qituvchi 4</option>
+              <option value="teacher5" data-course-i18n="modal.teacher5">O‘qituvchi 5</option>
+              <option value="teacher6" data-course-i18n="modal.teacher6">O‘qituvchi 6</option>
+              <option value="teacher7" data-course-i18n="modal.teacher7">O‘qituvchi 7</option>
+            </select>
+          </label>
+
+          <p class="course-modal__note" data-course-i18n="modal.trialNote">
+            Narxlar hozircha ko‘rsatilmaydi. Avval sinov darsi orqali darajangiz aniqlanadi, keyin sizga mos guruh tavsiya qilinadi.
+          </p>
+
+          <div class="course-modal__actions">
+            <a href="#contacts" class="course-modal__trial" data-course-close data-course-i18n="modal.trialButton">Sinov darsiga yozilish</a>
+            <a href="#teachers" class="course-modal__secondary" data-course-close data-course-i18n="modal.teachersButton">O‘qituvchilarni ko‘rish</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer class="footer">
     <div class="container footer__grid">
@@ -433,6 +490,7 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/courses.js"></script>
 </body>
 </html>samandar
 samandar
