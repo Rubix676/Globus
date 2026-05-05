@@ -2,6 +2,7 @@ const courseModal = document.getElementById("courseModal");
 const courseModalTitle = document.getElementById("courseModalTitle");
 const courseModalDescription = document.getElementById("courseModalDescription");
 const courseModalFeatures = document.getElementById("courseModalFeatures");
+const courseTeacherSelect = document.getElementById("courseTeacherSelect");
 const courseCards = document.querySelectorAll("[data-course]");
 const courseCloseButtons = document.querySelectorAll("[data-course-close]");
 
@@ -171,6 +172,18 @@ const courseKeys = {
   native: "course.native"
 };
 
+const courseTeachers = {
+  english: [
+    { value: "teacher1", label: "Avazbekova Sarvinoz" },
+    { value: "teacher2", label: "Yusupov Nomudjon" },
+    { value: "teacher3", label: "Yakubov Azizillo" }
+  ],
+  math: [{ value: "teacher4", translationKey: "modal.teacher4" }],
+  german: [{ value: "teacher5", translationKey: "modal.teacher5" }],
+  korean: [{ value: "teacher6", translationKey: "modal.teacher6" }],
+  native: [{ value: "teacher7", translationKey: "modal.teacher7" }]
+};
+
 function getCurrentCourseLanguage() {
   return localStorage.getItem("siteLanguage") || languageSwitcher?.value || "uz";
 }
@@ -184,6 +197,22 @@ function translateCourseElements(language = getCurrentCourseLanguage()) {
     if (selectedTranslations[key]) {
       element.textContent = selectedTranslations[key];
     }
+  });
+}
+
+function setCourseTeacherOptions(courseName, selectedTranslations) {
+  if (!courseTeacherSelect) {
+    return;
+  }
+
+  const teachers = courseTeachers[courseName] || [];
+  courseTeacherSelect.innerHTML = "";
+
+  teachers.forEach((teacher) => {
+    const option = document.createElement("option");
+    option.value = teacher.value;
+    option.textContent = teacher.label || selectedTranslations[teacher.translationKey] || teacher.value;
+    courseTeacherSelect.appendChild(option);
   });
 }
 
@@ -213,6 +242,8 @@ function openCourseModal(courseName) {
       courseModalFeatures.appendChild(item);
     }
   });
+
+  setCourseTeacherOptions(courseName, selectedTranslations);
 
   courseModal.classList.add("course-modal--open");
   courseModal.setAttribute("aria-hidden", "false");
