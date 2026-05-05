@@ -8,6 +8,38 @@ html {
   scroll-margin-top: 92px;
 }
 
+.logo,
+.footer__logo {
+  display: block;
+  flex-shrink: 0;
+}
+
+.logo {
+  width: 86px;
+  height: 52px;
+  overflow: visible;
+}
+
+.logo__img {
+  display: block;
+  width: 86px;
+  max-width: none;
+  height: 52px;
+  object-fit: contain;
+}
+
+.footer__logo {
+  width: 112px;
+  max-width: 112px;
+  height: auto;
+  object-fit: contain;
+}
+
+.footer__col a {
+  display: block;
+  width: fit-content;
+}
+
 .course-card h3,
 .course-card p {
   pointer-events: none;
@@ -26,6 +58,16 @@ html {
 @media (max-width: 760px) {
   [id] {
     scroll-margin-top: 74px;
+  }
+
+  .logo {
+    width: 74px;
+    height: 46px;
+  }
+
+  .logo__img {
+    width: 74px;
+    height: 46px;
   }
 
   .course-slider__viewport {
