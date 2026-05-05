@@ -192,38 +192,45 @@
   display: none;
 }
 
-.course-card[data-course="math"] .course-card__flag {
-  background: #0b5b49;
-}
-
-.course-card[data-course="math"] .course-card__flag svg {
-  opacity: 0;
-}
-
-.course-card[data-course="math"] .course-card__flag::before {
-  content: "△  π=3.14   ABC\A □   1+1=2\A H₂O   (a+b)²";
+/* Math course visual: top image is drawn on the card itself because JS has no math flag node */
+.course-card[data-course="math"]::before {
+  content: "△   π=3.14\A\A     ABC   ?\A\A□     1+1=2\A\AH₂O   ∫x dx";
   white-space: pre;
   position: absolute;
-  inset: 18px;
-  color: rgba(255, 255, 255, 0.95);
-  font-size: 34px;
-  line-height: 1.45;
-  font-weight: 900;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 150px;
+  z-index: 0;
+  overflow: hidden;
+  padding: 26px 28px;
+  border-radius: 54px 54px 36px 36px;
+  background: radial-gradient(circle at 40% 40%, #14745d 0%, #0d5c49 52%, #084637 100%);
+  color: rgba(255, 255, 255, 0.96);
   font-family: "Comic Sans MS", "Trebuchet MS", Arial, sans-serif;
-  letter-spacing: 1px;
-  text-shadow: 0 0 1px rgba(255, 255, 255, 0.75);
-  transform: rotate(-3deg);
+  font-size: 31px;
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: 0.02em;
+  text-align: left;
+  text-shadow: 0 0 1px rgba(255, 255, 255, 0.8);
 }
 
-.course-card[data-course="math"] .course-card__flag::after {
-  content: "∫x dx   ?   V=s/t";
-  position: absolute;
-  right: 18px;
-  bottom: 24px;
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 24px;
-  font-weight: 800;
-  transform: rotate(4deg);
+.course-card[data-course="math"] .course-card__flag {
+  display: none;
+}
+
+/* Korean flag: visible top part ends before the dark text panel, so the full flag is not cut */
+.course-card[data-course="korean"] .course-card__flag {
+  inset: 0 0 150px !important;
+  background: #fff;
+  border-radius: 54px 54px 18px 18px;
+}
+
+.course-card[data-course="korean"] .course-card__flag svg {
+  width: 100%;
+  height: 100%;
+  opacity: 1;
 }
 
 .course-modal {
@@ -457,6 +464,17 @@
     border-radius: 34px 34px 24px 24px;
   }
 
+  .course-card[data-course="math"]::before,
+  .course-card[data-course="korean"] .course-card__flag {
+    bottom: 110px !important;
+    border-radius: 34px 34px 18px 18px;
+  }
+
+  .course-card[data-course="math"]::before {
+    padding: 18px;
+    font-size: 22px;
+  }
+
   .course-card__tag {
     top: 58px;
     min-width: 76px;
@@ -474,11 +492,6 @@
     min-height: 34px;
     margin: 0 12px 18px;
     font-size: 12px;
-  }
-
-  .course-card[data-course="math"] .course-card__flag::before {
-    inset: 14px;
-    font-size: 24px;
   }
 }
 
@@ -519,12 +532,24 @@
     scroll-snap-align: center;
   }
 
+  .course-card::after {
+    height: 140px;
+    border-radius: 0 0 42px 42px;
+  }
+
   .course-card__flag {
     border-radius: 42px 42px 28px 28px;
   }
 
-  .course-card::after {
-    border-radius: 0 0 42px 42px;
+  .course-card[data-course="math"]::before,
+  .course-card[data-course="korean"] .course-card__flag {
+    bottom: 140px !important;
+    border-radius: 42px 42px 22px 22px;
+  }
+
+  .course-card[data-course="math"]::before {
+    padding: 24px;
+    font-size: 28px;
   }
 
   .course-slider__btn {
