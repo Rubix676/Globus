@@ -365,10 +365,11 @@
 .course-card[data-course="korean"] .course-card__flag,
 .course-card[data-course="native"] .course-card__flag {
   background-color: #fff;
-  background-position: center;
+  background-image: url("../assets/uzbekistan.png");
   background-repeat: no-repeat;
+  background-position: center 34px;
+  background-size: 115% auto;
 }
-
 .course-card[data-course="korean"] .course-card__flag {
   background-size: 94% auto;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect width='300' height='200' fill='white'/%3E%3Cg transform='translate(150 100) rotate(33.7)'%3E%3Cpath d='M0-38a38 38 0 0 1 0 76a19 19 0 0 1 0-38a19 19 0 0 0 0-38' fill='%23CD2E3A'/%3E%3Cpath d='M0 38a38 38 0 0 1 0-76a19 19 0 0 1 0 38a19 19 0 0 0 0 38' fill='%230047A0'/%3E%3C/g%3E%3Cg fill='%23000'%3E%3Cg transform='translate(72 56) rotate(-56)'%3E%3Crect x='-26' y='-15' width='52' height='7'/%3E%3Crect x='-26' y='-3.5' width='52' height='7'/%3E%3Crect x='-26' y='8' width='52' height='7'/%3E%3C/g%3E%3Cg transform='translate(228 56) rotate(56)'%3E%3Crect x='-26' y='-15' width='21' height='7'/%3E%3Crect x='5' y='-15' width='21' height='7'/%3E%3Crect x='-26' y='-3.5' width='52' height='7'/%3E%3Crect x='-26' y='8' width='21' height='7'/%3E%3Crect x='5' y='8' width='21' height='7'/%3E%3C/g%3E%3Cg transform='translate(72 144) rotate(56)'%3E%3Crect x='-26' y='-15' width='52' height='7'/%3E%3Crect x='-26' y='-3.5' width='21' height='7'/%3E%3Crect x='5' y='-3.5' width='21' height='7'/%3E%3Crect x='-26' y='8' width='52' height='7'/%3E%3C/g%3E%3Cg transform='translate(228 144) rotate(-56)'%3E%3Crect x='-26' y='-15' width='21' height='7'/%3E%3Crect x='5' y='-15' width='21' height='7'/%3E%3Crect x='-26' y='-3.5' width='21' height='7'/%3E%3Crect x='5' y='-3.5' width='21' height='7'/%3E%3Crect x='-26' y='8' width='21' height='7'/%3E%3Crect x='5' y='8' width='21' height='7'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");

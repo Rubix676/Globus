@@ -118,6 +118,23 @@
 .teachers-slider__btn--next {
   right: -20px;
 }
+.course-card[data-course="native"] .course-card__flag {
+  background: linear-gradient(
+    to bottom,
+    #1eb6e7 0 35%,
+    #ce1126 35% 36.5%,
+    #ffffff 36.5% 62.5%,
+    #ce1126 62.5% 64%,
+    #1eb53a 64% 100%
+  ) !important;
+  background-size: 100% 100% !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+.course-card[data-course="native"] .course-card__flag svg {
+  opacity: 0 !important;
+}
 
 @media (max-width: 1024px) {
   .teachers-slider__track {
