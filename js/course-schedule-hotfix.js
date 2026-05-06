@@ -34,70 +34,33 @@
   const contactPhone = "+998941055885";
   const contactPhoneLabel = "+998 94 105 58 85";
   const contactEmail = "info@globus.uz";
+  const instagramUrl = "https://www.instagram.com/globus_talim/";
+  const telegramUrl = "https://t.me/GlobusEdu";
 
   let activeCourse = null;
   const lang = () => localStorage.getItem("siteLanguage") || document.getElementById("languageSwitcher")?.value || "uz";
   const scheduleTitle = () => ({ uz: "Dars vaqtlari", ru: "Время занятий", en: "Class times" }[lang()] || "Dars vaqtlari");
+
+  const icons = {
+    phone: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.56 0 1 .44 1 1V20c0 .56-.44 1-1 1C10.61 21 3 13.39 3 4c0-.56.44-1 1-1h3.5c.56 0 1 .44 1 1 0 1.24.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2Z"/></svg>`,
+    mail: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Z"/></svg>`,
+    instagram: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2Zm-.2 2A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6A3.6 3.6 0 0 0 16.4 4H7.6Zm8.9 2.1a1.3 1.3 0 1 1 0 2.6 1.3 1.3 0 0 1 0-2.6ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg>`,
+    telegram: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.7 4.3 18.5 19c-.2 1-.8 1.2-1.6.8l-4.8-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.4 12.8 1.7 11.3c-1-.3-1-1 .2-1.5l18.4-7.1c.9-.3 1.7.2 1.4 1.6Z"/></svg>`
+  };
 
   function ensureStyle() {
     if (document.getElementById("globus-schedule-hotfix-style")) return;
     const style = document.createElement("style");
     style.id = "globus-schedule-hotfix-style";
     style.textContent = `
-      .course-card[data-course="history"] .course-card__flag {
-        inset: 0 0 150px !important;
-        display: block !important;
-        overflow: hidden !important;
-        border-radius: 54px 54px 20px 20px !important;
-        background-color: #5c8791 !important;
-        background-image: url("assets/course-media/history.png") !important;
-        background-position: center !important;
-        background-size: cover !important;
-        background-repeat: no-repeat !important;
-      }
-      .course-card[data-course="history"] .course-card__flag svg { display: none !important; opacity: 0 !important; }
-
-      .header-contact-icons {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-      }
-      .header-contact-icon {
-        width: 42px;
-        height: 42px;
-        display: inline-grid;
-        place-items: center;
-        border-radius: 50%;
-        background: #111;
-        color: #fff;
-        text-decoration: none;
-        box-shadow: 0 10px 22px rgba(22, 13, 62, 0.16);
-        transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
-      }
-      .header-contact-icon:hover {
-        background: #4b2bbf;
-        transform: translateY(-2px);
-        box-shadow: 0 14px 28px rgba(75, 43, 191, .28);
-      }
-      .header-contact-icon svg {
-        width: 20px;
-        height: 20px;
-        fill: currentColor;
-      }
-      @media (min-width: 761px) and (max-width: 1180px) {
-        .course-card[data-course="history"] .course-card__flag { bottom: 110px !important; border-radius: 34px 34px 18px 18px !important; }
-      }
-      @media (max-width: 760px) {
-        .course-card[data-course="history"] .course-card__flag { bottom: 140px !important; border-radius: 42px 42px 22px 22px !important; }
-      }
-      @media (max-width: 576px) {
-        .header-contact-icons { gap: 6px; }
-        .header-contact-icon { width: 36px; height: 36px; }
-        .header-contact-icon svg { width: 18px; height: 18px; }
-      }
-      @media (max-width: 390px) {
-        .header-contact-icons .header-contact-icon[href^="mailto:"] { display: none; }
-      }
+      .course-card[data-course="history"] .course-card__flag{inset:0 0 150px!important;display:block!important;overflow:hidden!important;border-radius:54px 54px 20px 20px!important;background:#5c8791 url("assets/course-media/history.png") center/cover no-repeat!important}.course-card[data-course="history"] .course-card__flag svg{display:none!important;opacity:0!important}
+      .header-contact-icons{display:inline-flex;align-items:center;gap:8px}.header-contact-icon{width:42px;height:42px;display:inline-grid;place-items:center;border-radius:50%;background:#111;color:#fff;text-decoration:none;box-shadow:0 10px 22px rgba(22,13,62,.16);transition:transform .2s ease,background .2s ease,box-shadow .2s ease}.header-contact-icon:hover{background:#4b2bbf;transform:translateY(-2px);box-shadow:0 14px 28px rgba(75,43,191,.28)}.header-contact-icon svg{width:20px;height:20px;fill:currentColor}
+      .footer-contact-link{display:inline-flex!important;align-items:center;gap:10px;text-decoration:none;color:inherit}.footer-contact-icon{width:34px;height:34px;display:inline-grid;place-items:center;flex:0 0 34px;border-radius:50%;background:#2b1163;color:#fff}.footer-contact-icon svg{width:17px;height:17px;fill:currentColor}.footer-contact-link:hover{color:#4b2bbf}.footer-contact-link:hover .footer-contact-icon{background:#4b2bbf}
+      @media (min-width:761px) and (max-width:1180px){.course-card[data-course="history"] .course-card__flag{bottom:110px!important;border-radius:34px 34px 18px 18px!important}.header-contact-icon{width:40px;height:40px}}
+      @media (max-width:760px){.course-card[data-course="history"] .course-card__flag{bottom:140px!important;border-radius:42px 42px 22px 22px!important}}
+      @media (max-width:576px){.header-contact-icons{gap:6px}.header-contact-icon{width:36px;height:36px}.header-contact-icon svg{width:18px;height:18px}}
+      @media (max-width:460px){.header-contact-icons .header-contact-icon[href^="mailto:"]{display:none}}
+      @media (max-width:390px){.header-contact-icons .header-contact-icon[href*="instagram"],.header-contact-icons .header-contact-icon[href*="t.me"]{display:none}}
     `;
     document.head.appendChild(style);
   }
@@ -105,19 +68,31 @@
   function ensureHeaderContacts() {
     const actions = document.querySelector(".header__actions");
     if (!actions || actions.querySelector(".header-contact-icons")) return;
-
     const wrapper = document.createElement("div");
     wrapper.className = "header-contact-icons";
     wrapper.innerHTML = `
-      <a class="header-contact-icon" href="tel:${contactPhone}" aria-label="Call ${contactPhoneLabel}" title="${contactPhoneLabel}">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.56 0 1 .44 1 1V20c0 .56-.44 1-1 1C10.61 21 3 13.39 3 4c0-.56.44-1 1-1h3.5c.56 0 1 .44 1 1 0 1.24.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2Z"/></svg>
-      </a>
-      <a class="header-contact-icon" href="mailto:${contactEmail}" aria-label="Email ${contactEmail}" title="${contactEmail}">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Z"/></svg>
-      </a>
+      <a class="header-contact-icon" href="tel:${contactPhone}" aria-label="Call ${contactPhoneLabel}" title="${contactPhoneLabel}">${icons.phone}</a>
+      <a class="header-contact-icon" href="mailto:${contactEmail}" aria-label="Email ${contactEmail}" title="${contactEmail}">${icons.mail}</a>
+      <a class="header-contact-icon" href="${instagramUrl}" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">${icons.instagram}</a>
+      <a class="header-contact-icon" href="${telegramUrl}" target="_blank" rel="noopener noreferrer" aria-label="Telegram" title="Telegram">${icons.telegram}</a>
     `;
-
     actions.prepend(wrapper);
+  }
+
+  function ensureFooterContactIcons() {
+    const footerContacts = Array.from(document.querySelectorAll(".footer__col")).find((col) => col.querySelector('[data-i18n="footer.contactsTitle"]'));
+    if (!footerContacts || footerContacts.dataset.contactIconsReady === "true") return;
+    const items = footerContacts.querySelectorAll("p");
+    items.forEach((item) => {
+      const raw = item.textContent.trim();
+      if (raw.includes("+998")) {
+        item.innerHTML = `<a class="footer-contact-link" href="tel:${contactPhone}"><span class="footer-contact-icon">${icons.phone}</span><span>${raw}</span></a>`;
+      }
+      if (raw.includes("@")) {
+        item.innerHTML = `<a class="footer-contact-link" href="mailto:${contactEmail}"><span class="footer-contact-icon">${icons.mail}</span><span>${raw}</span></a>`;
+      }
+    });
+    footerContacts.dataset.contactIconsReady = "true";
   }
 
   function ensureHistoryCard() {
@@ -132,7 +107,7 @@
       track.appendChild(card);
     }
     const tr = courseCopy.history[lang()] || courseCopy.history.uz;
-    card.innerHTML = `<span class="course-card__flag"></span><h3 data-course-i18n="course.history.title">${tr.title}</h3><p data-course-i18n="course.history.short">${tr.short}</p><span class="course-card__more" data-course-i18n="course.more">${lang() === "ru" ? "Подробнее" : lang() === "en" ? "Learn more" : "Batafsil"}</span>`;
+    card.innerHTML = `<span class="course-card__flag"></span><h3 data-course-i18n="course.history.title">${tr.title}</h3><p data-course-i18n="course.history.short">${tr.short}</p><span class="course-card__more" data-course-i18n="course.more">${lang()==="ru"?"Подробнее":lang()==="en"?"Learn more":"Batafsil"}</span>`;
   }
 
   function ensureScheduleBox() {
@@ -145,8 +120,7 @@
       box.id = "courseScheduleBox";
       box.className = "course-modal__schedule";
       const note = panel.querySelector(".course-modal__note");
-      if (note) panel.insertBefore(box, note);
-      else panel.appendChild(box);
+      if (note) panel.insertBefore(box, note); else panel.appendChild(box);
     }
     return box;
   }
@@ -188,8 +162,7 @@
 
   function refreshActiveCourse() {
     if (!activeCourse) return;
-    if (activeCourse === "history") patchHistoryModal();
-    else setTeachers(activeCourse);
+    if (activeCourse === "history") patchHistoryModal(); else setTeachers(activeCourse);
   }
 
   function bind() {
@@ -197,17 +170,14 @@
       const card = event.target.closest("[data-course]");
       if (!card) return;
       activeCourse = card.dataset.course;
-      window.setTimeout(() => {
-        if (activeCourse === "history") patchHistoryModal();
-        else setTeachers(activeCourse);
-      }, 60);
+      window.setTimeout(() => activeCourse === "history" ? patchHistoryModal() : setTeachers(activeCourse), 60);
       window.setTimeout(refreshActiveCourse, 220);
     }, true);
 
     document.addEventListener("change", (event) => {
       if (event.target?.id === "courseTeacherSelect") renderSchedule();
       if (event.target?.id === "languageSwitcher") {
-        window.setTimeout(() => { ensureHistoryCard(); refreshActiveCourse(); }, 80);
+        window.setTimeout(() => { ensureHistoryCard(); ensureFooterContactIcons(); refreshActiveCourse(); }, 80);
         window.setTimeout(refreshActiveCourse, 260);
         window.setTimeout(refreshActiveCourse, 600);
       }
@@ -217,15 +187,15 @@
   function observeModal() {
     const target = document.getElementById("courseModal");
     if (!target || !window.MutationObserver) return;
-    const observer = new MutationObserver(() => {
+    new MutationObserver(() => {
       if (target.classList.contains("course-modal--open")) window.setTimeout(refreshActiveCourse, 40);
-    });
-    observer.observe(target, { attributes: true, childList: true, subtree: true });
+    }).observe(target, { attributes: true, childList: true, subtree: true });
   }
 
   function init() {
     ensureStyle();
     ensureHeaderContacts();
+    ensureFooterContactIcons();
     ensureHistoryCard();
     bind();
     observeModal();
