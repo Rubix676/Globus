@@ -1,16 +1,16 @@
 (() => {
-  const CACHE_VERSION = "v20260506-final";
+  const CACHE_VERSION = "v20260506-final2";
   const HISTORY_URL = `assets/course-media/history.png?${CACHE_VERSION}`;
-  const MATH_SVG = encodeURIComponent(`
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 240">
-      <rect width="280" height="240" fill="#0c614d"/>
+  const MATH_SVG = `
+    <svg viewBox="0 0 280 240" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Mathematics board">
+      <rect width="280" height="240" fill="#0c614d"></rect>
       <g fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M24 55 L108 18 L108 55 Z"/>
-        <path d="M55 171 L104 148 L153 173 L153 221 L104 236 L55 212 Z M104 148 V192 M55 171 L104 192 L153 173 M104 192 V236"/>
-        <path d="M210 28 v52 h48"/>
-        <path d="M224 70 v-20 M238 70 v-33 M252 70 v-48"/>
+        <path d="M24 55 L108 18 L108 55 Z"></path>
+        <path d="M55 171 L104 148 L153 173 L153 221 L104 236 L55 212 Z M104 148 V192 M55 171 L104 192 L153 173 M104 192 V236"></path>
+        <path d="M210 28 v52 h48"></path>
+        <path d="M224 70 v-20 M238 70 v-33 M252 70 v-48"></path>
       </g>
-      <g fill="#fff" font-family="Trebuchet MS,Arial,sans-serif" font-weight="700">
+      <g fill="#fff" font-family="Trebuchet MS, Arial, sans-serif" font-weight="700">
         <text x="118" y="54" font-size="28">π=3.14</text>
         <text x="74" y="120" font-size="52">ABC</text>
         <text x="205" y="122" font-size="42">?</text>
@@ -20,8 +20,7 @@
         <text x="187" y="228" font-size="24">∫x dx</text>
       </g>
     </svg>
-  `);
-  const MATH_URL = `data:image/svg+xml;charset=UTF-8,${MATH_SVG}`;
+  `;
 
   function ensureFinalStyle() {
     if (document.getElementById("final-course-modal-fix-style")) return;
@@ -29,7 +28,8 @@
     const style = document.createElement("style");
     style.id = "final-course-modal-fix-style";
     style.textContent = `
-      .course-card[data-course="math"]::before {
+      .course-card[data-course="math"]::before,
+      .course-card[data-course="history"]::before {
         content: none !important;
         display: none !important;
       }
@@ -51,8 +51,15 @@
       }
 
       .course-card[data-course="math"] .course-card__flag {
-        background-color: #0c614d !important;
-        background-image: url("${MATH_URL}") !important;
+        background: #0c614d !important;
+      }
+
+      .course-card[data-course="math"] .course-card__flag svg {
+        display: block !important;
+        width: 100% !important;
+        height: 100% !important;
+        opacity: 1 !important;
+        visibility: visible !important;
       }
 
       .course-card[data-course="history"] .course-card__flag {
@@ -60,7 +67,6 @@
         background-image: url("${HISTORY_URL}") !important;
       }
 
-      .course-card[data-course="math"] .course-card__flag *,
       .course-card[data-course="history"] .course-card__flag * {
         display: none !important;
       }
@@ -100,8 +106,8 @@
 
     if (mathCard) {
       const flag = ensureFlag(mathCard);
-      flag.innerHTML = "";
-      flag.style.cssText = `background-color:#0c614d!important;background-image:url("${MATH_URL}")!important;background-position:center!important;background-size:cover!important;background-repeat:no-repeat!important;`;
+      flag.removeAttribute("style");
+      flag.innerHTML = MATH_SVG;
     }
 
     if (historyCard) {
