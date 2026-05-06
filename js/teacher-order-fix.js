@@ -4,8 +4,8 @@
   const teacherCards = [
     {
       img: `${TEACHER_ASSET_PATH}/teacher2.png`,
-      alt: "Yusupov Nomudjon",
-      title: "Yusupov Nomudjon",
+      alt: "Yusupov Numonjon",
+      title: "Yusupov Numonjon",
       fallback: "1",
       textKey: "teachers.teacher1Text"
     },
@@ -62,7 +62,7 @@
 
   const courseTeacherMap = {
     english: [
-      { value: "teacher1", label: "Yusupov Nomudjon" },
+      { value: "teacher1", label: "Yusupov Numonjon" },
       { value: "teacher2", label: "O‘qituvchi 2" },
       { value: "teacher3", label: "O‘qituvchi 3" }
     ],

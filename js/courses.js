@@ -179,7 +179,7 @@ const courseKeys = {
 const courseTeachers = {
   english: [
     { value: "teacher1", translationKey: "modal.teacher1" },
-    { value: "teacher2", label: "Yusupov Nomudjon" },
+    { value: "teacher2", label: "Yusupov Numonjon" },
     { value: "teacher3", label: "Yakubov Azizillo" }
   ],
   russian: [{ value: "teacher8", label: "Avazbekova Sarvinoz" }],

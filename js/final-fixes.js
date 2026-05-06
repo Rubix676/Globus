@@ -48,7 +48,7 @@
   };
 
   const teacherData = [
-    { img: "assets/teacher2.png", alt: "Yusupov Nomudjon", title: "Yusupov Nomudjon", fallback: "1", textKey: "teachers.teacher1Text" },
+    { img: "assets/teacher2.png", alt: "Yusupov Numonjon", title: "Yusupov Numonjon", fallback: "1", textKey: "teachers.teacher1Text" },
     { img: "assets/teacher1.png", alt: "Teacher 2", title: "O‘qituvchi 2", fallback: "2", textKey: "teachers.teacher2Text" },
     { img: "assets/teacher3.png", alt: "Teacher 3", title: "O‘qituvchi 3", fallback: "3", textKey: "teachers.teacher3Text" },
     { img: "assets/teacher8.png", alt: "Avazbekova Sarvinoz", title: "Avazbekova Sarvinoz", fallback: "4", textKey: "teachers.teacher4Text" },
@@ -60,7 +60,7 @@
 
   const courseTeacherMap = {
     english: [
-      { value: "teacher1", label: "Yusupov Nomudjon" },
+      { value: "teacher1", label: "Yusupov Numonjon" },
       { value: "teacher2", label: "O‘qituvchi 2" },
       { value: "teacher3", label: "O‘qituvchi 3" }
     ],
