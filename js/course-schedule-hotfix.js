@@ -31,6 +31,10 @@
     }
   };
 
+  const contactPhone = "+998941055885";
+  const contactPhoneLabel = "+998 94 105 58 85";
+  const contactEmail = "info@globus.uz";
+
   let activeCourse = null;
   const lang = () => localStorage.getItem("siteLanguage") || document.getElementById("languageSwitcher")?.value || "uz";
   const scheduleTitle = () => ({ uz: "Dars vaqtlari", ru: "Время занятий", en: "Class times" }[lang()] || "Dars vaqtlari");
@@ -52,14 +56,68 @@
         background-repeat: no-repeat !important;
       }
       .course-card[data-course="history"] .course-card__flag svg { display: none !important; opacity: 0 !important; }
+
+      .header-contact-icons {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .header-contact-icon {
+        width: 42px;
+        height: 42px;
+        display: inline-grid;
+        place-items: center;
+        border-radius: 50%;
+        background: #111;
+        color: #fff;
+        text-decoration: none;
+        box-shadow: 0 10px 22px rgba(22, 13, 62, 0.16);
+        transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+      }
+      .header-contact-icon:hover {
+        background: #4b2bbf;
+        transform: translateY(-2px);
+        box-shadow: 0 14px 28px rgba(75, 43, 191, .28);
+      }
+      .header-contact-icon svg {
+        width: 20px;
+        height: 20px;
+        fill: currentColor;
+      }
       @media (min-width: 761px) and (max-width: 1180px) {
         .course-card[data-course="history"] .course-card__flag { bottom: 110px !important; border-radius: 34px 34px 18px 18px !important; }
       }
       @media (max-width: 760px) {
         .course-card[data-course="history"] .course-card__flag { bottom: 140px !important; border-radius: 42px 42px 22px 22px !important; }
       }
+      @media (max-width: 576px) {
+        .header-contact-icons { gap: 6px; }
+        .header-contact-icon { width: 36px; height: 36px; }
+        .header-contact-icon svg { width: 18px; height: 18px; }
+      }
+      @media (max-width: 390px) {
+        .header-contact-icons .header-contact-icon[href^="mailto:"] { display: none; }
+      }
     `;
     document.head.appendChild(style);
+  }
+
+  function ensureHeaderContacts() {
+    const actions = document.querySelector(".header__actions");
+    if (!actions || actions.querySelector(".header-contact-icons")) return;
+
+    const wrapper = document.createElement("div");
+    wrapper.className = "header-contact-icons";
+    wrapper.innerHTML = `
+      <a class="header-contact-icon" href="tel:${contactPhone}" aria-label="Call ${contactPhoneLabel}" title="${contactPhoneLabel}">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.56 0 1 .44 1 1V20c0 .56-.44 1-1 1C10.61 21 3 13.39 3 4c0-.56.44-1 1-1h3.5c.56 0 1 .44 1 1 0 1.24.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2Z"/></svg>
+      </a>
+      <a class="header-contact-icon" href="mailto:${contactEmail}" aria-label="Email ${contactEmail}" title="${contactEmail}">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Z"/></svg>
+      </a>
+    `;
+
+    actions.prepend(wrapper);
   }
 
   function ensureHistoryCard() {
@@ -167,6 +225,7 @@
 
   function init() {
     ensureStyle();
+    ensureHeaderContacts();
     ensureHistoryCard();
     bind();
     observeModal();
