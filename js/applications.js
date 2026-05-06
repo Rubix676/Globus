@@ -172,8 +172,50 @@
     document.head.appendChild(style);
   }
 
+  function injectCourseMediaLastStyles() {
+    if (document.getElementById("course-media-last-style")) return;
+
+    const style = document.createElement("style");
+    style.id = "course-media-last-style";
+    style.textContent = `
+      .course-card[data-course="math"]::before {
+        content: "" !important;
+        display: block !important;
+        position: absolute !important;
+        left: 0 !important;
+        right: 0 !important;
+        top: 0 !important;
+        bottom: 150px !important;
+        z-index: 0 !important;
+        overflow: hidden !important;
+        border-radius: 54px 54px 20px 20px !important;
+        background: #0c614d url("assets/course-media/math.png") center / cover no-repeat !important;
+      }
+
+      .course-card[data-course="math"] .course-card__flag {
+        display: none !important;
+      }
+
+      @media (min-width: 761px) and (max-width: 1180px) {
+        .course-card[data-course="math"]::before {
+          bottom: 110px !important;
+          border-radius: 34px 34px 18px 18px !important;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .course-card[data-course="math"]::before {
+          bottom: 140px !important;
+          border-radius: 42px 42px 22px 22px !important;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
   function init() {
     injectStatusStyles();
+    injectCourseMediaLastStyles();
     bindContactForm();
   }
 
