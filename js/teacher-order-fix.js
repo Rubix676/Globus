@@ -2,62 +2,14 @@
   const TEACHER_ASSET_PATH = "assets/teachers";
 
   const teacherCards = [
-    {
-      img: `${TEACHER_ASSET_PATH}/teacher2.png`,
-      alt: "Yusupov Numonjon",
-      title: "Yusupov Numonjon",
-      fallback: "1",
-      textKey: "teachers.teacher1Text"
-    },
-    {
-      img: `${TEACHER_ASSET_PATH}/teacher1.png`,
-      alt: "Teacher 2",
-      title: "O‘qituvchi 2",
-      fallback: "2",
-      textKey: "teachers.teacher2Text"
-    },
-    {
-      img: `${TEACHER_ASSET_PATH}/teacher3.png`,
-      alt: "Teacher 3",
-      title: "O‘qituvchi 3",
-      fallback: "3",
-      textKey: "teachers.teacher3Text"
-    },
-    {
-      img: `${TEACHER_ASSET_PATH}/teacher8.png`,
-      alt: "Avazbekova Sarvinoz",
-      title: "Avazbekova Sarvinoz",
-      fallback: "4",
-      textKey: "teachers.teacher4Text"
-    },
-    {
-      img: `${TEACHER_ASSET_PATH}/teacher4.png`,
-      alt: "Teacher 5",
-      title: "O‘qituvchi 5",
-      fallback: "5",
-      textKey: "teachers.teacher5Text"
-    },
-    {
-      img: `${TEACHER_ASSET_PATH}/teacher5.png`,
-      alt: "Teacher 6",
-      title: "O‘qituvchi 6",
-      fallback: "6",
-      textKey: "teachers.teacher6Text"
-    },
-    {
-      img: `${TEACHER_ASSET_PATH}/teacher6.png`,
-      alt: "Teacher 7",
-      title: "O‘qituvchi 7",
-      fallback: "7",
-      textKey: "teachers.teacher7Text"
-    },
-    {
-      img: `${TEACHER_ASSET_PATH}/teacher7.png`,
-      alt: "Teacher 8",
-      title: "O‘qituvchi 8",
-      fallback: "8",
-      textKey: "teachers.teacher8Text"
-    }
+    { img: `${TEACHER_ASSET_PATH}/teacher2.png`, alt: "Yusupov Numonjon", title: "Yusupov Numonjon", fallback: "1", textKey: "teachers.teacher1Text" },
+    { img: `${TEACHER_ASSET_PATH}/teacher1.png`, alt: "Teacher 2", title: "O‘qituvchi 2", fallback: "2", textKey: "teachers.teacher2Text" },
+    { img: `${TEACHER_ASSET_PATH}/teacher3.png`, alt: "Teacher 3", title: "O‘qituvchi 3", fallback: "3", textKey: "teachers.teacher3Text" },
+    { img: `${TEACHER_ASSET_PATH}/teacher8.png`, alt: "Avazbekova Sarvinoz", title: "Avazbekova Sarvinoz", fallback: "4", textKey: "teachers.teacher4Text" },
+    { img: `${TEACHER_ASSET_PATH}/teacher4.png`, alt: "Teacher 5", title: "O‘qituvchi 5", fallback: "5", textKey: "teachers.teacher5Text" },
+    { img: `${TEACHER_ASSET_PATH}/teacher5.png`, alt: "Teacher 6", title: "O‘qituvchi 6", fallback: "6", textKey: "teachers.teacher6Text" },
+    { img: `${TEACHER_ASSET_PATH}/teacher6.png`, alt: "Teacher 7", title: "O‘qituvchi 7", fallback: "7", textKey: "teachers.teacher7Text" },
+    { img: `${TEACHER_ASSET_PATH}/teacher7.png`, alt: "Teacher 8", title: "O‘qituvchi 8", fallback: "8", textKey: "teachers.teacher8Text" }
   ];
 
   const courseTeacherMap = {
@@ -111,6 +63,7 @@
       "courses.subtitle": "Основные направления: английский, IELTS/CEFR, русский, математика, немецкий, корейский и родной язык.",
       "courses.english": "Английский IELTS/CEFR",
       "courses.ielts": "Математика SAT",
+      "teachers.subtitle": "Короткая информация о каждом преподавателе и напутственные слова для учеников.",
       "teachers.teacher1Text": "Каждый урок приближает вас к результату на один шаг.",
       "teachers.teacher2Text": "Самое важное в изучении языка — регулярность и уверенность.",
       "teachers.teacher3Text": "Не бойтесь ошибок — они часть роста.",
@@ -127,6 +80,7 @@
       "courses.subtitle": "Main directions: English, IELTS/CEFR, Russian, mathematics, German, Korean and native language.",
       "courses.english": "English IELTS/CEFR",
       "courses.ielts": "Mathematics SAT",
+      "teachers.subtitle": "Short information about every teacher and encouraging words for students.",
       "teachers.teacher1Text": "Every lesson brings you one step closer to your result.",
       "teachers.teacher2Text": "The most important things in language learning are consistency and confidence.",
       "teachers.teacher3Text": "Do not be afraid of mistakes — they are part of growth.",
@@ -141,22 +95,44 @@
     }
   };
 
-  function currentLanguage() {
-    return localStorage.getItem("siteLanguage") || document.getElementById("languageSwitcher")?.value || "uz";
-  }
+  const visuals = {
+    math: `<svg viewBox="0 0 280 240" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Mathematics board"><rect width="280" height="240" fill="#0c614d"/><g fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M24 55 L108 18 L108 55 Z"/><path d="M55 171 L104 148 L153 173 L153 221 L104 236 L55 212 Z M104 148 V192 M55 171 L104 192 L153 173 M104 192 V236"/><path d="M210 28 v52 h48"/><path d="M224 70 v-20 M238 70 v-33 M252 70 v-48"/></g><g fill="#fff" font-family="Trebuchet MS, Arial, sans-serif" font-weight="700"><text x="118" y="54" font-size="28">π=3.14</text><text x="74" y="120" font-size="52">ABC</text><text x="205" y="122" font-size="42">?</text><text x="122" y="182" font-size="40">1+1=2</text><text x="18" y="214" font-size="26">H₂O</text><text x="100" y="226" font-size="23">(a+b)²</text><text x="187" y="228" font-size="24">∫x dx</text></g></svg>`,
+    korean: `<svg viewBox="0 0 300 200" preserveAspectRatio="xMidYMid meet" role="img" aria-label="South Korea flag"><rect width="300" height="200" fill="#fff"/><g transform="translate(150 100) rotate(33.69)"><path fill="#cd2e3a" d="M0-38a38 38 0 0 1 0 76a19 19 0 0 1 0-38a19 19 0 0 0 0-38"/><path fill="#0047a0" d="M0 38a38 38 0 0 1 0-76a19 19 0 0 1 0 38a19 19 0 0 0 0 38"/></g><g fill="#000"><g transform="translate(63 58) rotate(-56.31)"><rect x="-24" y="-16" width="48" height="8"/><rect x="-24" y="-4" width="48" height="8"/><rect x="-24" y="8" width="48" height="8"/></g><g transform="translate(236 58) rotate(56.31)"><rect x="-24" y="-16" width="18" height="8"/><rect x="6" y="-16" width="18" height="8"/><rect x="-24" y="-4" width="48" height="8"/><rect x="-24" y="8" width="18" height="8"/><rect x="6" y="8" width="18" height="8"/></g><g transform="translate(63 142) rotate(56.31)"><rect x="-24" y="-16" width="48" height="8"/><rect x="-24" y="-4" width="18" height="8"/><rect x="6" y="-4" width="18" height="8"/><rect x="-24" y="8" width="48" height="8"/></g><g transform="translate(236 142) rotate(-56.31)"><rect x="-24" y="-16" width="18" height="8"/><rect x="6" y="-16" width="18" height="8"/><rect x="-24" y="-4" width="18" height="8"/><rect x="6" y="-4" width="18" height="8"/><rect x="-24" y="8" width="18" height="8"/><rect x="6" y="8" width="18" height="8"/></g></g></svg>`,
+    native: `<svg viewBox="0 0 1200 600" preserveAspectRatio="none" role="img" aria-label="Uzbekistan flag"><rect width="1200" height="600" fill="#1eb53a"/><rect width="1200" height="200" fill="#1eb6e7"/><rect y="220" width="1200" height="160" fill="#fff"/><rect y="200" width="1200" height="20" fill="#ce1126"/><rect y="380" width="1200" height="20" fill="#ce1126"/><circle cx="145" cy="100" r="58" fill="#fff"/><circle cx="170" cy="100" r="58" fill="#1eb6e7"/><g fill="#fff"><circle cx="270" cy="55" r="10"/><circle cx="320" cy="55" r="10"/><circle cx="370" cy="55" r="10"/><circle cx="420" cy="55" r="10"/><circle cx="245" cy="95" r="10"/><circle cx="295" cy="95" r="10"/><circle cx="345" cy="95" r="10"/><circle cx="395" cy="95" r="10"/><circle cx="220" cy="135" r="10"/><circle cx="270" cy="135" r="10"/><circle cx="320" cy="135" r="10"/><circle cx="370" cy="135" r="10"/></g></svg>`
+  };
+
+  const currentLanguage = () => localStorage.getItem("siteLanguage") || document.getElementById("languageSwitcher")?.value || "uz";
 
   function injectUtilityCss() {
-    if (document.getElementById("globus-utility-fixes-style")) return;
-
+    if (document.getElementById("globus-final-fixes-style")) return;
     const style = document.createElement("style");
-    style.id = "globus-utility-fixes-style";
+    style.id = "globus-final-fixes-style";
     style.textContent = `
       html { scroll-behavior: smooth; }
       [id] { scroll-margin-top: 92px; }
+      .course-card[data-course="math"]::before { content: none !important; display: none !important; }
+      .course-card[data-course="math"] .course-card__flag,
+      .course-card[data-course="korean"] .course-card__flag,
+      .course-card[data-course="native"] .course-card__flag { inset: 0 0 150px !important; display: block !important; background: #fff !important; border-radius: 54px 54px 20px 20px !important; }
+      .course-card[data-course="math"] .course-card__flag { background: #0c614d !important; }
+      .course-card[data-course="math"] .course-card__flag svg,
+      .course-card[data-course="korean"] .course-card__flag svg,
+      .course-card[data-course="native"] .course-card__flag svg { display: block !important; width: 100% !important; height: 100% !important; opacity: 1 !important; }
+      .course-card[data-course="math"] .course-card__tag,
+      .course-card[data-course="korean"] .course-card__tag,
+      .course-card[data-course="native"] .course-card__tag { display: none !important; }
       .course-card h3, .course-card p { pointer-events: none; }
+      @media (min-width: 761px) and (max-width: 1180px) {
+        .course-card[data-course="math"] .course-card__flag,
+        .course-card[data-course="korean"] .course-card__flag,
+        .course-card[data-course="native"] .course-card__flag { bottom: 110px !important; border-radius: 34px 34px 18px 18px !important; }
+      }
       @media (max-width: 760px) {
         [id] { scroll-margin-top: 74px; }
         .course-slider__viewport { touch-action: pan-x pan-y; }
+        .course-card[data-course="math"] .course-card__flag,
+        .course-card[data-course="korean"] .course-card__flag,
+        .course-card[data-course="native"] .course-card__flag { bottom: 140px !important; border-radius: 42px 42px 22px 22px !important; }
       }
     `;
     document.head.appendChild(style);
@@ -164,20 +140,35 @@
 
   function applyTranslationPatch(language = currentLanguage()) {
     const dictionary = translationPatch[language] || translationPatch.uz;
-
     document.querySelectorAll("[data-i18n], [data-course-i18n]").forEach((element) => {
       const key = element.getAttribute("data-i18n") || element.getAttribute("data-course-i18n");
       if (dictionary[key]) element.textContent = dictionary[key];
     });
   }
 
+  function setFlag(courseName, svg) {
+    const card = document.querySelector(`[data-course="${courseName}"]`);
+    if (!card) return;
+    let flag = card.querySelector(".course-card__flag");
+    if (!flag) {
+      flag = document.createElement("span");
+      flag.className = "course-card__flag";
+      card.prepend(flag);
+    }
+    flag.innerHTML = svg;
+  }
+
+  function fixVisuals() {
+    setFlag("math", visuals.math);
+    setFlag("korean", visuals.korean);
+    setFlag("native", visuals.native);
+  }
+
   function renderSchedule(select = document.getElementById("courseTeacherSelect")) {
     const box = document.getElementById("courseScheduleBox");
     if (!box || !select) return;
-
     const schedule = scheduleMap[select.value] || ["14:00 - 15:30"];
     const title = box.querySelector("h4")?.textContent || "Dars vaqtlari";
-
     box.innerHTML = `<h4>${title}</h4><ul>${schedule.map((item) => `<li>${item}</li>`).join("")}</ul>`;
   }
 
@@ -185,7 +176,6 @@
     const select = document.getElementById("courseTeacherSelect");
     const teachers = courseTeacherMap[courseName];
     if (!select || !teachers) return;
-
     select.innerHTML = "";
     teachers.forEach((teacher) => {
       const option = document.createElement("option");
@@ -193,57 +183,36 @@
       option.textContent = teacher.label;
       select.appendChild(option);
     });
-
     renderSchedule(select);
   }
 
   function normalizeTeacherCards() {
     const track = document.getElementById("teachersTrack");
     if (!track) return;
-
     track.querySelectorAll(".teacher-card").forEach((card, index) => {
       const data = teacherCards[index];
       if (!data) return;
-
       const image = card.querySelector(".teacher-card__image");
       const fallback = card.querySelector(".teacher-card__fallback");
       const title = card.querySelector("h3");
       const text = card.querySelector("p");
-
-      if (image) {
-        image.src = data.img;
-        image.alt = data.alt;
-      }
-
+      if (image) { image.src = data.img; image.alt = data.alt; }
       if (fallback) fallback.textContent = data.fallback;
-
-      if (title) {
-        title.removeAttribute("data-i18n");
-        title.textContent = data.title;
-      }
-
+      if (title) { title.removeAttribute("data-i18n"); title.textContent = data.title; }
       if (text) text.setAttribute("data-i18n", data.textKey);
     });
   }
 
   function bindCourseCards() {
     document.querySelectorAll("[data-course]").forEach((card) => {
-      card.addEventListener("click", () => {
-        window.setTimeout(() => updateCourseSelect(card.dataset.course), 0);
-      });
+      card.addEventListener("click", () => window.setTimeout(() => updateCourseSelect(card.dataset.course), 0));
     });
-
-    document.getElementById("courseTeacherSelect")?.addEventListener("change", (event) => {
-      renderSchedule(event.target);
-    });
+    document.getElementById("courseTeacherSelect")?.addEventListener("change", (event) => renderSchedule(event.target));
   }
 
   function bindLanguagePatch() {
     document.getElementById("languageSwitcher")?.addEventListener("change", (event) => {
-      window.setTimeout(() => {
-        applyTranslationPatch(event.target.value);
-        renderSchedule();
-      }, 0);
+      window.setTimeout(() => { applyTranslationPatch(event.target.value); renderSchedule(); }, 0);
     });
   }
 
@@ -252,7 +221,6 @@
       link.addEventListener("click", (event) => {
         const target = document.querySelector(link.getAttribute("href"));
         if (!target) return;
-
         event.preventDefault();
         document.querySelector(".course-modal--open")?.classList.remove("course-modal--open");
         document.body.style.overflow = "";
@@ -266,15 +234,13 @@
   function init() {
     injectUtilityCss();
     normalizeTeacherCards();
+    fixVisuals();
     applyTranslationPatch();
     bindCourseCards();
     bindLanguagePatch();
     bindAnchorNavigation();
   }
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init);
-  } else {
-    init();
-  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
 })();
