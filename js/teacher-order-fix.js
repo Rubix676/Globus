@@ -95,12 +95,6 @@
     }
   };
 
-  const visuals = {
-    math: `<svg viewBox="0 0 280 240" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Mathematics board"><rect width="280" height="240" fill="#0c614d"/><g fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M24 55 L108 18 L108 55 Z"/><path d="M55 171 L104 148 L153 173 L153 221 L104 236 L55 212 Z M104 148 V192 M55 171 L104 192 L153 173 M104 192 V236"/><path d="M210 28 v52 h48"/><path d="M224 70 v-20 M238 70 v-33 M252 70 v-48"/></g><g fill="#fff" font-family="Trebuchet MS, Arial, sans-serif" font-weight="700"><text x="118" y="54" font-size="28">π=3.14</text><text x="74" y="120" font-size="52">ABC</text><text x="205" y="122" font-size="42">?</text><text x="122" y="182" font-size="40">1+1=2</text><text x="18" y="214" font-size="26">H₂O</text><text x="100" y="226" font-size="23">(a+b)²</text><text x="187" y="228" font-size="24">∫x dx</text></g></svg>`,
-    korean: `<svg viewBox="0 0 300 200" preserveAspectRatio="xMidYMid meet" role="img" aria-label="South Korea flag"><rect width="300" height="200" fill="#fff"/><g transform="translate(150 100) rotate(33.69)"><path fill="#cd2e3a" d="M0-38a38 38 0 0 1 0 76a19 19 0 0 1 0-38a19 19 0 0 0 0-38"/><path fill="#0047a0" d="M0 38a38 38 0 0 1 0-76a19 19 0 0 1 0 38a19 19 0 0 0 0 38"/></g><g fill="#000"><g transform="translate(63 58) rotate(-56.31)"><rect x="-24" y="-16" width="48" height="8"/><rect x="-24" y="-4" width="48" height="8"/><rect x="-24" y="8" width="48" height="8"/></g><g transform="translate(236 58) rotate(56.31)"><rect x="-24" y="-16" width="18" height="8"/><rect x="6" y="-16" width="18" height="8"/><rect x="-24" y="-4" width="48" height="8"/><rect x="-24" y="8" width="18" height="8"/><rect x="6" y="8" width="18" height="8"/></g><g transform="translate(63 142) rotate(56.31)"><rect x="-24" y="-16" width="48" height="8"/><rect x="-24" y="-4" width="18" height="8"/><rect x="6" y="-4" width="18" height="8"/><rect x="-24" y="8" width="48" height="8"/></g><g transform="translate(236 142) rotate(-56.31)"><rect x="-24" y="-16" width="18" height="8"/><rect x="6" y="-16" width="18" height="8"/><rect x="-24" y="-4" width="18" height="8"/><rect x="6" y="-4" width="18" height="8"/><rect x="-24" y="8" width="18" height="8"/><rect x="6" y="8" width="18" height="8"/></g></g></svg>`,
-    native: `<svg viewBox="0 0 1200 600" preserveAspectRatio="none" role="img" aria-label="Uzbekistan flag"><rect width="1200" height="600" fill="#1eb53a"/><rect width="1200" height="200" fill="#1eb6e7"/><rect y="220" width="1200" height="160" fill="#fff"/><rect y="200" width="1200" height="20" fill="#ce1126"/><rect y="380" width="1200" height="20" fill="#ce1126"/><circle cx="145" cy="100" r="58" fill="#fff"/><circle cx="170" cy="100" r="58" fill="#1eb6e7"/><g fill="#fff"><circle cx="270" cy="55" r="10"/><circle cx="320" cy="55" r="10"/><circle cx="370" cy="55" r="10"/><circle cx="420" cy="55" r="10"/><circle cx="245" cy="95" r="10"/><circle cx="295" cy="95" r="10"/><circle cx="345" cy="95" r="10"/><circle cx="395" cy="95" r="10"/><circle cx="220" cy="135" r="10"/><circle cx="270" cy="135" r="10"/><circle cx="320" cy="135" r="10"/><circle cx="370" cy="135" r="10"/></g></svg>`
-  };
-
   const currentLanguage = () => localStorage.getItem("siteLanguage") || document.getElementById("languageSwitcher")?.value || "uz";
 
   function injectUtilityCss() {
@@ -110,30 +104,19 @@
     style.textContent = `
       html { scroll-behavior: smooth; }
       [id] { scroll-margin-top: 92px; }
+      .course-card::after { height: 150px !important; }
+      .course-card__flag { inset: 0 0 150px !important; display: block !important; overflow: hidden !important; padding: 0 !important; border-radius: 54px 54px 20px 20px !important; background-color: #fff !important; background-position: center !important; background-repeat: no-repeat !important; background-size: cover !important; }
+      .course-card__flag svg { display: none !important; opacity: 0 !important; }
       .course-card[data-course="math"]::before { content: none !important; display: none !important; }
-      .course-card[data-course="math"] .course-card__flag,
-      .course-card[data-course="korean"] .course-card__flag,
-      .course-card[data-course="native"] .course-card__flag { inset: 0 0 150px !important; display: block !important; background: #fff !important; border-radius: 54px 54px 20px 20px !important; }
-      .course-card[data-course="math"] .course-card__flag { background: #0c614d !important; }
-      .course-card[data-course="math"] .course-card__flag svg,
-      .course-card[data-course="korean"] .course-card__flag svg,
-      .course-card[data-course="native"] .course-card__flag svg { display: block !important; width: 100% !important; height: 100% !important; opacity: 1 !important; }
-      .course-card[data-course="math"] .course-card__tag,
-      .course-card[data-course="korean"] .course-card__tag,
-      .course-card[data-course="native"] .course-card__tag { display: none !important; }
+      .course-card[data-course="english"] .course-card__flag { background-image: url("assets/course-media/english.png") !important; }
+      .course-card[data-course="russian"] .course-card__flag { background-image: url("assets/course-media/russian.png") !important; }
+      .course-card[data-course="math"] .course-card__flag { background-image: url("assets/course-media/math.png") !important; }
+      .course-card[data-course="german"] .course-card__flag { background-image: url("assets/course-media/german.png") !important; }
+      .course-card[data-course="korean"] .course-card__flag { background-image: url("assets/course-media/korean.png") !important; background-size: contain !important; }
+      .course-card[data-course="native"] .course-card__flag { background-image: url("assets/course-media/native.png") !important; }
       .course-card h3, .course-card p { pointer-events: none; }
-      @media (min-width: 761px) and (max-width: 1180px) {
-        .course-card[data-course="math"] .course-card__flag,
-        .course-card[data-course="korean"] .course-card__flag,
-        .course-card[data-course="native"] .course-card__flag { bottom: 110px !important; border-radius: 34px 34px 18px 18px !important; }
-      }
-      @media (max-width: 760px) {
-        [id] { scroll-margin-top: 74px; }
-        .course-slider__viewport { touch-action: pan-x pan-y; }
-        .course-card[data-course="math"] .course-card__flag,
-        .course-card[data-course="korean"] .course-card__flag,
-        .course-card[data-course="native"] .course-card__flag { bottom: 140px !important; border-radius: 42px 42px 22px 22px !important; }
-      }
+      @media (min-width: 761px) and (max-width: 1180px) { .course-card::after { height: 110px !important; } .course-card__flag { bottom: 110px !important; border-radius: 34px 34px 18px 18px !important; } }
+      @media (max-width: 760px) { [id] { scroll-margin-top: 74px; } .course-slider__viewport { touch-action: pan-x pan-y; } .course-card::after { height: 140px !important; } .course-card__flag { bottom: 140px !important; border-radius: 42px 42px 22px 22px !important; } }
     `;
     document.head.appendChild(style);
   }
@@ -144,24 +127,6 @@
       const key = element.getAttribute("data-i18n") || element.getAttribute("data-course-i18n");
       if (dictionary[key]) element.textContent = dictionary[key];
     });
-  }
-
-  function setFlag(courseName, svg) {
-    const card = document.querySelector(`[data-course="${courseName}"]`);
-    if (!card) return;
-    let flag = card.querySelector(".course-card__flag");
-    if (!flag) {
-      flag = document.createElement("span");
-      flag.className = "course-card__flag";
-      card.prepend(flag);
-    }
-    flag.innerHTML = svg;
-  }
-
-  function fixVisuals() {
-    setFlag("math", visuals.math);
-    setFlag("korean", visuals.korean);
-    setFlag("native", visuals.native);
   }
 
   function renderSchedule(select = document.getElementById("courseTeacherSelect")) {
@@ -234,7 +199,6 @@
   function init() {
     injectUtilityCss();
     normalizeTeacherCards();
-    fixVisuals();
     applyTranslationPatch();
     bindCourseCards();
     bindLanguagePatch();
