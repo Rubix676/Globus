@@ -46,7 +46,7 @@
         overflow: hidden !important;
         border-radius: 54px 54px 20px 20px !important;
         background-color: #5c8791 !important;
-        background-image: url("assets/course-media/history.svg") !important;
+        background-image: url("assets/course-media/history.png") !important;
         background-position: center !important;
         background-size: cover !important;
         background-repeat: no-repeat !important;
