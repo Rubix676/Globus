@@ -1,5 +1,5 @@
 (() => {
-  // Safe final helper: connects the site icon and patches review content only.
+  // Safe final helper: connects the site icon, patches reviews and adds selected direction to Supabase payloads.
   const ICON_PATH = "assets/icon.png";
 
   const reviewTranslations = {
@@ -78,9 +78,47 @@
     if (secondResult) secondResult.textContent = "IELTS 7.0";
   }
 
+  function getSelectedDirection() {
+    const directionSelect = document.querySelector('.contact-form [name="direction"]');
+    return String(directionSelect?.value || "").trim();
+  }
+
+  function patchSupabasePayload() {
+    if (window.__globusDirectionFetchPatched) return;
+    window.__globusDirectionFetchPatched = true;
+
+    const originalFetch = window.fetch.bind(window);
+
+    window.fetch = (input, init = {}) => {
+      const url = typeof input === "string" ? input : input?.url || "";
+      const isApplicationRequest = url.includes("/rest/v1/applications");
+
+      if (!isApplicationRequest || !init?.body) {
+        return originalFetch(input, init);
+      }
+
+      try {
+        const payload = JSON.parse(init.body);
+        const direction = getSelectedDirection();
+
+        if (direction) {
+          payload.direction = direction;
+        }
+
+        return originalFetch(input, {
+          ...init,
+          body: JSON.stringify(payload)
+        });
+      } catch (error) {
+        return originalFetch(input, init);
+      }
+    };
+  }
+
   function init() {
     connectSiteIcon();
     patchReviews();
+    patchSupabasePayload();
     document.getElementById("languageSwitcher")?.addEventListener("change", () => {
       window.setTimeout(patchReviews, 80);
       window.setTimeout(patchReviews, 300);
