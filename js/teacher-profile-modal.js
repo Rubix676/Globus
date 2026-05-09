@@ -1,6 +1,4 @@
 (() => {
-  const DIPLOMA_ASSET_PATH = "assets/diplomas";
-
   const profileText = {
     teacher1: {
       subject: { uz: "Ingliz tili / IELTS / CEFR", ru: "Английский язык / IELTS / CEFR", en: "English / IELTS / CEFR" },
@@ -20,9 +18,9 @@
   };
 
   const labels = {
-    uz: { close: "Yopish", other: "Boshqa o‘qituvchilar", diplomas: "Diplom va sertifikatlar", placeholder: "Diplom qo‘shiladi" },
-    ru: { close: "Закрыть", other: "Другие преподаватели", diplomas: "Дипломы и сертификаты", placeholder: "Диплом будет добавлен" },
-    en: { close: "Close", other: "Other teachers", diplomas: "Diplomas and certificates", placeholder: "Diploma will be added" }
+    uz: { close: "Yopish", other: "Boshqa o‘qituvchilar" },
+    ru: { close: "Закрыть", other: "Другие преподаватели" },
+    en: { close: "Close", other: "Other teachers" }
   };
 
   const lang = () => localStorage.getItem("siteLanguage") || document.getElementById("languageSwitcher")?.value || "uz";
@@ -45,8 +43,7 @@
       image,
       subject: text.subject || { uz: "O‘qituvchi", ru: "Преподаватель", en: "Teacher" },
       short: text.short || { uz: short, ru: short, en: short },
-      bullets: text.bullets || { uz: [short].filter(Boolean), ru: [short].filter(Boolean), en: [short].filter(Boolean) },
-      diplomas: [`${DIPLOMA_ASSET_PATH}/${id}-1.png`, `${DIPLOMA_ASSET_PATH}/${id}-2.png`, `${DIPLOMA_ASSET_PATH}/${id}-3.png`]
+      bullets: text.bullets || { uz: [short].filter(Boolean), ru: [short].filter(Boolean), en: [short].filter(Boolean) }
     };
   }
 
@@ -73,10 +70,6 @@
             <ul class="teacher-modal__bullets" id="teacherProfileBullets"></ul>
           </div>
         </div>
-        <div class="teacher-modal__bottom teacher-modal__diplomas-block">
-          <h4 id="teacherProfileDiplomasTitle"></h4>
-          <div class="teacher-modal__diplomas" id="teacherProfileDiplomas"></div>
-        </div>
         <div class="teacher-modal__bottom">
           <h4 id="teacherProfileOtherTitle"></h4>
           <div class="teacher-modal__thumbs" id="teacherProfileThumbs"></div>
@@ -93,25 +86,9 @@
     const style = document.createElement("style");
     style.id = "teacher-profile-modal-style";
     style.textContent = `
-      .teacher-card{position:relative;cursor:pointer}.teacher-card::after{content:"i";position:absolute;top:26px;right:26px;z-index:3;width:30px;height:30px;display:grid;place-items:center;border-radius:50%;background:rgba(0,0,0,.42);color:#fff;font-weight:900;font-size:16px;opacity:0;transform:translateY(-4px);transition:opacity .2s ease,transform .2s ease}.teacher-card:hover::after{opacity:1;transform:translateY(0)}.teacher-modal__dialog{padding-top:74px}.teacher-modal__photo-wrap{border-radius:0}.teacher-modal__photo{max-height:640px;object-position:center top}.teacher-modal__diplomas{display:grid;grid-template-columns:repeat(3,minmax(180px,1fr));gap:18px}.teacher-modal__diploma{position:relative;overflow:hidden;min-height:150px;border:1px solid rgba(255,255,255,.16);border-radius:18px;background:rgba(255,255,255,.07);color:rgba(255,255,255,.72)}.teacher-modal__diploma img{display:block;width:100%;height:190px;object-fit:cover}.teacher-modal__diploma-placeholder{min-height:190px;display:grid;place-items:center;padding:18px;text-align:center;font-weight:800;border:1px dashed rgba(255,255,255,.28);border-radius:18px}.teacher-modal__diploma img.is-missing{display:none}.teacher-modal__thumb{border-radius:14px;overflow:hidden}.teacher-modal__thumb img{border-radius:14px}body.teacher-modal-lock{overflow:hidden}@media(max-width:760px){.teacher-modal__dialog{width:min(100% - 22px,560px);padding-top:72px}.teacher-modal__diplomas{grid-template-columns:1fr}}
+      .teacher-card{position:relative;cursor:pointer}.teacher-card::after{content:"i";position:absolute;top:26px;right:26px;z-index:3;width:30px;height:30px;display:grid;place-items:center;border-radius:50%;background:rgba(0,0,0,.42);color:#fff;font-weight:900;font-size:16px;opacity:0;transform:translateY(-4px);transition:opacity .2s ease,transform .2s ease}.teacher-card:hover::after{opacity:1;transform:translateY(0)}.teacher-modal__dialog{padding-top:74px}.teacher-modal__photo-wrap{border-radius:0}.teacher-modal__photo{max-height:640px;object-position:center top}.teacher-modal__diplomas-block,.teacher-modal__diplomas,.teacher-modal__diploma,.teacher-modal__diploma-placeholder{display:none!important}.teacher-modal__thumb{border-radius:14px;overflow:hidden}.teacher-modal__thumb img{border-radius:14px}body.teacher-modal-lock{overflow:hidden}@media(max-width:760px){.teacher-modal__dialog{width:min(100% - 22px,560px);padding-top:72px}}
     `;
     document.head.appendChild(style);
-  }
-
-  function renderDiplomas(teacher) {
-    const label = labels[lang()] || labels.uz;
-    const container = document.getElementById("teacherProfileDiplomas");
-    if (!container) return;
-    container.innerHTML = "";
-    teacher.diplomas.forEach((src, index) => {
-      const card = document.createElement("div");
-      card.className = "teacher-modal__diploma";
-      card.innerHTML = `<img src="${src}" alt="${teacher.name} diploma ${index + 1}" /><div class="teacher-modal__diploma-placeholder">${label.placeholder} ${index + 1}</div>`;
-      const img = card.querySelector("img");
-      img.addEventListener("error", () => img.classList.add("is-missing"));
-      img.addEventListener("load", () => card.querySelector(".teacher-modal__diploma-placeholder")?.remove());
-      container.appendChild(card);
-    });
   }
 
   function renderThumbs(activeId) {
@@ -143,11 +120,9 @@
     document.getElementById("teacherProfileShort").textContent = localize(teacher.short);
     const bullets = localize(teacher.bullets);
     document.getElementById("teacherProfileBullets").innerHTML = Array.isArray(bullets) ? bullets.map((item) => `<li>${item}</li>`).join("") : "";
-    document.getElementById("teacherProfileDiplomasTitle").textContent = label.diplomas;
     document.getElementById("teacherProfileOtherTitle").textContent = label.other;
     modal.querySelector(".teacher-modal__close")?.setAttribute("aria-label", label.close);
 
-    renderDiplomas(teacher);
     renderThumbs(teacher.id);
     modal.classList.add("teacher-modal--open");
     modal.setAttribute("aria-hidden", "false");
