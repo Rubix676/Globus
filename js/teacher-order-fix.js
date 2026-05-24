@@ -3,10 +3,10 @@
   const DIPLOMA = "assets/diplomas";
 
   const teachers = [
-    { id: "teacher1", name: "Yusupov Numonjon", course: "english", subject: { uz: "Ingliz tili / IELTS / CEFR", ru: "Английский / IELTS / CEFR", en: "English / IELTS / CEFR" }, image: `${ASSET}/teacher2.png`, textKey: "teachers.teacher1Text", text: { uz: "IELTS va CEFR bo‘yicha natijaga yo‘naltirilgan darslar.", ru: "Подготовка к IELTS и CEFR с фокусом на результат.", en: "IELTS and CEFR preparation focused on results." }, schedule: ["пн, ср, пт 14:00 - 15:30", "вт, чт, сб 14:00 - 15:30", "пн, ср, пт 15:30 - 17:00", "вт, чт, сб 17:30 - 18:30"] },
+    { id: "teacher1", name: "Yusupov Numonjon", course: "english", subject: { uz: "Ingliz tili / IELTS / CEFR", ru: "Английский / IELTS / CEFR", en: "English / IELTS / CEFR" }, image: `${ASSET}/teacher2.png`, textKey: "teachers.teacher1Text", text: { uz: "IELTS va CEFR bo‘yicha natijaga yo‘naltirilgan darslar.", ru: "Подготовка к IELTS и CEFR с фокусом на результат.", en: "IELTS and CEFR preparation focused on results." }, schedule: ["пн, ср, пт 8:30 - 10:00", "пн, ср, пт 10:00 - 11:30", "пн, ср, пт 14:00 - 15:30", "вт, чт, сб 14:00 - 15:30", "пн, ср, пт 15:30 - 17:00", "вт, чт, сб 17:30 - 18:30"] },
     { id: "teacher2", name: "Muattarxon Shavkatmirzayeva", course: "english", subject: { uz: "Ingliz tili", ru: "Английский язык", en: "English" }, image: `${ASSET}/teacher1.png`, textKey: "teachers.teacher2Text", text: { uz: "Ingliz tilini bosqichma-bosqich va amaliy o‘rgatadi.", ru: "Пошагово и практично обучает английскому языку.", en: "Teaches English step by step through practice." }, schedule: ["пн, ср, пт 13:00 - 15:00", "пн, ср, пт 8:30 - 10:00"] },
     { id: "teacher3", name: "Mehribonu Nazirova", course: "english", subject: { uz: "Ingliz tili", ru: "Английский язык", en: "English" }, image: `${ASSET}/teacher3.png`, textKey: "teachers.teacher3Text", text: { uz: "Grammar va speaking bo‘yicha amaliy darslar olib boradi.", ru: "Проводит практические уроки по grammar и speaking.", en: "Runs practical grammar and speaking lessons." }, schedule: ["пн, ср, пт 14:00 - 15:30", "вт, чт, сб 15:30 - 17:00"] },
-    { id: "teacher4", name: "Avazbek Muhammadqosimov", course: "english", subject: { uz: "Ingliz tili", ru: "Английский язык", en: "English" }, image: `${ASSET}/teacher4.png`, textKey: "teachers.teacher4Text", text: { uz: "General English va imtihon tayyorgarligida tizimli yondashuv.", ru: "Системный подход к General English и подготовке к экзаменам.", en: "A structured approach to General English and exam preparation." }, schedule: ["пн, ср, пт 8:30 - 10:00", "пн, ср, пт 10:00 - 11:30", "пн, ср, пт 14:00 - 15:30", "пн, ср, пт 15:30 - 17:00", "вт, чт, сб 14:00 - 15:30"] },
+    { id: "teacher4", name: "Tez kunda", course: "math", subject: { uz: "Matematika", ru: "Математика", en: "Mathematics" }, image: `${ASSET}/teacher4.png`, textKey: "teachers.teacher4Text", text: { uz: "Yangi o'qituvchi tez orada qo'shiladi.", ru: "Новый преподаватель скоро присоединится.", en: "A new teacher is joining soon." }, schedule: [], comingSoon: true },
     { id: "teacher5", name: "Avazbekova Sarvinoz", course: "russian", subject: { uz: "Rus tili", ru: "Русский язык", en: "Russian" }, image: `${ASSET}/teacher8.png`, textKey: "teachers.teacher5Text", text: { uz: "Rus tili bo‘yicha aniq va tushunarli darslar.", ru: "Понятные и структурированные уроки русского языка.", en: "Clear and structured Russian lessons." }, schedule: ["пн, ср, пт 14:00 - 15:30", "вт, чт, сб 14:00 - 15:00"] },
     { id: "teacher6", name: "Asadbek Qobulov", course: "math", subject: { uz: "Matematika", ru: "Математика", en: "Mathematics" }, image: `${ASSET}/teacher5.png`, textKey: "teachers.teacher6Text", text: { uz: "Matematikani sodda va tizimli tarzda tushuntiradi.", ru: "Объясняет математику просто и системно.", en: "Explains mathematics clearly and systematically." }, schedule: ["вт, чт, сб 8:30 - 10:00", "пн, ср, пт 13:00 - 14:30", "пн, ср, пт 15:00 - 16:30", "вт, чт, сб 15:00 - 16:30"] },
     { id: "teacher7", name: "Abdulvohidova Oydinoy", course: "native", subject: { uz: "Ona tili", ru: "Родной язык", en: "Native language" }, image: `${ASSET}/teacher6.png`, textKey: "teachers.teacher7Text", text: { uz: "Ona tili bo‘yicha savodxonlik va test ko‘nikmalarini rivojlantiradi.", ru: "Развивает грамотность и навыки тестирования по родному языку.", en: "Develops literacy and test-taking skills." }, schedule: ["пн, ср, пт 10:30 - 12:00", "пн, ср, пт 14:30 - 16:00", "пн, ср, пт 16:00 - 17:30"] },
@@ -45,6 +45,18 @@
   }
 
   function teacherCardHtml(teacher, index) {
+    if (teacher.comingSoon) {
+      const soonLabel = { uz: "Tez kunda...", ru: "Скоро...", en: "Coming soon..." }[lang()] || "Tez kunda...";
+      return `
+        <article class="teacher-card teacher-card--coming-soon" data-teacher-id="${teacher.id}" aria-hidden="true">
+          <div class="teacher-card__photo teacher-card__photo--empty">
+            <span class="teacher-card__fallback">?</span>
+          </div>
+          <h3>${soonLabel}</h3>
+          <p>${text(teacher.text)}</p>
+        </article>
+      `;
+    }
     return `
       <article class="teacher-card" data-teacher-id="${teacher.id}" role="button" tabindex="0">
         <div class="teacher-card__photo">
@@ -88,6 +100,10 @@
     style.id = "teacher-schedule-2026-style";
     style.textContent = `
       .teacher-card__image[style*="display: none"] + .teacher-card__fallback { opacity: .55; }
+      .teacher-card--coming-soon { opacity: 0.38; cursor: default; pointer-events: none; filter: grayscale(1); }
+      .teacher-card--coming-soon .teacher-card__photo--empty { display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #ccc, #e8e8e8) !important; }
+      .teacher-card--coming-soon .teacher-card__fallback { opacity: 0.5 !important; font-size: 52px !important; display: block !important; }
+      .teacher-card--coming-soon::after { display: none !important; }
       .course-card[data-course="history"] .course-card__flag { inset: 0 0 150px !important; display: block !important; background:#8b5e34 !important; }
       .course-card[data-course="history"] .course-card__flag svg { display:block !important; width:100% !important; height:100% !important; opacity:1 !important; }
       .course-card[data-course="history"] .course-card__tag { display:none !important; }
