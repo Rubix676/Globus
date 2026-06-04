@@ -281,17 +281,60 @@
     </section>
 
     <section class="section" id="schedule">
+      <style id="globus-app-section-style">
+        #schedule .app-benefits{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:26px}
+        #schedule .app-benefits__col{padding:22px;border:1px solid var(--border);border-radius:20px;background:linear-gradient(135deg,#fff,#f5f1ff)}
+        #schedule .app-benefits__col h3{margin:0 0 14px;font-size:19px;color:var(--primary-dark)}
+        #schedule .app-benefits__col ul{margin:0;padding:0;list-style:none;display:grid;gap:12px}
+        #schedule .app-benefits__col li{position:relative;padding-left:28px;color:var(--muted);line-height:1.55}
+        #schedule .app-benefits__col li::before{content:"";position:absolute;left:0;top:5px;width:16px;height:16px;border-radius:50%;background:#efe8ff;box-shadow:inset 0 0 0 4px var(--primary)}
+        #schedule .app-card__stores{display:flex;flex-wrap:wrap;gap:14px}
+        #schedule .app-store-btn{display:inline-flex;align-items:center;gap:12px;min-height:58px;padding:0 22px;border-radius:16px;background:linear-gradient(135deg,#2a1162,#6b3df4);color:#fff;text-decoration:none}
+        #schedule .app-store-btn:hover{filter:brightness(1.07)}
+        #schedule .app-store-btn svg{width:26px;height:26px;fill:currentColor;flex:0 0 26px}
+        #schedule .app-store-btn span{display:flex;flex-direction:column;line-height:1.15;font-weight:900;font-size:17px}
+        #schedule .app-store-btn small{font-weight:600;font-size:11px;opacity:.82;text-transform:uppercase;letter-spacing:.5px}
+        @media (max-width:640px){#schedule .app-benefits{grid-template-columns:1fr}#schedule .app-store-btn{flex:1 1 100%}}
+      </style>
       <div class="container split">
         <div class="section__head section__head--left">
-          <span data-i18n="schedule.eyebrow">Dars jadvali</span>
-          <h2 data-i18n="schedule.title">Asosiy jadval va LC-UP Student</h2>
-          <p data-landing-i18n="schedule.text">Aktual jadval guruh, o‘qituvchi va yo‘nalishga qarab belgilanadi. Sinov darsi yoki maslahatdan keyin sizga mos vaqtni aytamiz.</p>
+          <span data-i18n="schedule.eyebrow">Ilova</span>
+          <h2 data-i18n="schedule.title">Globus Edu Student — markaz ilovasi</h2>
+          <p data-i18n="schedule.text">Globus Edu Student — o‘quvchilar va ota-onalar uchun mobil ilovamiz. Dars jadvali, davomat, baholar va markaz yangiliklari — barchasi telefoningizda, bitta joyda.</p>
+
+          <div class="app-benefits">
+            <div class="app-benefits__col">
+              <h3 data-i18n="schedule.studentsTitle">O‘quvchilar uchun</h3>
+              <ul>
+                <li data-i18n="schedule.students1">Shaxsiy jadval va darslar haqida eslatmalar</li>
+                <li data-i18n="schedule.students2">Uy vazifalari va dars materiallari bir joyda</li>
+                <li data-i18n="schedule.students3">Har bir yo‘nalish bo‘yicha baholar va natijalar</li>
+              </ul>
+            </div>
+            <div class="app-benefits__col">
+              <h3 data-i18n="schedule.parentsTitle">Ota-onalar uchun</h3>
+              <ul>
+                <li data-i18n="schedule.parents1">Farzandingiz davomati va o‘zlashtirishi real vaqtda</li>
+                <li data-i18n="schedule.parents2">To‘lov va markaz yangiliklari bo‘yicha bildirishnomalar</li>
+                <li data-i18n="schedule.parents3">O‘qituvchilar va ma’muriyat bilan to‘g‘ridan-to‘g‘ri aloqa</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
         <div class="app-card">
-          <strong>LC-UP Student</strong>
-          <p data-i18n="schedule.appText">O‘quvchi uchun shaxsiy jadval, dars ma’lumotlari va markaz yangiliklari.</p>
-          <a href="#contacts" data-i18n="schedule.appButton">Maslahat olish</a>
+          <strong>Globus Edu Student</strong>
+          <p data-i18n="schedule.appText">Ilovani yuklab oling va o‘quv jarayonidagi har bir yangilikdan xabardor bo‘ling.</p>
+          <div class="app-card__stores">
+            <a class="app-store-btn" href="#" data-store="googleplay" aria-label="Google Play">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 2.3v19.4c0 .5.5.8.9.5l16.5-9.7c.4-.2.4-.8 0-1L3.9 1.8C3.5 1.5 3 1.8 3 2.3z"/></svg>
+              <span><small data-i18n="schedule.storeBadge">Yuklab olish</small>Google Play</span>
+            </a>
+            <a class="app-store-btn" href="#" data-store="appstore" aria-label="App Store">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.37 1.43c0 1.14-.42 2.21-1.18 3.02-.78.83-2.05 1.47-3.13 1.38-.13-1.09.43-2.25 1.17-3.03.79-.84 2.16-1.46 3.14-1.37zM20.78 17.18c-.55 1.27-.82 1.84-1.53 2.96-.99 1.56-2.39 3.51-4.12 3.52-1.54.02-1.94-1-4.03-.99-2.09.01-2.53 1.01-4.07.99-1.73-.01-3.05-1.77-4.04-3.33-2.77-4.35-3.07-9.45-1.36-12.16 1.21-1.93 3.12-3.06 4.92-3.06 1.83 0 2.98 1 4.49 1 1.46 0 2.35-1 4.47-1 1.6 0 3.3.87 4.5 2.38-3.96 2.17-3.3 7.83.3 9.69z"/></svg>
+              <span><small data-i18n="schedule.storeBadge">Yuklab olish</small>App Store</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>

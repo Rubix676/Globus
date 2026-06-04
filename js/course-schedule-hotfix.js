@@ -1,22 +1,22 @@
 (() => {
   const schedules = {
-    teacher1: ["пн, ср, пт 14:00 - 15:30", "вт, чт, сб 14:00 - 15:30", "пн, ср, пт 15:30 - 17:00", "вт, чт, сб 17:30 - 18:30"],
+    teacher1: ["пн, ср, пт 14:00 - 15:30", "вт, чт, сб 14:00 - 15:30", "пн, ср, пт 15:30 - 17:00", "вт, чт, сб 17:30 - 18:30", "пн, ср, пт 8:30 - 10:00", "пн, ср, пт 10:00 - 11:30"],
     teacher2: ["пн, ср, пт 13:00 - 15:00", "пн, ср, пт 8:30 - 10:00"],
     teacher3: ["пн, ср, пт 14:00 - 15:30", "вт, чт, сб 15:30 - 17:00"],
-    teacher4: ["пн, ср, пт 8:30 - 10:00", "пн, ср, пт 10:00 - 11:30", "пн, ср, пт 14:00 - 15:30", "пн, ср, пт 15:30 - 17:00", "вт, чт, сб 14:00 - 15:30"],
     teacher5: ["пн, ср, пт 14:00 - 15:30", "вт, чт, сб 14:00 - 15:00"],
     teacher6: ["вт, чт, сб 8:30 - 10:00", "пн, ср, пт 13:00 - 14:30", "пн, ср, пт 15:00 - 16:30", "вт, чт, сб 15:00 - 16:30"],
     teacher7: ["пн, ср, пт 10:30 - 12:00", "пн, ср, пт 14:30 - 16:00", "пн, ср, пт 16:00 - 17:30"],
     teacher8: ["вт, чт, сб 14:00 - 15:30"],
     teacher9: ["пн, ср, пт 12:00 - 13:00"],
     teacher10: ["пн, ср, пт 11:30 - 13:00", "пн, ср, пт 14:30 - 16:00"],
-    teacher11: ["пн, ср, пт 14:00 - 15:30"]
+    teacher11: ["пн, ср, пт 14:00 - 15:30"],
+    teacher12: ["пн-сб 9:30 - 11:00", "пн-сб 11:00 - 12:30"]
   };
 
   const courseTeachers = {
-    english: [["teacher1", "Yusupov Numonjon"], ["teacher2", "Muattarxon Shavkatmirzayeva"], ["teacher3", "Mehribonu Nazirova"], ["teacher4", "Avazbek Muhammadqosimov"]],
+    english: [["teacher1", "Yusupov Numonjon"], ["teacher2", "Muattarxon Shavkatmirzayeva"], ["teacher3", "Mehribonu Nazirova"]],
     russian: [["teacher5", "Avazbekova Sarvinoz"]],
-    math: [["teacher6", "Asadbek Qobulov"]],
+    math: [["teacher6", "Asadbek Qobulov"], ["teacher12", "Sirojiddin Tojiddinov"]],
     native: [["teacher7", "Abdulvohidova Oydinoy"], ["teacher8", "Muhammadjon Sobirov"]],
     german: [["teacher9", "Mashura Mamasoliyeva"]],
     korean: [["teacher10", "Abdusamatova Moxchexraxon"]],
@@ -40,6 +40,16 @@
   let activeCourse = null;
   const lang = () => localStorage.getItem("siteLanguage") || document.getElementById("languageSwitcher")?.value || "uz";
   const scheduleTitle = () => ({ uz: "Dars vaqtlari", ru: "Время занятий", en: "Class times" }[lang()] || "Dars vaqtlari");
+
+  const dayMap = {
+    ru: { "пн": "пн", "вт": "вт", "ср": "ср", "чт": "чт", "пт": "пт", "сб": "сб", "вс": "вс" },
+    en: { "пн": "Mon", "вт": "Tue", "ср": "Wed", "чт": "Thu", "пт": "Fri", "сб": "Sat", "вс": "Sun" },
+    uz: { "пн": "Du", "вт": "Se", "ср": "Cho", "чт": "Pay", "пт": "Ju", "сб": "Sha", "вс": "Ya" }
+  };
+  function localizeDays(text) {
+    const map = dayMap[lang()] || dayMap.ru;
+    return text.replace(/пн|вт|ср|чт|пт|сб|вс/g, (token) => map[token] || token);
+  }
 
   const icons = {
     phone: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.56 0 1 .44 1 1V20c0 .56-.44 1-1 1C10.61 21 3 13.39 3 4c0-.56.44-1 1-1h3.5c.56 0 1 .44 1 1 0 1.24.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2Z"/></svg>`,
@@ -130,7 +140,7 @@
     const box = ensureScheduleBox();
     if (!select || !box) return;
     const times = schedules[select.value] || [];
-    box.innerHTML = `<h4>${scheduleTitle()}</h4><ul>${times.map((time) => `<li>${time}</li>`).join("")}</ul>`;
+    box.innerHTML = `<h4>${scheduleTitle()}</h4><ul>${times.map((time) => `<li>${localizeDays(time)}</li>`).join("")}</ul>`;
   }
 
   function setTeachers(course) {
