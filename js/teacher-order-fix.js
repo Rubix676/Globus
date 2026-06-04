@@ -1,12 +1,13 @@
+er fix · JS
 (() => {
   const ASSET = "assets/teachers";
   const DIPLOMA = "assets/diplomas";
-
+ 
   const teachers = [
     { id: "teacher1", name: "Yusupov Numonjon", course: "english", subject: { uz: "Ingliz tili / IELTS / CEFR", ru: "Английский / IELTS / CEFR", en: "English / IELTS / CEFR" }, image: `${ASSET}/teacher2.png`, textKey: "teachers.teacher1Text", text: { uz: "IELTS va CEFR bo‘yicha natijaga yo‘naltirilgan darslar.", ru: "Подготовка к IELTS и CEFR с фокусом на результат.", en: "IELTS and CEFR preparation focused on results." }, schedule: ["пн, ср, пт 8:30 - 10:00", "пн, ср, пт 10:00 - 11:30", "пн, ср, пт 14:00 - 15:30", "вт, чт, сб 14:00 - 15:30", "пн, ср, пт 15:30 - 17:00", "вт, чт, сб 17:30 - 18:30"] },
     { id: "teacher2", name: "Muattarxon Shavkatmirzayeva", course: "english", subject: { uz: "Ingliz tili", ru: "Английский язык", en: "English" }, image: `${ASSET}/teacher1.png`, textKey: "teachers.teacher2Text", text: { uz: "Ingliz tilini bosqichma-bosqich va amaliy o‘rgatadi.", ru: "Пошагово и практично обучает английскому языку.", en: "Teaches English step by step through practice." }, schedule: ["пн, ср, пт 13:00 - 15:00", "пн, ср, пт 8:30 - 10:00"] },
     { id: "teacher3", name: "Mehribonu Nazirova", course: "english", subject: { uz: "Ingliz tili", ru: "Английский язык", en: "English" }, image: `${ASSET}/teacher3.png`, textKey: "teachers.teacher3Text", text: { uz: "Grammar va speaking bo‘yicha amaliy darslar olib boradi.", ru: "Проводит практические уроки по grammar и speaking.", en: "Runs practical grammar and speaking lessons." }, schedule: ["пн, ср, пт 14:00 - 15:30", "вт, чт, сб 15:30 - 17:00"] },
-    { id: "teacher4", name: "Tez kunda", course: "math", subject: { uz: "Matematika", ru: "Математика", en: "Mathematics" }, image: `${ASSET}/teacher4.png`, textKey: "teachers.teacher4Text", text: { uz: "Yangi o'qituvchi tez orada qo'shiladi.", ru: "Новый преподаватель скоро присоединится.", en: "A new teacher is joining soon." }, schedule: [], comingSoon: true },
+    { id: "teacher4", name: "Sirojiddin Tojiddinov", course: "math", subject: { uz: "Matematika", ru: "Математика", en: "Mathematics" }, image: `${ASSET}/teacher4.png`, textKey: "teachers.teacher4Text", text: { uz: "Matematikani amaliy va tushunarli o‘rgatadi.", ru: "Объясняет математику практично и понятно.", en: "Teaches mathematics in a clear, practical way." }, schedule: ["пн-сб 9:30 - 11:00", "пн-сб 11:00 - 12:30"] },
     { id: "teacher5", name: "Avazbekova Sarvinoz", course: "russian", subject: { uz: "Rus tili", ru: "Русский язык", en: "Russian" }, image: `${ASSET}/teacher8.png`, textKey: "teachers.teacher5Text", text: { uz: "Rus tili bo‘yicha aniq va tushunarli darslar.", ru: "Понятные и структурированные уроки русского языка.", en: "Clear and structured Russian lessons." }, schedule: ["пн, ср, пт 14:00 - 15:30", "вт, чт, сб 14:00 - 15:00"] },
     { id: "teacher6", name: "Asadbek Qobulov", course: "math", subject: { uz: "Matematika", ru: "Математика", en: "Mathematics" }, image: `${ASSET}/teacher5.png`, textKey: "teachers.teacher6Text", text: { uz: "Matematikani sodda va tizimli tarzda tushuntiradi.", ru: "Объясняет математику просто и системно.", en: "Explains mathematics clearly and systematically." }, schedule: ["вт, чт, сб 8:30 - 10:00", "пн, ср, пт 13:00 - 14:30", "пн, ср, пт 15:00 - 16:30", "вт, чт, сб 15:00 - 16:30"] },
     { id: "teacher7", name: "Abdulvohidova Oydinoy", course: "native", subject: { uz: "Ona tili", ru: "Родной язык", en: "Native language" }, image: `${ASSET}/teacher6.png`, textKey: "teachers.teacher7Text", text: { uz: "Ona tili bo‘yicha savodxonlik va test ko‘nikmalarini rivojlantiradi.", ru: "Развивает грамотность и навыки тестирования по родному языку.", en: "Develops literacy and test-taking skills." }, schedule: ["пн, ср, пт 10:30 - 12:00", "пн, ср, пт 14:30 - 16:00", "пн, ср, пт 16:00 - 17:30"] },
@@ -15,7 +16,7 @@
     { id: "teacher10", name: "Abdusamatova Moxchexraxon", course: "korean", subject: { uz: "Koreys tili", ru: "Корейский язык", en: "Korean" }, image: `${ASSET}/teacher10.png`, textKey: "teachers.teacher10Text", text: { uz: "Koreys tilini bosqichma-bosqich va amaliy o‘rgatadi.", ru: "Обучает корейскому языку пошагово и практично.", en: "Teaches Korean step by step through practice." }, schedule: ["пн, ср, пт 11:30 - 13:00", "пн, ср, пт 14:30 - 16:00"] },
     { id: "teacher11", name: "Rasulberdiyev Abdulhoshim", course: "history", subject: { uz: "Tarix", ru: "История", en: "History" }, image: `${ASSET}/teacher11.png`, textKey: "teachers.teacher11Text", text: { uz: "Tarix bo‘yicha tizimli va tushunarli tayyorgarlik.", ru: "Системная и понятная подготовка по истории.", en: "Structured and clear history lessons." }, schedule: ["пн, ср, пт 14:00 - 15:30"] }
   ];
-
+ 
   const courseInfo = {
     english: { title: { uz: "Ingliz tili IELTS/CEFR", ru: "Английский IELTS/CEFR", en: "English IELTS/CEFR" }, short: { uz: "General English, IELTS va CEFR tayyorgarligi.", ru: "General English, подготовка к IELTS и CEFR.", en: "General English, IELTS and CEFR preparation." } },
     russian: { title: { uz: "Rus tili", ru: "Русский язык", en: "Russian language" }, short: { uz: "Grammatika, so‘zlashuv va imtihon tayyorgarligi.", ru: "Грамматика, разговорная практика и подготовка к экзаменам.", en: "Grammar, speaking and exam preparation." } },
@@ -25,25 +26,25 @@
     native: { title: { uz: "Ona tili", ru: "Родной язык", en: "Native language" }, short: { uz: "Davlat sertifikati uchun tayyorgarlik.", ru: "Подготовка к государственному сертификату.", en: "Preparation for the state certificate." } },
     history: { title: { uz: "Tarix", ru: "История", en: "History" }, short: { uz: "Tarix fanidan imtihonlarga tayyorgarlik.", ru: "Подготовка к экзаменам по истории.", en: "History exam preparation." } }
   };
-
+ 
   const courseTeachers = teachers.reduce((acc, teacher) => {
     acc[teacher.course] ||= [];
     acc[teacher.course].push({ value: teacher.id, label: teacher.name });
     return acc;
   }, {});
-
+ 
   const courseIcons = {
     history: `<svg viewBox="0 0 300 200" preserveAspectRatio="xMidYMid slice" role="img" aria-label="History"><rect width="300" height="200" fill="#8b5e34"/><path d="M45 42h130c24 0 40 16 40 40v76H82c-22 0-37-15-37-37V42Z" fill="#d8b680"/><path d="M82 42h135c20 0 36 16 36 36v80H118c-20 0-36-16-36-36V42Z" fill="#f2d7a5"/><path d="M113 72h96M113 99h91M113 126h68" stroke="#8b5e34" stroke-width="8" stroke-linecap="round"/><circle cx="57" cy="53" r="22" fill="#6b3df4"/><text x="51" y="63" font-family="Arial" font-size="27" font-weight="900" fill="#fff">H</text></svg>`
   };
-
+ 
   function lang() {
     return localStorage.getItem("siteLanguage") || document.getElementById("languageSwitcher")?.value || "uz";
   }
-
+ 
   function text(value) {
     return typeof value === "string" ? value : value?.[lang()] || value?.uz || value?.ru || value?.en || "";
   }
-
+ 
   function teacherCardHtml(teacher, index) {
     if (teacher.comingSoon) {
       const soonLabel = { uz: "Tez kunda...", ru: "Скоро...", en: "Coming soon..." }[lang()] || "Tez kunda...";
@@ -68,7 +69,7 @@
       </article>
     `;
   }
-
+ 
   function renderTeacherCards() {
     const track = document.getElementById("teachersTrack");
     if (!track) return;
@@ -77,7 +78,7 @@
       img.addEventListener("error", () => { img.style.display = "none"; });
     });
   }
-
+ 
   function ensureHistoryCourseCard() {
     const track = document.querySelector(".course-cards");
     if (!track || track.querySelector('[data-course="history"]')) return;
@@ -93,7 +94,7 @@
     `;
     track.appendChild(card);
   }
-
+ 
   function injectCss() {
     if (document.getElementById("teacher-schedule-2026-style")) return;
     const style = document.createElement("style");
@@ -115,7 +116,7 @@
     `;
     document.head.appendChild(style);
   }
-
+ 
   function applyTranslations() {
     const map = {
       uz: {
@@ -142,7 +143,7 @@
       if (map[key]) el.textContent = map[key];
     });
   }
-
+ 
   function ensureScheduleBox() {
     const panel = document.querySelector(".course-modal__panel");
     const select = document.getElementById("courseTeacherSelect");
@@ -156,7 +157,7 @@
     }
     return box;
   }
-
+ 
   function renderCourseSchedule() {
     const select = document.getElementById("courseTeacherSelect");
     const box = ensureScheduleBox();
@@ -165,14 +166,14 @@
     const title = { uz: "Dars vaqtlari", ru: "Время занятий", en: "Class times" }[lang()] || "Dars vaqtlari";
     box.innerHTML = `<h4>${title}</h4><ul>${teacher.schedule.map((item) => `<li>${item}</li>`).join("")}</ul>`;
   }
-
+ 
   function setCourseTeachers(courseName) {
     const select = document.getElementById("courseTeacherSelect");
     if (!select || !courseTeachers[courseName]) return;
     select.innerHTML = courseTeachers[courseName].map((teacher) => `<option value="${teacher.value}">${teacher.label}</option>`).join("");
     renderCourseSchedule();
   }
-
+ 
   function openPatchedCourse(courseName) {
     const modal = document.getElementById("courseModal");
     if (!modal) return;
@@ -188,7 +189,7 @@
     modal.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
   }
-
+ 
   function bindCourseCards() {
     document.querySelectorAll("[data-course]").forEach((card) => {
       card.addEventListener("click", () => window.setTimeout(() => {
@@ -199,7 +200,7 @@
     });
     document.getElementById("courseTeacherSelect")?.addEventListener("change", renderCourseSchedule);
   }
-
+ 
   function setupCourseSlider() {
     const track = document.querySelector(".course-cards");
     const slider = track?.closest(".course-slider");
@@ -226,7 +227,7 @@
     window.addEventListener("resize", update);
     update();
   }
-
+ 
   function init() {
     injectCss();
     ensureHistoryCourseCard();
@@ -236,9 +237,9 @@
     setupCourseSlider();
     document.getElementById("languageSwitcher")?.addEventListener("change", () => setTimeout(() => { renderTeacherCards(); ensureHistoryCourseCard(); applyTranslations(); }, 0));
   }
-
+ 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
   else init();
-
+ 
   window.GlobusTeachers = { teachers, courseTeachers };
 })();
