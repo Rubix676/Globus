@@ -1,8 +1,0 @@
-.course-card[data-course="native"] .course-card__flag {
-  background-position: top center !important;
-  background-size: 100% 100% !important;
-}
-
-.course-card[data-course="native"] .course-card__flag::before {
-  inset: 0 !important;
-}

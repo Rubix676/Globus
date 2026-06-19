@@ -1,4 +1,10 @@
+<<<<<<< Updated upstream
 User-agent: *
 Allow: /
 
+=======
+User-agent: *
+Allow: /
+
+>>>>>>> Stashed changes
 Sitemap: https://globusedu.uz/sitemap.xml
