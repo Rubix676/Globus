@@ -3,450 +3,238 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GLOBUS Language Learning Centre</title>
-
-  <link rel="stylesheet" href="css/header.css" />
-  <link rel="stylesheet" href="css/hero.css" />
-  <link rel="stylesheet" href="css/main.css" />
-  <link rel="stylesheet" href="css/courses.css" />
-  <link rel="stylesheet" href="css/teachers.css" />
-  <link rel="stylesheet" href="css/final-fixes.css" />
-  <link rel="stylesheet" href="css/course-media-fix.css" />
-  <link rel="stylesheet" href="css/landing-redesign.css" />
-  <!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-    (function(m,e,t,r,i,k,a){
-        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=109103174', 'ym');
-
-    ym(109103174, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/109103174" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
+  <title>GLOBUS Edu — zamonaviy o‘quv markazi | globusedu.uz</title>
+  <meta name="description" content="GLOBUS Edu — Pakhtaabaddagi zamonaviy o‘quv markazi. Ingliz tili, IELTS, rus tili, matematika, koreys, nemis, IT va ona tili. Sinov darsiga yoziling." />
+  <meta name="keywords" content="GLOBUS Edu, o‘quv markaz, IELTS, ingliz tili, rus tili, matematika, koreys tili, nemis tili, IT, Pakhtaabad" />
+  <link rel="canonical" href="https://globusedu.uz/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        colors: { brand: { 700:'#1D4ED8', 600:'#2563EB', 500:'#3B82F6', 50:'#EFF6FF' }, ink:'#0F172A' },
+        fontFamily: { sans: ['Inter','system-ui','sans-serif'] }
+      } }
+    };
+  </script>
+  <link rel="stylesheet" href="css/site.css" />
 </head>
-<body>
-  <header class="header">
-    <div class="header__container">
-      <a href="#home" class="logo">
-        <img src="assets/Globus-logo.png" alt="GLOBUS" class="logo__img" />
+<body class="bg-[#F8FAFC] text-ink">
+
+  <header id="nav" class="fixed top-0 inset-x-0 z-50">
+    <div class="max-w-7xl mx-auto px-5 lg:px-8 h-[72px] flex items-center justify-between">
+      <a href="#home" class="flex items-center gap-2">
+        <img src="assets/Globus-logo.png" alt="GLOBUS" class="h-8 w-auto" />
       </a>
-
-      <nav class="nav" id="nav">
-        <a href="#home" class="nav__link nav__link--active" data-i18n="nav.home">Bosh sahifa</a>
-        <a href="#about" class="nav__link" data-i18n="nav.about">Biz haqimizda</a>
-        <a href="#courses" class="nav__link" data-i18n="nav.courses">Kurslar</a>
-        <a href="#trial" class="nav__link" data-landing-i18n="nav.trial">Sinov darsi</a>
-        <a href="#teachers" class="nav__link" data-i18n="nav.teachers">O‘qituvchilar</a>
-        <a href="#contacts" class="nav__link" data-i18n="nav.contacts">Kontaktlar</a>
+      <nav class="hidden lg:flex items-center gap-8 text-[15px] font-medium text-slate-600">
+        <a href="#home" class="hover:text-brand-700 transition" data-i18n="nav.home">Bosh sahifa</a>
+        <a href="#courses" class="hover:text-brand-700 transition" data-i18n="nav.courses">Kurslar</a>
+        <a href="#teachers" class="hover:text-brand-700 transition" data-i18n="nav.teachers">O‘qituvchilar</a>
+        <a href="#reviews" class="hover:text-brand-700 transition" data-i18n="nav.reviews">Fikrlar</a>
+        <a href="#contact" class="hover:text-brand-700 transition" data-i18n="nav.contacts">Aloqa</a>
       </nav>
-
-      <div class="header__actions">
-        <select class="language-switcher" id="languageSwitcher" aria-label="Choose language">
-          <option value="uz">UZ</option>
-          <option value="ru">RU</option>
-          <option value="en">EN</option>
-        </select>
-
-        <a href="#contacts" class="cta-btn" data-landing-i18n="header.cta">Sinov darsiga yozilish</a>
+      <div class="flex items-center gap-3">
+        <div id="langSwitch" class="hidden sm:flex items-center gap-1"></div>
+        <a href="#contact" class="hidden sm:inline-flex items-center rounded-xl bg-brand-700 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-brand-700/25 hover:bg-brand-600 transition" data-i18n="header.cta">Sinov darsiga yozilish</a>
+        <button id="burger" class="lg:hidden grid place-items-center w-10 h-10 rounded-lg border border-slate-200 bg-white" aria-label="Menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F172A" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
       </div>
-
-      <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+    </div>
+    <div id="mobileNav" class="hidden-nav lg:hidden absolute top-[72px] inset-x-0 mx-3 rounded-2xl glass p-4 flex flex-col gap-1 text-slate-700">
+      <a href="#home" class="px-3 py-2.5 rounded-lg hover:bg-brand-50 font-medium" data-i18n="nav.home">Bosh sahifa</a>
+      <a href="#courses" class="px-3 py-2.5 rounded-lg hover:bg-brand-50 font-medium" data-i18n="nav.courses">Kurslar</a>
+      <a href="#teachers" class="px-3 py-2.5 rounded-lg hover:bg-brand-50 font-medium" data-i18n="nav.teachers">O‘qituvchilar</a>
+      <a href="#reviews" class="px-3 py-2.5 rounded-lg hover:bg-brand-50 font-medium" data-i18n="nav.reviews">Fikrlar</a>
+      <a href="#contact" class="px-3 py-2.5 rounded-lg hover:bg-brand-50 font-medium" data-i18n="nav.contacts">Aloqa</a>
+      <div id="langSwitchMobile" class="flex items-center gap-1 px-3 pt-2"></div>
     </div>
   </header>
 
-  <main>
-    <section class="hero" id="home">
-      <div class="hero__container">
-        <div class="hero__content">
-          <h1 class="hero__title" data-landing-i18n="hero.title">
-            GLOBUS — til va fan kurslari uchun ishonchli mahalliy o‘quv markazi
-          </h1>
-
-          <p class="hero__text" data-landing-i18n="hero.text">
-            Ingliz tili, IELTS/CEFR, rus tili, matematika, nemis, koreys va ona tili. Sinov darsida darajangizni aniqlaymiz va mos yo‘nalishni tavsiya qilamiz.
-          </p>
-
-          <div class="hero__buttons">
-            <a href="#trial" class="hero__btn hero__btn--primary" data-landing-i18n="hero.primaryBtn">Sinov darsiga yozilish</a>
-            <a href="#courses" class="hero__btn hero__btn--secondary" data-landing-i18n="hero.secondaryBtn">Yo‘nalishlarni ko‘rish</a>
-          </div>
-
-          <div class="hero__stats">
-            <div class="hero__stat">
-              <strong>6+</strong>
-              <span data-landing-i18n="hero.statExperience">yillik tajriba</span>
-            </div>
-
-            <div class="hero__stat">
-              <strong>500+</strong>
-              <span data-landing-i18n="hero.statStudents">o‘quvchi</span>
-            </div>
-
-            <div class="hero__stat">
-              <strong>7</strong>
-              <span data-landing-i18n="hero.statDirections">asosiy yo‘nalish</span>
-            </div>
-          </div>
+  <section id="home" class="relative overflow-hidden pt-[72px]">
+    <div class="absolute -top-40 -left-40 w-[520px] h-[520px] rounded-full bg-brand-500/15 blur-3xl"></div>
+    <div class="absolute top-20 right-0 w-[460px] h-[460px] rounded-full bg-brand-700/10 blur-3xl"></div>
+    <div class="max-w-7xl mx-auto px-5 lg:px-8 grid lg:grid-cols-2 gap-8 items-center min-h-[88vh]">
+      <div class="relative z-10 reveal in">
+        <span class="inline-flex items-center gap-2 rounded-full bg-brand-50 text-brand-700 px-4 py-1.5 text-sm font-semibold mb-6">
+          <span class="w-2 h-2 rounded-full bg-brand-500"></span><span data-i18n="hero.badge">Pakhtaabaddagi o‘quv markaz</span>
+        </span>
+        <h1 class="text-[40px] leading-[1.07] sm:text-6xl font-extrabold tracking-tight text-ink" data-i18n="hero.title">GLOBUS — zamonaviy o‘quv markazi</h1>
+        <p class="mt-6 text-lg text-slate-600 max-w-xl" data-i18n="hero.text">Ingliz tili, IELTS, matematika, rus tili, koreys tili va boshqa yo‘nalishlar. Sinov darsida darajangizni aniqlaymiz.</p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="#contact" class="inline-flex items-center rounded-xl bg-brand-700 px-6 py-3.5 font-semibold text-white shadow-lg shadow-brand-700/25 hover:bg-brand-600 transition" data-i18n="hero.primaryBtn">Sinov darsiga yozilish</a>
+          <a href="#courses" class="inline-flex items-center rounded-xl bg-white px-6 py-3.5 font-semibold text-ink border border-slate-200 hover:border-brand-500 hover:text-brand-700 transition" data-i18n="hero.secondaryBtn">Kurslarni ko‘rish</a>
         </div>
-
-        <div class="hero__visual">
-          <img src="assets/hero-bg.png" alt="" class="hero__visual-bg" />
-
-          <div class="hero__student-card">
-            <img src="assets/Student.png" alt="GLOBUS student" class="hero__student" />
-          </div>
+        <div class="mt-10 flex items-center gap-8">
+          <div><div class="text-3xl font-extrabold text-ink">1000+</div><div class="text-sm text-slate-500" data-i18n="hero.statStudents">o‘quvchi</div></div>
+          <div class="w-px h-10 bg-slate-200"></div>
+          <div><div class="text-3xl font-extrabold text-ink">6+</div><div class="text-sm text-slate-500" data-i18n="hero.statExperience">yillik tajriba</div></div>
+          <div class="w-px h-10 bg-slate-200"></div>
+          <div><div class="text-3xl font-extrabold text-ink">8</div><div class="text-sm text-slate-500" data-i18n="hero.statDirections">yo‘nalish</div></div>
         </div>
       </div>
-    </section>
-
-    <section class="trust-strip" aria-label="GLOBUS advantages">
-      <div class="container trust-strip__grid">
-        <div>
-          <strong data-landing-i18n="trust.localTitle">Mahalliy markaz</strong>
-          <span data-landing-i18n="trust.localText">Katta tarmoq emas, Pakhtaabaddagi real o‘quv markaz.</span>
+      <div class="hero-stage relative h-[420px] sm:h-[560px]">
+        <div class="globe-wrap"><canvas id="globeCanvas"></canvas></div>
+        <span class="lang-orb" style="left:2%;top:24%;">EN</span>
+        <span class="lang-orb" style="left:-2%;top:54%;animation-delay:-2s;">RU</span>
+        <span class="lang-orb" style="left:12%;top:8%;animation-delay:-4s;">DE</span>
+        <div class="float-card glass-card rounded-2xl px-4 py-3 shadow-xl" style="right:4%;top:14%;">
+          <div class="text-xs text-slate-500" data-i18n="hero.card1Label">O‘rtacha natija</div>
+          <div class="text-lg font-extrabold text-brand-700">IELTS 7.0</div>
         </div>
-        <div>
-          <strong data-landing-i18n="trust.trialTitle">Sinov darsi</strong>
-          <span data-landing-i18n="trust.trialText">Avval darajani ko‘ramiz, keyin mos kursni tavsiya qilamiz.</span>
+        <div class="float-card glass-card rounded-2xl px-4 py-3 shadow-xl" style="right:8%;bottom:10%;animation-delay:-3s;">
+          <div class="text-xs text-slate-500" data-i18n="hero.card2Label">Faol o‘quvchilar</div>
+          <div class="text-lg font-extrabold text-brand-700">500+</div>
         </div>
-        <div>
-          <strong data-landing-i18n="trust.flexTitle">Moslashuvchan yondashuv</strong>
-          <span data-landing-i18n="trust.flexText">Guruhlar, jadval va individual darslar maslahat orqali aniqlanadi.</span>
-        </div>
+        <img src="assets/Student.png" alt="GLOBUS student" class="hero-student" />
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="section section--light" id="courses">
-      <div class="container">
-        <div class="section__head">
-          <span data-course-i18n="courses.eyebrow">Mashhur kurslar</span>
-          <h2 data-course-i18n="courses.title">Yo‘nalishni tanlang</h2>
-          <p data-landing-i18n="courses.subtitle">Kursni aniq tanlash shart emas. Sinov darsida daraja, maqsad va qulay formatni aniqlab, sizga mos yo‘nalishni tavsiya qilamiz.</p>
-        </div>
+  <section class="max-w-7xl mx-auto px-5 lg:px-8 py-16">
+    <div id="statsGrid" class="grid grid-cols-2 lg:grid-cols-4 gap-5"></div>
+  </section>
 
-        <div class="course-cards">
-          <button class="course-card" type="button" data-course="english">
-            <span class="course-card__tag">EN</span>
-            <h3 data-course-i18n="course.english.title">Ingliz tili IELTS/CEFR</h3>
-            <p data-course-i18n="course.english.short">General English, IELTS va CEFR tayyorgarligi.</p>
-            <span class="course-card__more" data-course-i18n="course.more">Batafsil</span>
-          </button>
+  <section id="courses" class="max-w-7xl mx-auto px-5 lg:px-8 py-16">
+    <div class="max-w-2xl mb-12 reveal">
+      <span class="text-brand-600 font-semibold" data-i18n="courses.eyebrow">Yo‘nalishlar</span>
+      <h2 class="mt-2 text-4xl font-extrabold tracking-tight" data-i18n="courses.title">Premium kurslar</h2>
+      <p class="mt-4 text-slate-600" data-i18n="courses.subtitle">Har bir yo‘nalish — aniq maqsad va natijaga yo‘naltirilgan dastur. Sinov darsida sizga mosini tanlaymiz.</p>
+    </div>
+    <div id="coursesGrid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5"></div>
+  </section>
 
-          <button class="course-card" type="button" data-course="russian">
-            <span class="course-card__tag">RU</span>
-            <h3 data-course-i18n="course.russian.title">Rus tili</h3>
-            <p data-course-i18n="course.russian.short">Rus tili grammatikasi, so‘zlashuv va imtihon tayyorgarligi.</p>
-            <span class="course-card__more" data-course-i18n="course.more">Batafsil</span>
-          </button>
+  <section class="max-w-7xl mx-auto px-5 lg:px-8 py-16">
+    <div class="max-w-2xl mb-12 reveal">
+      <span class="text-brand-600 font-semibold" data-i18n="why.eyebrow">Nega GLOBUS?</span>
+      <h2 class="mt-2 text-4xl font-extrabold tracking-tight" data-i18n="why.title">Nima uchun bizni tanlashadi</h2>
+    </div>
+    <div id="bento" class="bento"></div>
+  </section>
 
-          <button class="course-card" type="button" data-course="math">
-            <span class="course-card__tag">SAT</span>
-            <h3 data-course-i18n="course.math.title">MATEMATIKA</h3>
-            <p data-course-i18n="course.math.short">SAT va mental arifmetika.</p>
-            <span class="course-card__more" data-course-i18n="course.more">Batafsil</span>
-          </button>
+  <section class="max-w-7xl mx-auto px-5 lg:px-8 py-16">
+    <div class="max-w-2xl mb-12 reveal">
+      <span class="text-brand-600 font-semibold" data-i18n="process.eyebrow">Jarayon</span>
+      <h2 class="mt-2 text-4xl font-extrabold tracking-tight" data-i18n="process.title">Qanday boshlanadi</h2>
+    </div>
+    <div id="timeline" class="timeline grid md:grid-cols-4 gap-8"></div>
+  </section>
 
-          <button class="course-card" type="button" data-course="german">
-            <span class="course-card__tag">DE</span>
-            <h3 data-course-i18n="course.german.title">Nemis tili</h3>
-            <p data-course-i18n="course.german.short">Imtihonlarga bosqichma-bosqich tayyorgarlik.</p>
-            <span class="course-card__more" data-course-i18n="course.more">Batafsil</span>
-          </button>
+  <section id="teachers" class="max-w-7xl mx-auto px-5 lg:px-8 py-16">
+    <div class="max-w-2xl mb-12 reveal">
+      <span class="text-brand-600 font-semibold" data-i18n="teachers.eyebrow">Jamoa</span>
+      <h2 class="mt-2 text-4xl font-extrabold tracking-tight" data-i18n="teachers.title">Bizning o‘qituvchilar</h2>
+      <p class="mt-4 text-slate-600" data-i18n="teachers.subtitle">Tajribali, natijaga yo‘naltirilgan jamoa. Har bir o‘qituvchi o‘z yo‘nalishida kuchli.</p>
+    </div>
+    <div id="teacherFeatured" class="mb-6"></div>
+    <div id="teachersGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5"></div>
+  </section>
 
-          <button class="course-card" type="button" data-course="korean">
-            <span class="course-card__tag">KR</span>
-            <h3 data-course-i18n="course.korean.title">Koreys tili</h3>
-            <p data-course-i18n="course.korean.short">TOPIK va koreys tili imtihonlariga tayyorgarlik.</p>
-            <span class="course-card__more" data-course-i18n="course.more">Batafsil</span>
-          </button>
+  <section id="reviews" class="max-w-7xl mx-auto px-5 lg:px-8 py-16">
+    <div class="max-w-2xl mb-12 reveal">
+      <span class="text-brand-600 font-semibold" data-i18n="reviews.eyebrow">Fikrlar</span>
+      <h2 class="mt-2 text-4xl font-extrabold tracking-tight" data-i18n="reviews.title">O‘quvchilar nima deydi</h2>
+    </div>
+    <div id="reviewsMasonry" class="masonry"></div>
+  </section>
 
-          <button class="course-card" type="button" data-course="native">
-            <span class="course-card__tag">UZ</span>
-            <h3 data-course-i18n="course.native.title">Ona tili</h3>
-            <p data-course-i18n="course.native.short">Davlat sertifikati uchun tayyorgarlik.</p>
-            <span class="course-card__more" data-course-i18n="course.more">Batafsil</span>
-          </button>
-        </div>
+  <section class="max-w-3xl mx-auto px-5 lg:px-8 py-16">
+    <div class="mb-10 reveal text-center">
+      <span class="text-brand-600 font-semibold" data-i18n="faq.eyebrow">Savol-javob</span>
+      <h2 class="mt-2 text-4xl font-extrabold tracking-tight" data-i18n="faq.title">Tez-tez beriladigan savollar</h2>
+    </div>
+    <div id="faqList" class="flex flex-col gap-3"></div>
+  </section>
 
-        <div class="individual-note">
-          <h3 data-landing-i18n="individual.title">Individual darslar</h3>
-          <p data-landing-i18n="individual.text">Katta yoshdagi o‘quvchilar yoki maxsus maqsadlar uchun individual darslar alohida muhokama qilinadi. Jadval, o‘qituvchi va format telefon orqali yoki yozilishdan keyin kelishiladi.</p>
-          <a href="#contacts" data-landing-i18n="individual.button">Maslahat olish</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section trial-section" id="trial">
-      <div class="container trial-grid">
-        <div class="section__head section__head--left">
-          <span data-landing-i18n="trial.eyebrow">Sinov darsi</span>
-          <h2 data-landing-i18n="trial.title">Qaysi kurs kerakligini bilmasangiz, sinov darsidan boshlang</h2>
-          <p data-landing-i18n="trial.text">Biz avval o‘quvchining hozirgi darajasi, maqsadi va qulay vaqtini tushunamiz. Shundan keyin mos guruh, yo‘nalish yoki individual formatni tavsiya qilamiz.</p>
-          <a href="#contacts" class="trial-section__button" data-landing-i18n="trial.button">Sinov darsiga yozilish</a>
-        </div>
-
-        <div class="trial-steps">
-          <article>
-            <b>1</b>
-            <h3 data-landing-i18n="trial.step1Title">Ariza qoldirasiz</h3>
-            <p data-landing-i18n="trial.step1Text">Ism, telefon va qiziqayotgan yo‘nalishni yuborasiz.</p>
-          </article>
-          <article>
-            <b>2</b>
-            <h3 data-landing-i18n="trial.step2Title">Maqsadni aniqlaymiz</h3>
-            <p data-landing-i18n="trial.step2Text">Imtihon, maktab, speaking, sertifikat yoki umumiy o‘rganish maqsadini tushunamiz.</p>
-          </article>
-          <article>
-            <b>3</b>
-            <h3 data-landing-i18n="trial.step3Title">Darajani tekshiramiz</h3>
-            <p data-landing-i18n="trial.step3Text">Sinov darsi orqali boshlang‘ich daraja va kuchli/kuchsiz tomonlar ko‘rinadi.</p>
-          </article>
-          <article>
-            <b>4</b>
-            <h3 data-landing-i18n="trial.step4Title">Mos formatni tavsiya qilamiz</h3>
-            <p data-landing-i18n="trial.step4Text">Guruh, jadval yoki individual darslar bo‘yicha aniq taklif beramiz.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--light" id="about">
-      <div class="container split about-redesign">
-        <div class="section__head section__head--left">
-          <span data-i18n="about.eyebrow">Nima uchun GLOBUS?</span>
-          <h2 data-landing-i18n="about.title">6 yillik tajriba va oddiy, tushunarli yondashuv</h2>
-          <p data-landing-i18n="about.subtitle">GLOBUS — bu mahalliy o‘quv markaz. Biz o‘quvchini “tayyor kursga” majburlamaymiz: avval vaziyatni tushunamiz, keyin mos yo‘lni taklif qilamiz.</p>
-        </div>
-
-        <div class="cards cards--two">
-          <a href="#teachers" class="card feature-link">
-            <h3 data-i18n="about.teachersTitle">Tajribali o‘qituvchilar</h3>
-            <p data-landing-i18n="about.teachersText">Darslar sodda, amaliy va o‘quvchi darajasiga mos tushuntiriladi.</p>
-            <span data-i18n="common.more">Batafsil</span>
-          </a>
-
-          <a href="#trial" class="card feature-link">
-            <h3 data-landing-i18n="about.trialTitle">Kursni tanlashda yordam</h3>
-            <p data-landing-i18n="about.trialText">Sinov darsi orqali daraja va maqsadni aniqlab, mos yo‘nalishni tavsiya qilamiz.</p>
-            <span data-i18n="common.more">Batafsil</span>
-          </a>
-
-          <a href="#schedule" class="card feature-link">
-            <h3 data-i18n="about.scheduleTitle">Qulay jadval</h3>
-            <p data-landing-i18n="about.scheduleText">Jadval, guruh va individual formatlar maslahatdan keyin aniqlashtiriladi.</p>
-            <span data-i18n="common.more">Batafsil</span>
-          </a>
-
-          <a href="#contacts" class="card feature-link">
-            <h3 data-landing-i18n="about.localTitle">Yaqin va ishonchli</h3>
-            <p data-landing-i18n="about.localText">Markazga kelib, joyni ko‘rish, savol berish va o‘qituvchi bilan maslahatlashish mumkin.</p>
-            <span data-i18n="common.more">Batafsil</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--light teachers-section" id="teachers">
-      <div class="container">
-        <div class="section__head teachers-section__head">
-          <span data-i18n="teachers.eyebrow">O‘qituvchilar</span>
-          <h2 data-i18n="teachers.title">Bizning o‘qituvchilar</h2>
-          <p data-landing-i18n="teachers.subtitle">O‘quvchi uchun o‘qituvchi muhim. Shu sababli kurs tanlashda nafaqat yo‘nalish, balki mos o‘qituvchi va format ham hisobga olinadi.</p>
-        </div>
-
-        <div class="teachers-slider" aria-label="Teachers slider">
-          <button class="teachers-slider__btn teachers-slider__btn--prev" type="button" aria-label="Previous teacher" data-teacher-prev>‹</button>
-
-          <div class="teachers-slider__track" id="teachersTrack">
-            <article class="teacher-card"><div class="teacher-card__photo"><img src="assets/teacher1.png" alt="Teacher 1" class="teacher-card__image" /><span class="teacher-card__fallback">1</span></div><h3 data-i18n="teachers.teacher1Name">O‘qituvchi 1</h3><p data-i18n="teachers.teacher1Text">Til o‘rganishda eng muhimi — doimiylik va ishonch.</p></article>
-            <article class="teacher-card"><div class="teacher-card__photo"><img src="assets/teacher2.png" alt="Yusupov Numonjon" class="teacher-card__image" /><span class="teacher-card__fallback">2</span></div><h3>Yusupov Numonjon</h3><p data-i18n="teachers.teacher2Text">Har bir dars sizni natijaga bir qadam yaqinlashtiradi.</p></article>
-            <article class="teacher-card"><div class="teacher-card__photo"><img src="assets/teacher3.png" alt="Yakubov Azizillo" class="teacher-card__image" /><span class="teacher-card__fallback">3</span></div><h3>Yakubov Azizillo</h3><p data-i18n="teachers.teacher3Text">Xatolardan qo‘rqmang — ular o‘sishning bir qismi.</p></article>
-            <article class="teacher-card"><div class="teacher-card__photo"><img src="assets/teacher4.png" alt="Teacher 4" class="teacher-card__image" /><span class="teacher-card__fallback">4</span></div><h3 data-i18n="teachers.teacher4Name">O‘qituvchi 4</h3><p data-i18n="teachers.teacher4Text">Bu yerga o‘qituvchining qisqa so‘zi yoziladi.</p></article>
-            <article class="teacher-card"><div class="teacher-card__photo"><img src="assets/teacher5.png" alt="Teacher 5" class="teacher-card__image" /><span class="teacher-card__fallback">5</span></div><h3 data-i18n="teachers.teacher5Name">O‘qituvchi 5</h3><p data-i18n="teachers.teacher5Text">Bu yerga o‘qituvchining qisqa so‘zi yoziladi.</p></article>
-            <article class="teacher-card"><div class="teacher-card__photo"><img src="assets/teacher6.png" alt="Teacher 6" class="teacher-card__image" /><span class="teacher-card__fallback">6</span></div><h3 data-i18n="teachers.teacher6Name">O‘qituvchi 6</h3><p data-i18n="teachers.teacher6Text">Bu yerga o‘qituvchining qisqa so‘zi yoziladi.</p></article>
-            <article class="teacher-card"><div class="teacher-card__photo"><img src="assets/teacher7.png" alt="Teacher 7" class="teacher-card__image" /><span class="teacher-card__fallback">7</span></div><h3 data-i18n="teachers.teacher7Name">O‘qituvchi 7</h3><p data-i18n="teachers.teacher7Text">Bu yerga o‘qituvchining qisqa so‘zi yoziladi.</p></article>
-            <article class="teacher-card"><div class="teacher-card__photo"><img src="assets/teacher8.png" alt="Avazbekova Sarvinoz" class="teacher-card__image" /><span class="teacher-card__fallback">8</span></div><h3>Avazbekova Sarvinoz</h3><p data-i18n="teachers.teacher8Text">Rus tili bo‘yicha aniq va tushunarli darslar.</p></article>
-          </div>
-
-          <button class="teachers-slider__btn teachers-slider__btn--next" type="button" aria-label="Next teacher" data-teacher-next>›</button>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="schedule">
-      <style id="globus-app-section-style">
-        #schedule .app-benefits{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:26px}
-        #schedule .app-benefits__col{padding:22px;border:1px solid var(--border);border-radius:20px;background:linear-gradient(135deg,#fff,#f5f1ff)}
-        #schedule .app-benefits__col h3{margin:0 0 14px;font-size:19px;color:var(--primary-dark)}
-        #schedule .app-benefits__col ul{margin:0;padding:0;list-style:none;display:grid;gap:12px}
-        #schedule .app-benefits__col li{position:relative;padding-left:28px;color:var(--muted);line-height:1.55}
-        #schedule .app-benefits__col li::before{content:"";position:absolute;left:0;top:5px;width:16px;height:16px;border-radius:50%;background:#efe8ff;box-shadow:inset 0 0 0 4px var(--primary)}
-        #schedule .app-card__stores{display:flex;flex-wrap:wrap;gap:14px}
-        #schedule .app-store-btn{display:inline-flex;align-items:center;gap:12px;min-height:58px;padding:0 22px;border-radius:16px;background:linear-gradient(135deg,#2a1162,#6b3df4);color:#fff;text-decoration:none}
-        #schedule .app-store-btn:hover{filter:brightness(1.07)}
-        #schedule .app-store-btn svg{width:26px;height:26px;fill:currentColor;flex:0 0 26px}
-        #schedule .app-store-btn span{display:flex;flex-direction:column;line-height:1.15;font-weight:900;font-size:17px}
-        #schedule .app-store-btn small{font-weight:600;font-size:11px;opacity:.82;text-transform:uppercase;letter-spacing:.5px}
-        @media (max-width:640px){#schedule .app-benefits{grid-template-columns:1fr}#schedule .app-store-btn{flex:1 1 100%}}
-      </style>
-      <div class="container split">
-        <div class="section__head section__head--left">
-          <span data-i18n="schedule.eyebrow">Ilova</span>
-          <h2 data-i18n="schedule.title">Globus Edu Student — markaz ilovasi</h2>
-          <p data-i18n="schedule.text">Globus Edu Student — o‘quvchilar va ota-onalar uchun mobil ilovamiz. Dars jadvali, davomat, baholar va markaz yangiliklari — barchasi telefoningizda, bitta joyda.</p>
-
-          <div class="app-benefits">
-            <div class="app-benefits__col">
-              <h3 data-i18n="schedule.studentsTitle">O‘quvchilar uchun</h3>
-              <ul>
-                <li data-i18n="schedule.students1">Shaxsiy jadval va darslar haqida eslatmalar</li>
-                <li data-i18n="schedule.students2">Uy vazifalari va dars materiallari bir joyda</li>
-                <li data-i18n="schedule.students3">Har bir yo‘nalish bo‘yicha baholar va natijalar</li>
-              </ul>
-            </div>
-            <div class="app-benefits__col">
-              <h3 data-i18n="schedule.parentsTitle">Ota-onalar uchun</h3>
-              <ul>
-                <li data-i18n="schedule.parents1">Farzandingiz davomati va o‘zlashtirishi real vaqtda</li>
-                <li data-i18n="schedule.parents2">To‘lov va markaz yangiliklari bo‘yicha bildirishnomalar</li>
-                <li data-i18n="schedule.parents3">O‘qituvchilar va ma’muriyat bilan to‘g‘ridan-to‘g‘ri aloqa</li>
-              </ul>
-            </div>
+  <section id="contact" class="max-w-7xl mx-auto px-5 lg:px-8 py-16">
+    <div class="relative overflow-hidden rounded-[32px] bg-gradient-to-br from-brand-700 via-brand-600 to-brand-500 p-8 sm:p-12 lg:p-16 shadow-2xl shadow-brand-700/30">
+      <div class="absolute -top-24 -right-16 w-80 h-80 rounded-full bg-white/15 blur-3xl"></div>
+      <div class="absolute -bottom-24 -left-10 w-80 h-80 rounded-full bg-brand-500/40 blur-3xl"></div>
+      <div class="relative grid lg:grid-cols-2 gap-10 items-center">
+        <div class="text-white">
+          <h2 class="text-4xl sm:text-5xl font-extrabold tracking-tight" data-i18n="cta.title">Sinov darsiga yoziling</h2>
+          <p class="mt-5 text-white/85 text-lg max-w-md" data-i18n="cta.text">Ariza qoldiring — biz bog‘lanib, darajangizni aniqlaymiz va mos yo‘nalishni tavsiya qilamiz.</p>
+          <div class="mt-8 flex flex-col gap-3 text-white/90">
+            <a href="tel:+998941055885" class="inline-flex items-center gap-3 font-semibold">+998 94 105 58 85</a>
+            <a href="mailto:globusedu@globusedu.uz" class="inline-flex items-center gap-3 font-semibold">globusedu@globusedu.uz</a>
+            <span data-i18n="contacts.address">Pakhtaabad, O‘zbekiston</span>
           </div>
         </div>
-
-        <div class="app-card">
-          <strong>Globus Edu Student</strong>
-          <p data-i18n="schedule.appText">Ilovani yuklab oling va o‘quv jarayonidagi har bir yangilikdan xabardor bo‘ling.</p>
-          <div class="app-card__stores">
-            <a class="app-store-btn" href="#" data-store="googleplay" aria-label="Google Play">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 2.3v19.4c0 .5.5.8.9.5l16.5-9.7c.4-.2.4-.8 0-1L3.9 1.8C3.5 1.5 3 1.8 3 2.3z"/></svg>
-              <span><small data-i18n="schedule.storeBadge">Yuklab olish</small>Google Play</span>
-            </a>
-            <a class="app-store-btn" href="#" data-store="appstore" aria-label="App Store">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.37 1.43c0 1.14-.42 2.21-1.18 3.02-.78.83-2.05 1.47-3.13 1.38-.13-1.09.43-2.25 1.17-3.03.79-.84 2.16-1.46 3.14-1.37zM20.78 17.18c-.55 1.27-.82 1.84-1.53 2.96-.99 1.56-2.39 3.51-4.12 3.52-1.54.02-1.94-1-4.03-.99-2.09.01-2.53 1.01-4.07.99-1.73-.01-3.05-1.77-4.04-3.33-2.77-4.35-3.07-9.45-1.36-12.16 1.21-1.93 3.12-3.06 4.92-3.06 1.83 0 2.98 1 4.49 1 1.46 0 2.35-1 4.47-1 1.6 0 3.3.87 4.5 2.38-3.96 2.17-3.3 7.83.3 9.69z"/></svg>
-              <span><small data-i18n="schedule.storeBadge">Yuklab olish</small>App Store</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--light" id="reviews">
-      <div class="container">
-        <div class="section__head">
-          <span data-i18n="reviews.eyebrow">Fikrlar</span>
-          <h2 data-i18n="reviews.title">O‘quvchilar fikri</h2>
-          <p data-landing-i18n="reviews.subtitle">Hozircha kuchli xarita reytinglariga emas, real markaz, o‘qituvchilar va o‘quv jarayoniga tayanyapmiz. Bu yerga keyinroq haqiqiy fikrlar, rasm va natijalar qo‘shiladi.</p>
-        </div>
-
-        <div class="reviews-grid">
-          <article class="review-card">
-            <p data-i18n="reviews.text">nasha bolsa zor bolsin</p>
-            <strong>Temurmalik Zokirov</strong>
-            <span>SAT 1500</span>
-          </article>
-
-          <article class="review-card review-card--empty">
-            <p data-i18n="reviews.emptyText">Yangi o‘quvchi fikri uchun joy.</p>
-            <strong data-i18n="reviews.emptyName">O‘quvchi ismi</strong>
-            <span data-i18n="reviews.emptyResult">Natija / kurs</span>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="stats-section">
-      <div class="container stats-grid">
-        <div><strong>6+</strong><span data-i18n="stats.experience">yillik tajriba</span></div>
-        <div><strong>500+</strong><span data-i18n="stats.students">o‘quvchilar</span></div>
-        <div><strong>1000+</strong><span data-i18n="stats.lessons">darslar</span></div>
-        <div><strong>7</strong><span data-landing-i18n="stats.directions">yo‘nalish</span></div>
-      </div>
-    </section>
-
-    <section class="contact-section" id="contacts">
-      <div class="container contact-section__grid">
-        <div class="contact-section__info">
-          <span class="section__eyebrow" data-i18n="contacts.eyebrow">Aloqa</span>
-          <h2 data-landing-i18n="contacts.title">Sinov darsiga yoziling</h2>
-          <p data-landing-i18n="contacts.text">Ariza qoldiring. Biz siz bilan bog‘lanib, maqsadingizni aniqlaymiz va mos kurs, guruh yoki individual format bo‘yicha maslahat beramiz.</p>
-
-          <div class="contact-list">
-            <a href="tel:+998941055885" class="contact-list__item"><span>☎</span><strong>+998 94 105 58 85</strong></a>
-            <a href="mailto:info@globus.uz" class="contact-list__item"><span>✉</span><strong>info@globus.uz</strong></a>
-            <div class="contact-list__item"><span>📍</span><strong data-i18n="contacts.address">Pakhtaabad, O‘zbekiston</strong></div>
-            <div class="contact-list__item"><span>🕒</span><strong data-i18n="contacts.hours">Dushanba - Shanba: 08:30 - 18:30</strong></div>
-          </div>
-        </div>
-
-        <form class="contact-form">
-          <label><span data-i18n="form.name">Ismingiz</span><input type="text" name="name" placeholder="Ismingiz" data-i18n-placeholder="form.namePlaceholder" /></label>
-          <label><span data-i18n="form.phone">Telefon</span><input type="tel" name="phone" placeholder="+998" data-i18n-placeholder="form.phonePlaceholder" /></label>
-          <label>
-            <span data-landing-i18n="form.direction">Qaysi yo‘nalish qiziqtiryapti?</span>
-            <select name="direction" class="contact-form__select">
-              <option data-landing-i18n="form.optionNotSure">Aniq bilmayman, maslahat kerak</option>
-              <option>Ingliz tili IELTS/CEFR</option>
-              <option>Rus tili</option>
-              <option>Matematika SAT</option>
-              <option>Nemis tili</option>
-              <option>Koreys tili</option>
-              <option>Ona tili</option>
-              <option data-landing-i18n="form.optionIndividual">Individual dars</option>
-            </select>
-          </label>
-          <label><span data-i18n="form.message">Xabar</span><textarea name="message" rows="5" placeholder="Xabaringiz" data-i18n-placeholder="form.messagePlaceholder"></textarea></label>
-          <button type="submit" data-landing-i18n="form.button">Ariza yuborish</button>
+        <form id="leadForm" class="glass rounded-3xl p-6 sm:p-7 flex flex-col gap-4">
+          <input class="field" name="name" type="text" data-i18n-ph="form.namePlaceholder" placeholder="Ismingiz" />
+          <input class="field" name="phone" type="tel" data-i18n-ph="form.phonePlaceholder" placeholder="+998" />
+          <select class="field" name="interest">
+            <option data-i18n="form.optionNotSure">Aniq bilmayman, maslahat kerak</option>
+            <option>English</option><option>IELTS</option><option>Rus tili</option><option>Matematika</option>
+            <option>Koreys tili</option><option>Nemis tili</option><option>IT</option><option>Ona tili</option>
+          </select>
+          <textarea class="field" name="message" rows="3" data-i18n-ph="form.messagePlaceholder" placeholder="Xabaringiz"></textarea>
+          <input type="text" name="hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" />
+          <div class="form-status" id="leadStatus"></div>
+          <button type="submit" class="rounded-xl bg-white px-6 py-3.5 font-semibold text-brand-700 hover:bg-brand-50 transition" data-i18n="form.button">Ariza yuborish</button>
         </form>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
-  <div class="course-modal" id="courseModal" aria-hidden="true">
-    <div class="course-modal__backdrop" data-course-close></div>
-    <div class="course-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="courseModalTitle">
-      <button class="course-modal__close" type="button" aria-label="Close course modal" data-course-close>×</button>
-      <div class="course-modal__body">
-        <div class="course-modal__info"><h3 id="courseModalTitle"></h3><p id="courseModalDescription"></p><ul class="course-modal__features" id="courseModalFeatures"></ul></div>
-        <div class="course-modal__panel">
-          <h4 data-course-i18n="modal.chooseTeacher">O‘qituvchini tanlang</h4>
-          <label class="course-modal__field"><span data-course-i18n="modal.teacherLabel">O‘qituvchi</span><select id="courseTeacherSelect"></select></label>
-          <p class="course-modal__note" data-course-i18n="modal.trialNote">Narxlar hozircha ko‘rsatilmaydi. Avval sinov darsi orqali darajangiz aniqlanadi, keyin sizga mos guruh tavsiya qilinadi.</p>
-          <div class="course-modal__actions"><a href="#contacts" class="course-modal__trial" data-course-close data-course-i18n="modal.trialButton">Sinov darsiga yozilish</a><a href="#teachers" class="course-modal__secondary" data-course-close data-course-i18n="modal.teachersButton">O‘qituvchilarni ko‘rish</a></div>
+  <footer class="border-t border-slate-200 bg-white">
+    <div class="max-w-7xl mx-auto px-5 lg:px-8 py-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div>
+        <img src="assets/Globus-logo.png" alt="GLOBUS" class="h-8 w-auto mb-4" />
+        <p class="text-slate-500 text-sm leading-relaxed max-w-xs" data-i18n="footer.text">GLOBUS — Pakhtaabaddagi zamonaviy o‘quv markaz.</p>
+        <div id="footerSocials" class="flex gap-3 mt-5"></div>
+      </div>
+      <div>
+        <h3 class="font-bold mb-4" data-i18n="footer.navTitle">Navigatsiya</h3>
+        <div class="flex flex-col gap-2.5 text-slate-500 text-sm">
+          <a href="#home" class="hover:text-brand-700" data-i18n="nav.home">Bosh sahifa</a>
+          <a href="#courses" class="hover:text-brand-700" data-i18n="nav.courses">Kurslar</a>
+          <a href="#teachers" class="hover:text-brand-700" data-i18n="nav.teachers">O‘qituvchilar</a>
+          <a href="#reviews" class="hover:text-brand-700" data-i18n="nav.reviews">Fikrlar</a>
+          <a href="#contact" class="hover:text-brand-700" data-i18n="nav.contacts">Aloqa</a>
         </div>
       </div>
+      <div>
+        <h3 class="font-bold mb-4" data-i18n="footer.coursesTitle">Kurslar</h3>
+        <div class="flex flex-col gap-2.5 text-slate-500 text-sm">
+          <span>English · IELTS</span><span data-i18n="course.russian.title">Rus tili</span>
+          <span data-i18n="course.math.title">Matematika</span><span>IT</span>
+          <span data-i18n="course.korean.title">Koreys tili</span>
+        </div>
+      </div>
+      <div>
+        <h3 class="font-bold mb-4" data-i18n="footer.contactsTitle">Kontaktlar</h3>
+        <div class="flex flex-col gap-2.5 text-slate-500 text-sm">
+          <a href="tel:+998941055885" class="hover:text-brand-700">+998 94 105 58 85</a>
+          <a href="mailto:globusedu@globusedu.uz" class="hover:text-brand-700">globusedu@globusedu.uz</a>
+          <span data-i18n="contacts.address">Pakhtaabad, O‘zbekiston</span>
+          <span data-i18n="contacts.hours">Dush–Shan: 08:30–18:30</span>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-slate-100 py-6 text-center text-sm text-slate-400">© 2026 GLOBUS Language Center</div>
+  </footer>
+
+  <div id="courseModal" class="modal" aria-hidden="true">
+    <div class="modal__bd" data-close></div>
+    <div class="modal__dialog">
+      <button class="absolute top-4 right-4 w-9 h-9 grid place-items-center rounded-full bg-slate-100 hover:bg-slate-200 text-xl" data-close aria-label="Close">×</button>
+      <div id="courseModalBody"></div>
+    </div>
+  </div>
+  <div id="teacherModal" class="modal" aria-hidden="true">
+    <div class="modal__bd" data-close></div>
+    <div class="modal__dialog">
+      <button class="absolute top-4 right-4 w-9 h-9 grid place-items-center rounded-full bg-slate-100 hover:bg-slate-200 text-xl" data-close aria-label="Close">×</button>
+      <div id="teacherModalBody"></div>
     </div>
   </div>
 
-  <footer class="footer">
-    <div class="container footer__grid">
-      <div class="footer__brand">
-        <img src="assets/Globus-logo.png" alt="GLOBUS" class="footer__logo" />
-        <p data-landing-i18n="footer.text">GLOBUS — Pakhtaabaddagi o‘quv markaz. Ingliz tili, IELTS/CEFR, rus tili, matematika, nemis, koreys va ona tili yo‘nalishlari.</p>
-        <div class="footer__socials"><a href="https://www.instagram.com/globus_talim/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">IG</a><a href="https://t.me/GlobusEdu" target="_blank" rel="noopener noreferrer" aria-label="Telegram">TG</a></div>
-      </div>
-      <div class="footer__col"><h3 data-i18n="footer.navTitle">Navigatsiya</h3><a href="#home" data-i18n="nav.home">Bosh sahifa</a><a href="#about" data-i18n="nav.about">Biz haqimizda</a><a href="#courses" data-i18n="nav.courses">Kurslar</a><a href="#trial" data-landing-i18n="nav.trial">Sinov darsi</a><a href="#teachers" data-i18n="nav.teachers">O‘qituvchilar</a><a href="#contacts" data-i18n="nav.contacts">Kontaktlar</a></div>
-      <div class="footer__col"><h3 data-i18n="footer.coursesTitle">Kurslar</h3><a href="#courses" data-course-i18n="course.english.title">Ingliz tili IELTS/CEFR</a><a href="#courses" data-course-i18n="course.russian.title">Rus tili</a><a href="#courses" data-course-i18n="course.math.title">Matematika SAT</a><a href="#courses" data-course-i18n="course.german.title">Nemis tili</a><a href="#courses" data-course-i18n="course.korean.title">Koreys tili</a><a href="#courses" data-course-i18n="course.native.title">Ona tili</a></div>
-      <div class="footer__col"><h3 data-i18n="footer.contactsTitle">Kontaktlar</h3><p>+998 94 105 58 85</p><p>info@globus.uz</p><p data-i18n="contacts.address">Pakhtaabad, O‘zbekiston</p><p data-i18n="contacts.hours">Dushanba - Shanba: 08:30 - 18:30</p></div>
-    </div>
-    <div class="footer__bottom"><span>© 2026 GLOBUS Language Center</span><span data-i18n="footer.rights">Barcha huquqlar himoyalangan.</span></div>
-  </footer>
-
-  <script src="js/main.js"></script>
-  <script src="js/courses.js"></script>
-  <script src="js/teacher-order-fix.js"></script>
-  <script src="js/teacher-profile-modal.js"></script>
-  <script src="js/course-schedule-hotfix.js"></script>
-  <script src="js/applications.js"></script>
-  <script src="js/final-course-modal-fix.js"></script>
-  <script src="js/landing-redesign.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/globe.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>
